@@ -1,0 +1,59 @@
+#.title
+## ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+##
+## XYZ Flutter Plus
+##
+## ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+#.title~
+
+name: xyz_flutter_plus
+
+## -----------------------------------------------------------------------------
+
+environment:
+
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: ">=3.0.0"
+
+## -----------------------------------------------------------------------------
+
+dependency_overrides:
+
+  xyz_utils:
+    path: ../xyz_utils
+  xyz_pod:
+    path: ../xyz_pod
+  xyz_gen:
+    path: ../xyz_gen
+
+## -----------------------------------------------------------------------------
+
+dependencies:
+
+  flutter:
+    sdk: flutter
+  device_info_plus:
+
+  xyz_utils:
+    git:
+      url: https://github.com/robmllze/xyz_utils.git
+
+  xyz_pod:
+    git:
+      url: https://github.com/robmllze/xyz_pod.git
+
+## -----------------------------------------------------------------------------
+
+dev_dependencies:
+
+  flutter_test:
+    sdk: flutter
+  flutter_lints:
+
+  xyz_gen:
+    git:
+      url: https://github.com/robmllze/xyz_gen.git
+
+## -----------------------------------------------------------------------------
+
+flutter:
