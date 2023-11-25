@@ -19,4 +19,5 @@ export 'internet_connection_checker.dart';
 export 'keyboard_observer.dart';
 export 'lazy.dart';
 export 'run_provider_app.dart';
+export 'transparent_page.dart';
 export 'widget_visibility_manager.dart';
