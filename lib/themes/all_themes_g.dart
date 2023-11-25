@@ -7,7 +7,3 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
-export 'common_palette.dart';
-export 'example_palettes/bronze_palette.dart';
-export 'dynamic_palette.dart';
-export 'example_palettes/medi_palette.dart';
