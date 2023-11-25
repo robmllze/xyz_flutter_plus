@@ -16,7 +16,7 @@ export 'current_platform.dart';
 export 'hidden_scrollbar_scroll_behavior.dart';
 export 'image_builder.dart';
 export 'internet_connection_checker.dart';
-export 'keyboard_listener.dart';
+export 'keyboard_observer.dart';
 export 'lazy.dart';
 export 'run_provider_app.dart';
 export 'widget_visibility_manager.dart';

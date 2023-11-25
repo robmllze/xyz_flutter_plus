@@ -17,21 +17,21 @@ import 'package:flutter/gestures.dart';
 ///
 /// ```dart
 ///
-/// final _keyboardListener = WKeyboardListener(onShow: () {}, onHide: () {});
+/// final _keyboardObserver = KeyboardObserver(onShow: () {}, onHide: () {});
 ///
 /// @override
 /// void initState() {
 ///   super.initState();
-///   this._keyboardListener.startListening();
+///   this._keyboardObserver.startObserving();
 /// }
 ///
 /// @override
 /// void dispose() {
-///  this._keyboardListener.stopListening();
+///  this._keyboardObserver.stopObserving();
 ///  super.dispose();
 /// }
 ///  ```
-class KeyboardListener {
+class KeyboardObserver {
   //
   //
   //
@@ -45,7 +45,7 @@ class KeyboardListener {
   //
   //
 
-  KeyboardListener({
+  KeyboardObserver({
     FlutterView? view,
     this.onShow,
     this.onHide,
@@ -57,12 +57,12 @@ class KeyboardListener {
 
   /// NOTE:
   ///
-  /// [startListening] must be called inside `initState`. Do NOT call it like this:
+  /// [startObserving] must be called inside `initState`. Do NOT call it like this:
   ///
   /// ```dart
-  /// final _keyboardListener = WKeyboardListener(onShow: () {}, onHide: () {})..startListening();
+  /// final _keyboardObserver = KeyboardObserver(onShow: () {}, onHide: () {})..stopObserving();
   /// ```
-  void startListening() {
+  void startObserving() {
     this._timer = Timer.periodic(Duration.zero, (_) {
       if (this._view.viewInsets.bottom > 0.0) {
         if (this._didCallOnShow == false) {
@@ -84,7 +84,7 @@ class KeyboardListener {
   //
   //
 
-  void stopListening() {
+  void stopObserving() {
     this._timer?.cancel();
     this._timer = null;
   }
