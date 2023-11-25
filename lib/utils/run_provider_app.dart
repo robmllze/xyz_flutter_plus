@@ -1,14 +1,16 @@
 //.title
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //
-// XYZ Generate All Exports
+// XYZ Flutter Plus
 //
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
-import 'package:xyz_gen/default_apps/generate_all_exports_app.dart';
+import 'package:flutter/material.dart' show runApp, Widget;
+import 'package:xyz_pod/xyz_pod.dart' show ProviderScope;
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-// dart generators/generate_all_exports.dart -r lib
-void main(List<String> arguments) => generateAllExportsApp(arguments);
+void runProviderApp(Widget app) {
+  runApp(ProviderScope(child: app));
+}

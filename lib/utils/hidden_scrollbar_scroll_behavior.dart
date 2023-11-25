@@ -1,14 +1,25 @@
 //.title
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //
-// XYZ Generate All Exports
+// XYZ Flutter Plus
 //
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
-import 'package:xyz_gen/default_apps/generate_all_exports_app.dart';
+import 'package:flutter/gestures.dart';
+import 'package:flutter/widgets.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-// dart generators/generate_all_exports.dart -r lib
-void main(List<String> arguments) => generateAllExportsApp(arguments);
+/// Use this to hide default scrollbars.
+class HiddenScrollbarScrollBehavior extends ScrollBehavior {
+  const HiddenScrollbarScrollBehavior._();
+  static ScrollBehavior get instance =>
+      const HiddenScrollbarScrollBehavior._().copyWith(scrollbars: false);
+  @override
+  Set<PointerDeviceKind> get dragDevices => {
+        PointerDeviceKind.touch,
+        PointerDeviceKind.mouse,
+        PointerDeviceKind.stylus,
+      };
+}

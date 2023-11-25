@@ -7,7 +7,9 @@
 //.title~
 
 import 'dart:async';
-import 'dart:ui';
+
+import 'package:flutter/foundation.dart';
+import 'package:flutter/gestures.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
@@ -29,7 +31,7 @@ import 'dart:ui';
 ///  super.dispose();
 /// }
 ///  ```
-class WKeyboardListener {
+class KeyboardListener {
   //
   //
   //
@@ -43,7 +45,7 @@ class WKeyboardListener {
   //
   //
 
-  WKeyboardListener({
+  KeyboardListener({
     FlutterView? view,
     this.onShow,
     this.onHide,

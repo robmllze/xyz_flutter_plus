@@ -12,8 +12,8 @@ name: xyz_flutter_plus
 
 environment:
 
-  sdk: '>=3.0.0 <4.0.0'
-  flutter: ">=3.0.0"
+  sdk: '>= 3.0.0 < 4.0.0'
+  flutter: '>= 3.0.0 < 4.0.0'
 
 ## -----------------------------------------------------------------------------
 
@@ -32,7 +32,11 @@ dependencies:
 
   flutter:
     sdk: flutter
+
   device_info_plus:
+  crypto:
+  connectivity_plus:
+  http:
 
   xyz_utils:
     git:
