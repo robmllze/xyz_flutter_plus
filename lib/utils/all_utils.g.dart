@@ -23,6 +23,7 @@ export 'image_builder.dart';
 export 'internet_connection_checker.dart';
 export 'keyboard_observer.dart';
 export 'lazy.dart';
+export 'pin_manager.dart';
 export 'run_provider_app.dart';
 export 'secure_shared_preferences.dart';
 export 'text_style_utils.dart';
