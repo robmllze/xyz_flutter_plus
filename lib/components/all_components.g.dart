@@ -8,6 +8,7 @@
 //.title~
 
 export 'scalable_components/w_icon_button.dart';
+export 'simple_components/w_search_bar_with_actions_layout.dart';
 export 'w_action.dart';
 export 'w_activity_feed.dart';
 export 'w_animated_blur.dart';
