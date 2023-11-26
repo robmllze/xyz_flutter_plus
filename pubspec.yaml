@@ -33,12 +33,14 @@ dependencies:
   flutter:
     sdk: flutter
 
-  device_info_plus:
-  crypto:
+  async:
   connectivity_plus:
-  http:
-  shared_preferences:
+  crypto:
+  device_info_plus:
   encrypt:
+  http:
+  meta:
+  shared_preferences:
 
   xyz_utils:
     git:
