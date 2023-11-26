@@ -37,6 +37,8 @@ dependencies:
   crypto:
   connectivity_plus:
   http:
+  shared_preferences:
+  encrypt:
 
   xyz_utils:
     git:
