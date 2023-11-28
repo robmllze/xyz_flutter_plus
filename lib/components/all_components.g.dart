@@ -39,9 +39,13 @@ export 'components_with_makeups/w_text_field/text_input_formatters/text_input_fo
 export 'components_with_makeups/w_text_field/w_text_field.dart';
 export 'components_with_makeups/w_text_field/w_text_field_event.dart';
 export 'components_with_makeups/w_toast/w_toast.dart';
+export 'scalable_components/w_circle_button.dart';
+export 'scalable_components/w_custom_scroll_bar.dart';
 export 'scalable_components/w_future_loader.dart';
+export 'scalable_components/w_horizontal_separator.dart';
 export 'scalable_components/w_icon_button.dart';
-export 'simple_components/w_search_bar_with_actions_layout.dart';
+export 'scalable_components/w_search_bar_with_actions_layout.dart';
+export 'scalable_components/w_text_field_search.dart';
 export 'w_action.dart';
 export 'w_activity_feed.dart';
 export 'w_animated_blur.dart';

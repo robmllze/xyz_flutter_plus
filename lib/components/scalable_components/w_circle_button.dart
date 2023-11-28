@@ -8,35 +8,26 @@
 
 import '/all.dart';
 
-part '_w_loader_makeup.g.dart';
-
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-const W_LOADER_PARAMETERS = {
-  "backgroundColor": "Color?",
-  "color": "Color?",
-  "errorColor": "Color?",
-  "size": "double?",
-  "strokeWidth": "double?",
-  "successColor": "Color?",
-  "valueColor": "Animation<Color?>?",
-};
-
-@GenerateMakeups(parameters: W_LOADER_PARAMETERS)
-class WLoader extends StatelessWidget {
+class WCircleButton extends StatelessWidget {
   //
   //
   //
 
-  final WLoaderMakeup? makeup;
+  final Widget child;
+  final void Function()? onTap;
+  final Color color;
 
   //
   //
   //
 
-  const WLoader({
+  const WCircleButton({
     Key? key,
-    this.makeup,
+    this.onTap,
+    required this.color,
+    required this.child,
   }) : super(key: key);
 
   //
@@ -45,14 +36,25 @@ class WLoader extends StatelessWidget {
 
   @override
   Widget build(_) {
-    return Center(
-      child: SizedBox.square(
-        dimension: this.makeup?.size,
-        child: CircularProgressIndicator(
-          color: this.makeup?.color,
-          backgroundColor: this.makeup?.backgroundColor,
-          valueColor: this.makeup?.valueColor,
-          strokeWidth: this.makeup?.strokeWidth ?? $4,
+    return GestureDetector(
+      onTap: this.onTap,
+      child: Opacity(
+        opacity: this.onTap != null ? 1.0 : 0.5,
+        child: Container(
+          constraints: BoxConstraints(minHeight: $32, minWidth: $32),
+          decoration: BoxDecoration(
+            color: this.color,
+            shape: BoxShape.circle,
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.12),
+                blurRadius: $4,
+                offset: Offset(0.0, $4),
+              ),
+            ],
+          ),
+          clipBehavior: Clip.antiAlias,
+          child: this.child,
         ),
       ),
     );

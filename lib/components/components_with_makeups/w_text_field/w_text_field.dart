@@ -1,7 +1,7 @@
 //.title
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //
-// XYZ Shared
+// XYZ Flutter Plus
 //
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
@@ -245,7 +245,9 @@ class WTextFieldState extends WFieldState<WTextField> {
           autoFillHints: autoFillHints,
         );
         var activeMakeup = (enabled
-                ? (hasError ? this.widget.makeup?.errorMakeupFilter?.call(this.event) : this.widget.makeup)
+                ? (hasError
+                    ? this.widget.makeup?.errorMakeupFilter?.call(this.event)
+                    : this.widget.makeup)
                 : (hasError
                     ? this.widget.makeup?.disabledErrorMakeupFilter?.call(this.event)
                     : this.widget.makeup?.disabledMakeupFilter?.call(this.event))) ??

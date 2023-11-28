@@ -1,44 +1,58 @@
 //.title
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //
-// XYZ Flutter Plus
+// XYZ Shared
+
 //
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
 import '/all.dart';
-import '_w_text_field_event_builder.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-class WTextFieldCallButton extends WTextFieldEventBuilder {
+class WHorizontalSeparator extends StatelessWidget {
   //
   //
   //
 
-  const WTextFieldCallButton();
+  final Text? text;
+
+  //
+  //
+  //
+
+  const WHorizontalSeparator({
+    Key? key,
+    this.text,
+  }) : super(key: key);
 
   //
   //
   //
 
   @override
-  Widget builder(final event) {
-    return GestureDetector(
-      behavior: HitTestBehavior.translucent,
-      onTap: () async {
-        final url = Uri(
-          scheme: "tel",
-          path: event.text,
-        );
-        if (await canLaunchUrl(url)) {
-          await launchUrl(url);
-        }
-      },
-      child: Padding(
-        padding: EdgeInsets.all($4),
-        child: WIcon(Icons.call_outlined),
-      ),
+  Widget build(_) {
+    return Row(
+      children: [
+        Expanded(
+          child: Divider(
+            height: 0.5.scaled,
+            color: text?.style?.color,
+          ),
+        ),
+        if (this.text != null) ...[
+          SizedBox(width: $12),
+          this.text!,
+          SizedBox(width: $12),
+          Expanded(
+            child: Divider(
+              height: 0.5.scaled,
+              color: text?.style?.color,
+            ),
+          ),
+        ],
+      ],
     );
   }
 }
