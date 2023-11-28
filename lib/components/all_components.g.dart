@@ -7,6 +7,39 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
+export 'components_with_makeups/radio_and_checkbox/w_checkbox.dart';
+export 'components_with_makeups/radio_and_checkbox/w_material_checkbox.dart';
+export 'components_with_makeups/radio_and_checkbox/w_material_radio.dart';
+export 'components_with_makeups/radio_and_checkbox/w_radio.dart';
+export 'components_with_makeups/radio_and_checkbox/w_radio_a.dart';
+export 'components_with_makeups/radio_and_checkbox/w_radio_b.dart';
+export 'components_with_makeups/radio_and_checkbox/w_radio_list.dart';
+export 'components_with_makeups/snack_bar_manager/snack_bar_manager.dart';
+export 'components_with_makeups/w_avatar_named/w_avatar_named.dart';
+export 'components_with_makeups/w_button/w_button.dart';
+export 'components_with_makeups/w_chip/w_chip.dart';
+export 'components_with_makeups/w_dialog/w_dialog.dart';
+export 'components_with_makeups/w_dialog/w_dialog_a_or_b.dart';
+export 'components_with_makeups/w_dialog/w_dialog_body.dart';
+export 'components_with_makeups/w_dialog/w_dialog_loading.dart';
+export 'components_with_makeups/w_dialog/w_dialog_okay.dart';
+export 'components_with_makeups/w_dot/w_dot.dart';
+export 'components_with_makeups/w_icon/w_icon.dart';
+export 'components_with_makeups/w_itemizer/w_itemizer.dart';
+export 'components_with_makeups/w_loader/w_loader.dart';
+export 'components_with_makeups/w_panel/w_panel.dart';
+export 'components_with_makeups/w_ribbon/w_ribbon.dart';
+export 'components_with_makeups/w_scrollable/w_scrollable.dart';
+export 'components_with_makeups/w_switcher/w_switcher.dart';
+export 'components_with_makeups/w_text_field/custom_builders/w_text_field_call_button.dart';
+export 'components_with_makeups/w_text_field/custom_builders/w_text_field_copy_button.dart';
+export 'components_with_makeups/w_text_field/custom_builders/w_text_field_email_button.dart';
+export 'components_with_makeups/w_text_field/text_input_formatters/text_input_formatter_us_date.dart';
+export 'components_with_makeups/w_text_field/text_input_formatters/text_input_formatter_us_phone.dart';
+export 'components_with_makeups/w_text_field/w_text_field.dart';
+export 'components_with_makeups/w_text_field/w_text_field_event.dart';
+export 'components_with_makeups/w_toast/w_toast.dart';
+export 'scalable_components/w_future_loader.dart';
 export 'scalable_components/w_icon_button.dart';
 export 'simple_components/w_search_bar_with_actions_layout.dart';
 export 'w_action.dart';
@@ -24,6 +57,7 @@ export 'w_collapsable.dart';
 export 'w_column.dart';
 export 'w_facade.dart';
 export 'w_field.dart';
+export 'w_future.dart';
 export 'w_global_overlay.dart';
 export 'w_hide_keyboard_on_tap.dart';
 export 'w_hover_scaler.dart';

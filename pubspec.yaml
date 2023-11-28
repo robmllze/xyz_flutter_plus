@@ -38,17 +38,30 @@ dependencies:
   crypto:
   device_info_plus:
   encrypt:
+  equatable:
+  go_router:
   http:
   meta:
   shared_preferences:
+  url_launcher:
 
-  xyz_utils:
+
+  #
+
+
+  flutter_svg:
+
+  xyz_gen:
     git:
-      url: https://github.com/robmllze/xyz_utils.git
+      url: https://github.com/robmllze/xyz_gen.git
 
   xyz_pod:
     git:
       url: https://github.com/robmllze/xyz_pod.git
+
+  xyz_utils:
+    git:
+      url: https://github.com/robmllze/xyz_utils.git
 
 ## -----------------------------------------------------------------------------
 
@@ -57,10 +70,6 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints:
-
-  xyz_gen:
-    git:
-      url: https://github.com/robmllze/xyz_gen.git
 
 ## -----------------------------------------------------------------------------
 
