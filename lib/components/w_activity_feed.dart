@@ -9,7 +9,7 @@
 import 'package:flutter/material.dart';
 
 import 'w_circle.dart';
-import 'w_inline_text.dart';
+import 'scalable/w_inline_text.dart';
 import 'w_intrinsic_row.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░

@@ -6,8 +6,9 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
-import "package:flutter/gestures.dart";
-import "package:flutter/material.dart";
+import 'package:flutter/gestures.dart';
+
+import '/all.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
@@ -130,9 +131,9 @@ TextSpan createTextSpanFromList(List<String> inputs) {
   final spans = inputs.map((final value) {
     return TextSpan(
       text: value,
-      style: const TextStyle(
+      style: TextStyle(
         color: Colors.black,
-        fontSize: 16,
+        fontSize: $16,
       ),
     );
   }).toList();
