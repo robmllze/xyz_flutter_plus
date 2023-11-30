@@ -45,10 +45,8 @@ dependencies:
   shared_preferences:
   url_launcher:
 
-
   #
-
-
+  
   flutter_svg:
 
   xyz_gen:
