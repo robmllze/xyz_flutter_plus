@@ -21,8 +21,8 @@ dependency_overrides:
 
   xyz_utils:
     path: ../xyz_utils
-  xyz_pod:
-    path: ../xyz_pod
+  xyz_SimplePod:
+    path: ../xyz_SimplePod
   xyz_gen:
     path: ../xyz_gen
 
@@ -54,10 +54,6 @@ dependencies:
   xyz_gen:
     git:
       url: https://github.com/robmllze/xyz_gen.git
-
-  xyz_pod:
-    git:
-      url: https://github.com/robmllze/xyz_pod.git
 
   xyz_utils:
     git:

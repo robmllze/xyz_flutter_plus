@@ -62,7 +62,7 @@ class _State<T> extends State<WRadioList<T>> {
   Future<void> Function(T)? _onTap;
   late final _pTitle = this.widget.pTitle;
   late final _pShowTitleDot = this.widget.pShowTitleDot;
-  late final _pValue = this.widget.pValue.toDynamic;
+  late final _pValue = this.widget.pValue;
   late final _pEnabled = this.widget.pEnabled;
   late final _pErrorText = this.widget.pErrorText;
 
@@ -72,10 +72,10 @@ class _State<T> extends State<WRadioList<T>> {
 
   @override
   void dispose() {
-    this._pTitle?.disposeIfRequested();
-    this._pValue.disposeIfRequested();
-    this._pEnabled?.disposeIfRequested();
-    this._pErrorText?.disposeIfRequested();
+    this._pTitle?.disposeIfTemp();
+    this._pValue.disposeIfTemp();
+    this._pEnabled?.disposeIfTemp();
+    this._pErrorText?.disposeIfTemp();
     super.dispose();
   }
 
@@ -111,10 +111,10 @@ class _State<T> extends State<WRadioList<T>> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Consumer(
-          builder: (_, final ref, __) {
-            final title = this._pTitle?.watch(ref);
-            final showTitleDot = this._pShowTitleDot?.watch(ref);
+        PodBuilder.multi(
+          pods: [this._pTitle, this._pShowTitleDot],
+          builder: (_, final values) {
+            final [title, showTitleDot] = values;
             return Row(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -124,9 +124,9 @@ class _State<T> extends State<WRadioList<T>> {
             );
           },
         ),
-        Consumer(
-          builder: (_, final ref, __) {
-            this._pValue.watch(ref);
+        PodBuilder(
+          pod: this._pValue,
+          builder: (_, value) {
             return Wrap(
               direction: Axis.horizontal,
               runSpacing: 0.5 * (this.widget.makeup?.size ?? 0.0),
@@ -158,9 +158,9 @@ class _State<T> extends State<WRadioList<T>> {
             );
           },
         ),
-        Consumer(
-          builder: (_, final ref, __) {
-            final errorText = this._pErrorText?.watch(ref);
+        PodBuilder(
+          pod: this._pErrorText,
+          builder: (_, final errorText) {
             if (errorText != null && errorText.isNotEmpty) {
               return Padding(
                 padding: EdgeInsets.only(top: $8),

@@ -64,10 +64,14 @@ class _State<T> extends WFieldState<WItemizer> {
 
   @override
   Widget build(_) {
-    return Consumer(
-      builder: (_, final ref, __) {
-        final value = this.widget.pValue.watch(ref);
-        final isEnabled = this.widget.pEnabled?.watch(ref) != false;
+    return PodBuilder.multi(
+      pods: [
+        this.widget.pValue,
+        this.widget.pEnabled,
+      ],
+      builder: (_, final values) {
+        final [value, enabled0] = values;
+        final enabled = enabled0 != false;
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -78,12 +82,12 @@ class _State<T> extends WFieldState<WItemizer> {
                 if (this.widget.onPressedAdd != null)
                   GestureDetector(
                     behavior: HitTestBehavior.translucent,
-                    onTap: isEnabled ? this.widget.onPressedAdd : null,
+                    onTap: enabled ? this.widget.onPressedAdd : null,
                     child: Padding(
                       padding: EdgeInsets.all($12),
                       child: WIcon(
                         Icons.add,
-                        makeup: isEnabled
+                        makeup: enabled
                             ? this.widget.makeup?.makeupIconAdd
                             : this.widget.makeup?.makeupIconAddDisabled,
                       ),
@@ -96,23 +100,23 @@ class _State<T> extends WFieldState<WItemizer> {
               return WAction(
                 first: Text(
                   value,
-                  style: isEnabled
+                  style: enabled
                       ? this.widget.makeup?.textStyleItem
                       : this.widget.makeup?.textStyleItemDisabled,
                 ),
-                onTap: isEnabled
+                onTap: enabled
                     ? () {
                         this.widget.onPressed?.call(value);
                       }
                     : null,
-                onTapSecond: isEnabled
+                onTapSecond: enabled
                     ? () {
                         this.widget.onPressedDelete?.call(value);
                       }
                     : null,
                 secondIcon: WIcon(
                   Icons.delete,
-                  makeup: isEnabled
+                  makeup: enabled
                       ? this.widget.makeup?.makeupIconDelete
                       : this.widget.makeup?.makeupIconDeleteDisabled,
                 ),

@@ -134,8 +134,8 @@ class WTextFieldState extends WFieldState<WTextField> {
     this.focusNode.removeListener(this.onFocusChanged);
     this.pHasFocus.dispose();
     this.controller.dispose();
-    this.pHint?.disposeIfRequested();
-    this.pAutoFillHints?.disposeIfRequested();
+    this.pHint?.disposeIfTemp();
+    this.pAutoFillHints?.disposeIfTemp();
     this._onChangedDebouncer?.finalize();
     super.dispose();
   }
@@ -172,7 +172,7 @@ class WTextFieldState extends WFieldState<WTextField> {
   //
 
   void onChanged(String value) async {
-    await this.pValue.set(value, includeCallbackKeys: {});
+    await this.pValue.set(value);
     this.controller.selection = TextSelection.collapsed(offset: this.baseOffset);
     this.widget.onChanged?.call(this.event);
     this._onChangedDebouncer?.call();
@@ -217,19 +217,39 @@ class WTextFieldState extends WFieldState<WTextField> {
   Widget build(_) {
     final cursorWidth = 1.5.scaled;
     final scrollPadding = EdgeInsets.all($20);
-    return Consumer(
-      builder: (_, final ref, __) {
-        final text = super.pValue.watch(ref)?.toString() ?? "";
-        final title = super.pTitle?.watch(ref);
-        final showTitleDot = this.widget.pShowTitleDot?.watch(ref) == true;
-        final enabled = super.pEnabled?.watch(ref) ?? true;
-        final readOnly = (super.pReadOnly?.watch(ref) ?? false) || !enabled;
-        final obscured = super.pObscured?.watch(ref) ?? false;
-        final hint = this.pHint?.watch(ref);
-        final error = this.pErrorText?.watch(ref);
-        final hasError = error != null;
-        final hasFocus = this.pHasFocus.watch(ref);
-        final autoFillHints = this.pAutoFillHints?.watch(ref) ?? [];
+    return PodBuilder.multi(
+      pods: [
+        super.pValue,
+        super.pTitle,
+        super.pShowTitleDot,
+        super.pEnabled,
+        super.pReadOnly,
+        super.pObscured,
+        this.pHint,
+        super.pErrorText,
+        this.pHasFocus,
+        this.pAutoFillHints,
+      ],
+      builder: (_, final values) {
+        final [
+          text0,
+          title,
+          showTitleDot0,
+          enabled0,
+          readOnly0,
+          obscured0,
+          hint,
+          errorText,
+          hasFocus,
+          autoFillHints0,
+        ] = values;
+        final text = text0?.toString() ?? "";
+        final showTitleDot = showTitleDot0 == true;
+        final enabled = enabled0 ?? true;
+        final readOnly = (readOnly0 ?? false) || !enabled;
+        final obscured = obscured0 ?? false;
+        final hasError = errorText != null;
+        final autoFillHints = autoFillHints0 ?? [];
         this.event = WTextFieldEvent(
           makeup: this.widget.makeup,
           state: this,
@@ -241,7 +261,7 @@ class WTextFieldState extends WFieldState<WTextField> {
           readOnly: readOnly,
           obscured: obscured,
           hint: hint,
-          error: error,
+          error: errorText,
           autoFillHints: autoFillHints,
         );
         var activeMakeup = (enabled
@@ -324,7 +344,7 @@ class WTextFieldState extends WFieldState<WTextField> {
                 ),
               ),
             ),
-            if (error != null) SizedBox(child: errorBuilder?.call(this.event)),
+            if (errorText != null) SizedBox(child: errorBuilder?.call(this.event)),
           ],
         );
       },

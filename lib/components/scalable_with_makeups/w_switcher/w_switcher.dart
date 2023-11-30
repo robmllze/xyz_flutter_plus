@@ -60,10 +60,13 @@ class _State extends WFieldState<WSwitcher> {
 
   @override
   Widget build(_) {
-    return Consumer(
-      builder: (_, final ref, __) {
-        final enabled = this.widget.pEnabled?.watch(ref);
-        final value = this.widget.pValue.watch(ref);
+    return PodBuilder.multi(
+      pods: [
+        this.widget.pValue,
+        this.widget.pEnabled,
+      ],
+      builder: (_, final values) {
+        final [value, enabled] = values;
         final onTap = enabled != false
             ? ([_]) async {
                 await this.widget.pValue.set(!value);

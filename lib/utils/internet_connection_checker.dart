@@ -10,8 +10,9 @@ import 'dart:async';
 
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:http/http.dart' as http;
-import 'package:xyz_pod/xyz_pod.dart';
 import 'package:xyz_utils/web_friendly/app/debouncer.dart';
+
+import 'pod.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
@@ -61,8 +62,8 @@ class InternetConnectionChecker {
     this._stream = Connectivity().onConnectivityChanged.listen((_) => this._debouncer());
     () async {
       await this.hasInternet();
-      this.pHasInternet.callbacks.add((_, final connected) async {
-        (connected ? onInternetConnectionRestored : onInternetConnectionLost)?.call();
+      this.pHasInternet.addListener(() async {
+        (this.pHasInternet.value ? onInternetConnectionRestored : onInternetConnectionLost)?.call();
       });
     }();
   }

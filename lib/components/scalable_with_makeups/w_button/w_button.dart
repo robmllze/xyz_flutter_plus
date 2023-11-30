@@ -6,8 +6,6 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
-import 'dart:async';
-
 import '/all.dart';
 
 part '_w_button_makeup.g.dart';
@@ -131,8 +129,8 @@ class _State extends State<WButton> {
   Widget build(_) {
     return PodBuilder(
       pod: this._pEnabled,
-      builder: (final state) {
-        final enabled = state.value ?? true;
+      builder: (_, final enabled0) {
+        final enabled = enabled0 ?? true;
         final m =
             enabled ? this.widget.makeup : this.widget.makeup?.disabledMakeup ?? this.widget.makeup;
         final borderSide = m?.shape?.side;
@@ -155,8 +153,7 @@ class _State extends State<WButton> {
                   child: Center(
                     child: PodBuilder(
                       pod: this._pLoadingBuilder,
-                      builder: (final state) {
-                        final loadingBuilder = state.value;
+                      builder: (_, final loadingBuilder) {
                         final child = Row(
                           mainAxisSize: MainAxisSize.min,
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -190,9 +187,9 @@ class _State extends State<WButton> {
     this._loadingCompleter = Completer();
     final onTap = this.widget.onTap;
     if (onTap != null) {
-      await this._pLoadingBuilder.set(this._loadingBuilder, delay: Duration.zero);
+      await this._pLoadingBuilder.set(this._loadingBuilder);
       await onTap();
-      await this._pLoadingBuilder.set(null, delay: Duration.zero);
+      await this._pLoadingBuilder.set(null);
     }
     this._loadingCompleter!.complete();
   }
@@ -203,7 +200,7 @@ class _State extends State<WButton> {
 
   @override
   void dispose() {
-    this._pEnabled?.disposeIfRequested();
+    this._pEnabled?.disposeIfTemp();
     () async {
       await this._loadingCompleter?.future;
       this._pLoadingBuilder.dispose();

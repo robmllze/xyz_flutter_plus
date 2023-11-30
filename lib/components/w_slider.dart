@@ -6,9 +6,9 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
-
 import 'package:flutter/material.dart';
-import 'package:xyz_pod/xyz_pod.dart';
+
+import '../utils/pod.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
@@ -94,9 +94,9 @@ class _State extends State<WSlider> {
 
   @override
   Widget build(_) {
-    return Consumer(
-      builder: (_, final ref, __) {
-        final value = this.pValue.watch(ref);
+    return ValueListenableBuilder(
+      valueListenable: this.pValue,
+      builder: (_, final value, __) {
         return LayoutBuilder(
           builder: (_, final constraints) {
             final thumbX = ((value - this.widget.min) / (this.widget.max - this.widget.min)) *

@@ -7,7 +7,8 @@
 //.title~
 
 import 'package:flutter/widgets.dart' show Widget;
-import 'package:xyz_pod/xyz_pod.dart' show Pod;
+
+import 'pod.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
@@ -39,7 +40,7 @@ class WidgetVisibilityManager {
     if (replacement != null) {
       this.originalWidget = replacement;
     }
-    await this.pCurrentWidget.set(this.originalWidget, delay: Duration.zero);
+    await this.pCurrentWidget.set(this.originalWidget);
   }
 
   //
@@ -47,7 +48,7 @@ class WidgetVisibilityManager {
   //
 
   Future<void> hide() async {
-    await this.pCurrentWidget.set(null, delay: Duration.zero);
+    await this.pCurrentWidget.set(null);
   }
 
   //

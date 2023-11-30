@@ -8,7 +8,8 @@
 
 import 'package:flutter/widgets.dart';
 import 'package:meta/meta.dart';
-import 'package:xyz_pod/xyz_pod.dart';
+
+import '../utils/pod.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
@@ -78,28 +79,39 @@ abstract class WFieldState<T extends WField> extends State<T> {
   //
 
   void _addListeners() {
-    this._removeListenerEnabled = this.pEnabled?.addListener((final state) {
-      this.onChangedEnabled(state.value);
-    });
-    this._removeListenerErrorText = this.pErrorText?.addListener((final state) {
-      this.onChangedErrorText(state.value);
-    });
-    this._removeListenerObscured = this.pObscured?.addListener((final state) {
-      this.onChangedObscured(state.value);
-    });
-    this._removeListenerReadOnly = this.pReadOnly?.addListener((final state) {
-      this.onChangedReadOnly(state.value);
-    });
-    this._removeListenerShowTitleDot = this.pShowTitleDot?.addListener((final state) {
-      this.onChangedShowTitleDot(state.value);
-    });
+    this._removeListenerEnabled = this.pEnabled != null //
+        ? () => this.onChangedEnabled(this.pEnabled!.value)
+        : null;
+    this.pEnabled?.addListener(this._removeListenerEnabled!);
+    this._removeListenerErrorText = this.pErrorText != null //
+        ? () => this.onChangedErrorText(this.pErrorText!.value)
+        : null;
 
-    this._removeListenerTitle = this.pTitle?.addListener((final state) {
-      this.onChangedTitle(state.value);
-    });
-    this._removeListenerValue = this.pValue.addListener((final state) {
-      this.onChangedValue(state.value);
-    });
+    this.pErrorText?.addListener(this._removeListenerErrorText!);
+    this._removeListenerObscured = this.pObscured != null //
+        ? () => this.onChangedObscured(this.pObscured!.value)
+        : null;
+
+    this.pObscured?.addListener(this._removeListenerObscured!);
+    this._removeListenerReadOnly = this.pReadOnly != null //
+        ? () => this.onChangedReadOnly(this.pReadOnly!.value)
+        : null;
+
+    this.pReadOnly?.addListener(this._removeListenerReadOnly!);
+    this._removeListenerShowTitleDot = this.pShowTitleDot != null //
+        ? () => this.onChangedShowTitleDot(this.pShowTitleDot!.value)
+        : null;
+
+    this.pShowTitleDot?.addListener(this._removeListenerShowTitleDot!);
+    this._removeListenerTitle = this.pTitle != null //
+        ? () => this.onChangedTitle(this.pTitle!.value)
+        : null;
+
+    this.pTitle?.addListener(this._removeListenerTitle!);
+    this._removeListenerValue = this._removeListenerValue != null //
+        ? () => this.onChangedValue(this.pValue.value)
+        : null;
+    this.pValue.addListener(this._removeListenerValue!);
   }
 
   //
@@ -152,13 +164,13 @@ abstract class WFieldState<T extends WField> extends State<T> {
     this._removeListenerShowTitleDot?.call();
     this._removeListenerTitle?.call();
     this._removeListenerValue?.call();
-    this.pEnabled?.disposeIfRequested();
-    this.pErrorText?.disposeIfRequested();
-    this.pObscured?.disposeIfRequested();
-    this.pReadOnly?.disposeIfRequested();
-    this.pShowTitleDot?.disposeIfRequested();
-    this.pTitle?.disposeIfRequested();
-    this.pValue.disposeIfRequested();
+    this.pEnabled?.disposeIfTemp();
+    this.pErrorText?.disposeIfTemp();
+    this.pObscured?.disposeIfTemp();
+    this.pReadOnly?.disposeIfTemp();
+    this.pShowTitleDot?.disposeIfTemp();
+    this.pTitle?.disposeIfTemp();
+    this.pValue.disposeIfTemp();
     super.dispose();
   }
 }

@@ -7,7 +7,8 @@
 //.title~
 
 import 'package:flutter/widgets.dart';
-import 'package:xyz_pod/xyz_pod.dart';
+
+import '../utils/pod.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 

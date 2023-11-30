@@ -60,8 +60,8 @@ class _State extends State<WCheckbox> {
 
   @override
   void dispose() {
-    this.widget.pEnabled?.disposeIfRequested();
-    this.widget.pValue.disposeIfRequested();
+    this.widget.pEnabled?.disposeIfTemp();
+    this.widget.pValue.disposeIfTemp();
     super.dispose();
   }
 
@@ -102,10 +102,12 @@ class _State extends State<WCheckbox> {
                 ),
               ),
             ].nonNulls,
-          Consumer(
-            builder: (_, final ref, __) {
-              final value = this.widget.pValue.watch(ref) == true;
-              final enabled = this.widget.pEnabled?.watch(ref) != false;
+          PodBuilder.multi(
+            pods: [this.widget.pValue, this.widget.pEnabled],
+            builder: (_, final values) {
+              final [value0, enabled0] = values;
+              final value = value0 == true;
+              final enabled = enabled0 != false;
               switch (this.widget.type) {
                 case WCheckboxType.CHECKBOX:
                   return WMaterialCheckbox(

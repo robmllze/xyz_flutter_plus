@@ -9,7 +9,7 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'package:xyz_pod/xyz_pod.dart';
+import '../pod.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
@@ -219,9 +219,9 @@ class Units {
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
 Widget unitsScope(Widget child) {
-  return PodBuilder(
-    pod: Units.pUnits,
-    builder: (_) => child,
+  return ValueListenableBuilder(
+    valueListenable: Units.pUnits,
+    builder: (_, __, ___) => child,
   );
 }
 

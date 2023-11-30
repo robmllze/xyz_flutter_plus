@@ -53,9 +53,9 @@ class _State extends State<WRadioB> {
 
   @override
   void dispose() {
-    this.widget.pEnabled?.disposeIfRequested();
-    this.widget.pErrorText?.disposeIfRequested();
-    this.widget.pValue.disposeIfRequested();
+    this.widget.pEnabled?.disposeIfTemp();
+    this.widget.pErrorText?.disposeIfTemp();
+    this.widget.pValue.disposeIfTemp();
     super.dispose();
   }
 
@@ -68,8 +68,8 @@ class _State extends State<WRadioB> {
     return GestureDetector(
       behavior: HitTestBehavior.translucent,
       onTap: () {
-        if (this.widget.pEnabled?.valueAs() != false) {
-          final a = !this.widget.pValue.valueAs();
+        if (this.widget.pEnabled?.value != false) {
+          final a = !this.widget.pValue.value;
           this.widget.pValue.set(a);
           this.widget.onTap?.call(a);
         }
@@ -84,11 +84,15 @@ class _State extends State<WRadioB> {
             ].nonNulls,
           SizedBox.square(
             dimension: this.widget.makeup?.size,
-            child: Consumer(
-              builder: (_, final ref, __) {
-                final value = this.widget.pValue.watch(ref);
-                final enabled = this.widget.pEnabled?.watch(ref) != false;
-                final errorText = this.widget.pErrorText?.watch(ref);
+            child: PodBuilder.multi(
+              pods: [
+                this.widget.pValue,
+                this.widget.pEnabled,
+                this.widget.pErrorText,
+              ],
+              builder: (_, final values) {
+                final [value as bool, enabled0, errorText as String?] = values;
+                final enabled = enabled0 != false;
                 final error = errorText != null;
                 return WRadio(
                   value: value,
