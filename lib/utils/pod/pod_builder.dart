@@ -64,7 +64,7 @@ class _State<T> extends State<PodBuilder<T>> {
   //
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final context) {
     return this.widget.builder(context, this.widget.pod?.value);
   }
 

@@ -81,7 +81,7 @@ class _State extends State<PodListBuilder> {
   //
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final context) {
     return this.widget.builder(context, this.widget.pods.map((e) => e?.value).toList());
   }
 
