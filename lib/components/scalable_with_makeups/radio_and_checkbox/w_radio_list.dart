@@ -111,10 +111,11 @@ class _State<T> extends State<WRadioList<T>> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        PodBuilder.multi(
-          pods: [this._pTitle, this._pShowTitleDot],
+        MultiPodBuilder(
+          pods: Pods(podA: this._pTitle, podB: this._pShowTitleDot),
           builder: (_, final values) {
-            final [title, showTitleDot] = values;
+            final title = values.a;
+            final showTitleDot = values.b;
             return Row(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -126,7 +127,7 @@ class _State<T> extends State<WRadioList<T>> {
         ),
         PodBuilder(
           pod: this._pValue,
-          builder: (_, value) {
+          builder: (_, final value) {
             return Wrap(
               direction: Axis.horizontal,
               runSpacing: 0.5 * (this.widget.makeup?.size ?? 0.0),

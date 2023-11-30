@@ -64,14 +64,14 @@ class _State<T> extends WFieldState<WItemizer> {
 
   @override
   Widget build(_) {
-    return PodBuilder.multi(
-      pods: [
-        this.widget.pValue,
-        this.widget.pEnabled,
-      ],
+    return MultiPodBuilder(
+      pods: Pods(
+        podA: this.widget.pValue,
+        podB: this.widget.pEnabled,
+      ),
       builder: (_, final values) {
-        final [value, enabled0] = values;
-        final enabled = enabled0 != false;
+        final value = values.a;
+        final enabled = values.b != false;
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

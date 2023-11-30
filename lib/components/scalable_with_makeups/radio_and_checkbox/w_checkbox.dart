@@ -102,12 +102,14 @@ class _State extends State<WCheckbox> {
                 ),
               ),
             ].nonNulls,
-          PodBuilder.multi(
-            pods: [this.widget.pValue, this.widget.pEnabled],
+          MultiPodBuilder(
+            pods: Pods(
+              podA: this.widget.pValue,
+              podB: this.widget.pEnabled,
+            ),
             builder: (_, final values) {
-              final [value0, enabled0] = values;
-              final value = value0 == true;
-              final enabled = enabled0 != false;
+              final value = values.a == true;
+              final enabled = values.b != false;
               switch (this.widget.type) {
                 case WCheckboxType.CHECKBOX:
                   return WMaterialCheckbox(

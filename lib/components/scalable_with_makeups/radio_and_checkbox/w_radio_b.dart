@@ -84,15 +84,16 @@ class _State extends State<WRadioB> {
             ].nonNulls,
           SizedBox.square(
             dimension: this.widget.makeup?.size,
-            child: PodBuilder.multi(
-              pods: [
-                this.widget.pValue,
-                this.widget.pEnabled,
-                this.widget.pErrorText,
-              ],
+            child: MultiPodBuilder(
+              pods: Pods(
+                podA: this.widget.pValue,
+                podB: this.widget.pEnabled,
+                podC: this.widget.pErrorText,
+              ),
               builder: (_, final values) {
-                final [value as bool, enabled0, errorText as String?] = values;
-                final enabled = enabled0 != false;
+                final value = values.a == true;
+                final enabled = values.b != false;
+                final errorText = values.c;
                 final error = errorText != null;
                 return WRadio(
                   value: value,

@@ -217,39 +217,31 @@ class WTextFieldState extends WFieldState<WTextField> {
   Widget build(_) {
     final cursorWidth = 1.5.scaled;
     final scrollPadding = EdgeInsets.all($20);
-    return PodBuilder.multi(
-      pods: [
-        super.pValue,
-        super.pTitle,
-        super.pShowTitleDot,
-        super.pEnabled,
-        super.pReadOnly,
-        super.pObscured,
-        this.pHint,
-        super.pErrorText,
-        this.pHasFocus,
-        this.pAutoFillHints,
-      ],
+    return MultiPodBuilder(
+      pods: Pods(
+        podA: super.pValue,
+        podB: super.pTitle,
+        podC: super.pShowTitleDot,
+        podD: super.pEnabled,
+        podE: super.pReadOnly,
+        podF: super.pObscured,
+        podG: this.pHint,
+        podH: super.pErrorText,
+        podI: this.pHasFocus,
+        podJ: this.pAutoFillHints,
+      ),
       builder: (_, final values) {
-        final [
-          text0,
-          title,
-          showTitleDot0,
-          enabled0,
-          readOnly0,
-          obscured0,
-          hint,
-          errorText,
-          hasFocus,
-          autoFillHints0,
-        ] = values;
-        final text = text0?.toString() ?? "";
-        final showTitleDot = showTitleDot0 == true;
-        final enabled = enabled0 ?? true;
-        final readOnly = (readOnly0 ?? false) || !enabled;
-        final obscured = obscured0 ?? false;
+        final text = values.a?.toString() ?? "";
+        final title = values.b;
+        final showTitleDot = values.c == true;
+        final enabled = values.d != false;
+        final readOnly = (values.e ?? false) || !enabled;
+        final obscured = values.f ?? false;
+        final hint = values.g;
+        final errorText = values.h;
+        final hasFocus = values.i == true;
+        final autoFillHints = values.j ?? [];
         final hasError = errorText != null;
-        final autoFillHints = autoFillHints0 ?? [];
         this.event = WTextFieldEvent(
           makeup: this.widget.makeup,
           state: this,
