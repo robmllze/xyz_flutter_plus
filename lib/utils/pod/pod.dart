@@ -6,62 +6,68 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
-import 'package:flutter/widgets.dart' show Widget;
-
-import 'pod/pod.dart';
+import '/all.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-class WidgetVisibilityManager {
-  //
+class Pod<T> extends ValueNotifier<T> {
   //
   //
   //
 
-  Widget originalWidget;
+  bool isTemp;
 
-  late final Pod<Widget?> pCurrentWidget;
+  //
+  //
+  //
 
-  WidgetVisibilityManager(this.originalWidget) {
-    this.pCurrentWidget = Pod<Widget?>(this.originalWidget);
+  Pod(super.value, {this.isTemp = false});
+
+  //
+  //
+  //
+
+  Pod.temp(T value) : this(value, isTemp: true);
+
+  //
+  //
+  //
+
+  Future<void> set(T value) async {
+    await Future.delayed(Duration.zero, () {
+      this.value = value;
+      this.refresh();
+    });
   }
 
   //
   //
   //
 
-  bool get visible => this.pCurrentWidget.value != null;
+  Future<void> update(T Function(T) updater) async {
+    await Future.delayed(Duration.zero, () {
+      this.value = updater(value);
+      this.refresh();
+    });
+  }
 
   //
   //
   //
 
-  Future<void> show([Widget? replacement]) async {
-    if (replacement != null) {
-      this.originalWidget = replacement;
+  Future<void> refresh() async {
+    await Future.delayed(Duration.zero, () {
+      this.notifyListeners();
+    });
+  }
+
+  //
+  //
+  //
+
+  void disposeIfTemp() {
+    if (this.isTemp) {
+      this.dispose();
     }
-    await this.pCurrentWidget.set(this.originalWidget);
-  }
-
-  //
-  //
-  //
-
-  Future<void> hide() async {
-    await this.pCurrentWidget.set(null);
-  }
-
-  //
-  //
-  //
-
-  Future<bool> toggle([Widget? replacement]) async {
-    final visible = this.visible;
-    if (visible) {
-      await this.hide();
-    } else {
-      await this.show(replacement);
-    }
-    return visible;
   }
 }

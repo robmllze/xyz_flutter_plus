@@ -6,31 +6,27 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
-import 'package:flutter/widgets.dart';
-
-import '../utils/pod/pod.dart';
+import '/all.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-class WWidgetCalculator extends StatefulWidget {
+class PodListBuilder extends StatefulWidget {
   //
   //
   //
 
-  final Widget? child;
-  final void Function(RenderBox? renderBox)? onPostRender;
-  final Pod<RenderBox?>? pRenderBox;
+  final List<Pod?> pods;
+  final Widget Function(BuildContext, List) builder;
 
   //
   //
   //
 
-  const WWidgetCalculator({
-    super.key,
-    this.child,
-    this.pRenderBox,
-    this.onPostRender,
-  });
+  const PodListBuilder({
+    Key? key,
+    required this.pods,
+    required this.builder,
+  }) : super(key: key);
 
   //
   //
@@ -42,13 +38,7 @@ class WWidgetCalculator extends StatefulWidget {
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-class _State extends State<WWidgetCalculator> {
-  //
-  //
-  //
-
-  final _key = GlobalKey();
-
+class _State extends State<PodListBuilder> {
   //
   //
   //
@@ -56,12 +46,9 @@ class _State extends State<WWidgetCalculator> {
   @override
   void initState() {
     super.initState();
-    // Wait for the layout to finish before measuring the size.
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      final renderBox = this._key.currentContext?.findRenderObject() as RenderBox?;
-      this.widget.pRenderBox?.set(renderBox);
-      this.widget.onPostRender?.call(renderBox);
-    });
+    for (final pod in this.widget.pods) {
+      pod?.addListener(_update);
+    }
   }
 
   //
@@ -69,14 +56,44 @@ class _State extends State<WWidgetCalculator> {
   //
 
   @override
-  Widget build(_) {
-    return LayoutBuilder(
-      builder: (_, final constraints) {
-        return SizedBox(
-          key: this._key,
-          child: this.widget.child,
-        );
-      },
-    );
+  void didUpdateWidget(PodListBuilder oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    for (final oldPod in oldWidget.pods) {
+      oldPod?.removeListener(_update);
+    }
+    for (final newPod in this.widget.pods) {
+      newPod?.addListener(_update);
+    }
+  }
+
+  //
+  //
+  //
+
+  void _update() {
+    if (super.mounted) {
+      this.setState(() {});
+    }
+  }
+
+  //
+  //
+  //
+
+  @override
+  Widget build(BuildContext context) {
+    return this.widget.builder(context, this.widget.pods.map((e) => e?.value).toList());
+  }
+
+  //
+  //
+  //
+
+  @override
+  void dispose() {
+    for (final pod in this.widget.pods) {
+      pod?.removeListener(_update);
+    }
+    super.dispose();
   }
 }

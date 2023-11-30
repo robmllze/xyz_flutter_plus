@@ -6,49 +6,39 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
-import 'package:flutter/widgets.dart';
-
-import '../utils/pod/pod.dart';
+import '/all.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-class WWidgetCalculator extends StatefulWidget {
+class PodBuilder<T> extends StatefulWidget {
   //
   //
   //
 
-  final Widget? child;
-  final void Function(RenderBox? renderBox)? onPostRender;
-  final Pod<RenderBox?>? pRenderBox;
+  final Pod<T>? pod;
+  final Widget Function(BuildContext, T?) builder;
 
   //
   //
   //
 
-  const WWidgetCalculator({
-    super.key,
-    this.child,
-    this.pRenderBox,
-    this.onPostRender,
-  });
+  const PodBuilder({
+    Key? key,
+    this.pod,
+    required this.builder,
+  }) : super(key: key);
 
   //
   //
   //
 
   @override
-  _State createState() => _State();
+  _State<T> createState() => _State<T>();
 }
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-class _State extends State<WWidgetCalculator> {
-  //
-  //
-  //
-
-  final _key = GlobalKey();
-
+class _State<T> extends State<PodBuilder<T>> {
   //
   //
   //
@@ -56,12 +46,17 @@ class _State extends State<WWidgetCalculator> {
   @override
   void initState() {
     super.initState();
-    // Wait for the layout to finish before measuring the size.
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      final renderBox = this._key.currentContext?.findRenderObject() as RenderBox?;
-      this.widget.pRenderBox?.set(renderBox);
-      this.widget.onPostRender?.call(renderBox);
-    });
+    this.widget.pod?.addListener(this._update);
+  }
+
+  //
+  //
+  //
+
+  void _update() {
+    if (mounted) {
+      this.setState(() {});
+    }
   }
 
   //
@@ -69,14 +64,17 @@ class _State extends State<WWidgetCalculator> {
   //
 
   @override
-  Widget build(_) {
-    return LayoutBuilder(
-      builder: (_, final constraints) {
-        return SizedBox(
-          key: this._key,
-          child: this.widget.child,
-        );
-      },
-    );
+  Widget build(BuildContext context) {
+    return this.widget.builder(context, this.widget.pod?.value);
+  }
+
+  //
+  //
+  //
+
+  @override
+  void dispose() {
+    this.widget.pod?.removeListener(this._update);
+    super.dispose();
   }
 }
