@@ -4,5 +4,6 @@ export 'package:flutter/material.dart';
 export 'package:meta/meta.dart';
 export 'package:url_launcher/url_launcher.dart';
 export 'package:xyz_gen/all.dart';
+export 'package:xyz_utils/html.dart';
 export 'routing/all_routing.g.dart';
 export 'utils/all_utils.g.dart';
