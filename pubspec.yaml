@@ -19,12 +19,14 @@ environment:
 
 dependency_overrides:
 
-  xyz_utils:
-    path: ../xyz_utils
-  xyz_SimplePod:
-    path: ../xyz_SimplePod
-  xyz_gen:
-    path: ../xyz_gen
+  # xyz_utils:
+  #   path: ../xyz_utils
+
+  # xyz_pod:
+  #   path: ../xyz_pod
+
+  # xyz_gen:
+  #   path: ../xyz_gen
 
 ## -----------------------------------------------------------------------------
 
