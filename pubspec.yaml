@@ -42,6 +42,7 @@ dependencies:
   encrypt:
   equatable:
   go_router:
+  html:
   http:
   meta:
   shared_preferences:
