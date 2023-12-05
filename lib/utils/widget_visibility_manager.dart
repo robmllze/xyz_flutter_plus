@@ -19,11 +19,11 @@ class WidgetVisibilityManager<T extends Widget> {
   //
   //
 
-  T originalWidget;
+  T? originalWidget;
 
   late final Pod<T?> pCurrentWidget;
 
-  WidgetVisibilityManager(this.originalWidget) {
+  WidgetVisibilityManager([this.originalWidget]) {
     this.pCurrentWidget = Pod<T?>(this.originalWidget);
   }
 
