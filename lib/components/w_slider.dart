@@ -8,7 +8,7 @@
 
 import 'package:flutter/material.dart';
 
-import '../utils/pod/pod.dart';
+import 'package:xyz_pod/xyz_pod.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 

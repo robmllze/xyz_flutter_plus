@@ -8,7 +8,7 @@
 
 import 'package:flutter/widgets.dart' show Widget;
 
-import 'pod/pod.dart';
+import 'package:xyz_pod/xyz_pod.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
