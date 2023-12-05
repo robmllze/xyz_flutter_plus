@@ -6,24 +6,25 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart' show Widget;
 
 import 'package:xyz_pod/xyz_pod.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-class WidgetVisibilityManager {
+class WidgetVisibilityManager<T extends Widget> {
   //
   //
   //
   //
 
-  Widget originalWidget;
+  T originalWidget;
 
-  late final Pod<Widget?> pCurrentWidget;
+  late final Pod<T?> pCurrentWidget;
 
   WidgetVisibilityManager(this.originalWidget) {
-    this.pCurrentWidget = Pod<Widget?>(this.originalWidget);
+    this.pCurrentWidget = Pod<T?>(this.originalWidget);
   }
 
   //
@@ -36,7 +37,7 @@ class WidgetVisibilityManager {
   //
   //
 
-  Future<void> show([Widget? replacement]) async {
+  Future<void> show([T? replacement]) async {
     if (replacement != null) {
       this.originalWidget = replacement;
     }
@@ -55,7 +56,7 @@ class WidgetVisibilityManager {
   //
   //
 
-  Future<bool> toggle([Widget? replacement]) async {
+  Future<bool> toggle([T? replacement]) async {
     final visible = this.visible;
     if (visible) {
       await this.hide();
