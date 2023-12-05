@@ -36,7 +36,7 @@ class Pod<T> extends ValueNotifier<T> {
   Future<void> set(T value) async {
     await Future.delayed(Duration.zero, () {
       this.value = value;
-      this.refresh();
+      this.notifyListeners();
     });
   }
 
@@ -47,7 +47,7 @@ class Pod<T> extends ValueNotifier<T> {
   Future<void> update(T Function(T) updater) async {
     await Future.delayed(Duration.zero, () {
       this.value = updater(value);
-      this.refresh();
+      this.notifyListeners();
     });
   }
 
