@@ -8,8 +8,6 @@
 
 import '/all.dart';
 
-import 'package:xyz_pod/xyz_pod.dart';
-
 part '_w_switcher_makeup.g.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
@@ -67,7 +65,7 @@ class _State extends WFieldState<WSwitcher> {
         podA: this.widget.pValue,
         podB: this.widget.pEnabled,
       ),
-      builder: (_, final values) {
+      builder: (_,  __, final values) {
         final value = values.a;
         final enabled = values.b;
         final onTap = enabled != false

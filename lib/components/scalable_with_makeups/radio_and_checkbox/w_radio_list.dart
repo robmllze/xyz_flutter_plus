@@ -8,8 +8,6 @@
 
 import '/all.dart';
 
-import 'package:xyz_pod/xyz_pod.dart';
-
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
 class WRadioList<T> extends StatefulWidget {
@@ -115,7 +113,7 @@ class _State<T> extends State<WRadioList<T>> {
       children: [
         MultiPodBuilder(
           pods: Pods(podA: this._pTitle, podB: this._pShowTitleDot),
-          builder: (_, final values) {
+          builder: (_,  __, final values) {
             final title = values.a;
             final showTitleDot = values.b;
             return Row(
@@ -129,7 +127,7 @@ class _State<T> extends State<WRadioList<T>> {
         ),
         PodBuilder(
           pod: this._pValue,
-          builder: (_, final value) {
+          builder: (_,  __, final value) {
             return Wrap(
               direction: Axis.horizontal,
               runSpacing: 0.5 * (this.widget.makeup?.size ?? 0.0),
@@ -163,7 +161,7 @@ class _State<T> extends State<WRadioList<T>> {
         ),
         PodBuilder(
           pod: this._pErrorText,
-          builder: (_, final errorText) {
+          builder: (_,  __, final errorText) {
             if (errorText != null && errorText.isNotEmpty) {
               return Padding(
                 padding: EdgeInsets.only(top: $8),
