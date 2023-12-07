@@ -62,4 +62,12 @@ class WidgetVisibilityManager<T extends Widget> {
     }
     return visible;
   }
+
+  //
+  //
+  //
+
+  void dispose() {
+    this.pCurrentWidget.dispose();
+  }
 }
