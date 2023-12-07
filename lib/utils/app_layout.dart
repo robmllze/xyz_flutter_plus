@@ -6,27 +6,19 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
-import 'package:xyz_utils/html.dart';
-
-import 'current_platform.dart';
+import '/all.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-AppLayout getPreferredAppLayout({
-  required ScreenCalculator screenCalc,
-  required bool isEmailVerified,
-}) {
+AppLayout getAppLayoutFromScreenCalculator(ScreenCalculator calculator) {
   if (CurrentPlatform.isMobile) {
-    if (screenCalc.isVertical) {
+    if (calculator.isVertical) {
       return AppLayout.MOBILE;
-    }
-    if (isEmailVerified) {
-      return AppLayout.MOBILE_HORIZONTAL_LOGGED_IN;
     } else {
-      return AppLayout.MOBILE_HORIZONTAL_LOGGED_OUT;
+      return AppLayout.MOBILE_HORIZONTAL;
     }
   }
-  if (screenCalc.isAspectRatioMobile && screenCalc.isVertical) {
+  if (calculator.isAspectRatioMobile && calculator.isVertical) {
     return AppLayout.NARROW;
   }
   return AppLayout.WIDE;
@@ -34,10 +26,28 @@ AppLayout getPreferredAppLayout({
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
+AppLayout getCurrentAppLayout() {
+  return getAppLayoutFromScreenCalculator(getCurrentScreenCalculator());
+}
+
+// ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+
+ScreenCalculator getCurrentScreenCalculator() {
+  final firstDisplay = WidgetsBinding.instance.platformDispatcher.displays.first;
+  final displaySize = firstDisplay.size;
+  final displayPixelRatio = firstDisplay.devicePixelRatio;
+  final screenSize = displaySize / displayPixelRatio;
+  return ScreenCalculator(
+    screenSize.width,
+    screenSize.height,
+  );
+}
+
+// ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+
 enum AppLayout {
   WIDE,
   NARROW,
-  MOBILE_HORIZONTAL_LOGGED_IN,
-  MOBILE_HORIZONTAL_LOGGED_OUT,
+  MOBILE_HORIZONTAL,
   MOBILE,
 }
