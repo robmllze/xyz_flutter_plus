@@ -54,7 +54,7 @@ dependencies:
   
   flutter_svg:
 
-  xyz_pod: ^0.4.1
+  xyz_pod: ^0.4.2
 
   xyz_config:
     git:
