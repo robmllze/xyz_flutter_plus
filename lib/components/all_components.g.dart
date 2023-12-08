@@ -7,7 +7,6 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
-export 'w_navigation_controls.dart';
 export 'scalable/w_circle_button.dart';
 export 'scalable/w_custom_scroll_bar.dart';
 export 'scalable/w_future_loader.dart';
@@ -71,8 +70,10 @@ export 'w_indented_json.dart';
 export 'w_intrinsic_column.dart';
 export 'w_intrinsic_row.dart';
 export 'w_main_layout.dart';
+export 'w_navigation_controls.dart';
 export 'w_omni_scrollable.dart';
 export 'w_rebuilder.dart';
+export 'w_row.dart';
 export 'w_scrollbar.dart';
 export 'w_slider.dart';
 export 'w_stateful_builder.dart';
