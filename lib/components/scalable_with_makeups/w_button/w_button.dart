@@ -129,7 +129,7 @@ class _State extends State<WButton> {
   Widget build(_) {
     return PodBuilder(
       pod: this._pEnabled,
-      builder: (_,  __, final enabled0) {
+      builder: (final enabled0) {
         final enabled = enabled0 ?? true;
         final m =
             enabled ? this.widget.makeup : this.widget.makeup?.disabledMakeup ?? this.widget.makeup;
@@ -153,7 +153,7 @@ class _State extends State<WButton> {
                   child: Center(
                     child: PodBuilder(
                       pod: this._pLoadingBuilder,
-                      builder: (_,  __, final loadingBuilder) {
+                      builder: (final loadingBuilder) {
                         final child = Row(
                           mainAxisSize: MainAxisSize.min,
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -200,7 +200,7 @@ class _State extends State<WButton> {
 
   @override
   void dispose() {
-    this._pEnabled?.disposeIfTemp();
+    this._pEnabled?.disposeIfMarkedAsTemp();
     () async {
       await this._loadingCompleter?.future;
       this._pLoadingBuilder.dispose();

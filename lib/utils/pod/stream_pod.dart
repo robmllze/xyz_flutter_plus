@@ -124,7 +124,7 @@
 //   //
 //   //
 
-//   void disposeIfTemp() {
+//   void disposeIfMarkedAsTemp() {
 //     if (this.isTemp) {
 //       this.dispose();
 //     }

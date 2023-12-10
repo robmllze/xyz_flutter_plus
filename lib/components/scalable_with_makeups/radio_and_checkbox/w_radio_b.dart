@@ -53,9 +53,9 @@ class _State extends State<WRadioB> {
 
   @override
   void dispose() {
-    this.widget.pEnabled?.disposeIfTemp();
-    this.widget.pErrorText?.disposeIfTemp();
-    this.widget.pValue.disposeIfTemp();
+    this.widget.pEnabled?.disposeIfMarkedAsTemp();
+    this.widget.pErrorText?.disposeIfMarkedAsTemp();
+    this.widget.pValue.disposeIfMarkedAsTemp();
     super.dispose();
   }
 
@@ -84,16 +84,16 @@ class _State extends State<WRadioB> {
             ].nonNulls,
           SizedBox.square(
             dimension: this.widget.makeup?.size,
-            child: MultiPodBuilder(
-              pods: Pods(
-                podA: this.widget.pValue,
-                podB: this.widget.pEnabled,
-                podC: this.widget.pErrorText,
-              ),
-              builder: (_, __, final values) {
-                final value = values.a == true;
-                final enabled = values.b != false;
-                final errorText = values.c;
+            child: PodListBuilder(
+              pods: [
+                this.widget.pValue,
+                this.widget.pEnabled,
+                this.widget.pErrorText,
+              ],
+              builder: (final values) {
+                final value = values[0] == true;
+                final enabled = values[1] != false;
+                final errorText = values[2];
                 final error = errorText != null;
                 return WRadio(
                   value: value,

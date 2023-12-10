@@ -134,8 +134,8 @@ class WTextFieldState extends WFieldState<WTextField> {
     this.focusNode.removeListener(this.onFocusChanged);
     this.pHasFocus.dispose();
     this.controller.dispose();
-    this.pHint?.disposeIfTemp();
-    this.pAutoFillHints?.disposeIfTemp();
+    this.pHint?.disposeIfMarkedAsTemp();
+    this.pAutoFillHints?.disposeIfMarkedAsTemp();
     this._onChangedDebouncer?.finalize();
     super.dispose();
   }
@@ -217,30 +217,30 @@ class WTextFieldState extends WFieldState<WTextField> {
   Widget build(_) {
     final cursorWidth = 1.5.scaled;
     final scrollPadding = EdgeInsets.all($20);
-    return MultiPodBuilder(
-      pods: Pods(
-        podA: super.pValue,
-        podB: super.pTitle,
-        podC: super.pShowTitleDot,
-        podD: super.pEnabled,
-        podE: super.pReadOnly,
-        podF: super.pObscured,
-        podG: this.pHint,
-        podH: super.pErrorText,
-        podI: this.pHasFocus,
-        podJ: this.pAutoFillHints,
-      ),
-      builder: (_,  __, final values) {
-        final text = values.a?.toString() ?? "";
-        final title = values.b;
-        final showTitleDot = values.c == true;
-        final enabled = values.d != false;
-        final readOnly = (values.e ?? false) || !enabled;
-        final obscured = values.f ?? false;
-        final hint = values.g;
-        final errorText = values.h;
-        final hasFocus = values.i == true;
-        final autoFillHints = values.j ?? [];
+    return PodListBuilder(
+      pods: [
+        super.pValue,
+        super.pTitle,
+        super.pShowTitleDot,
+        super.pEnabled,
+        super.pReadOnly,
+        super.pObscured,
+        this.pHint,
+        super.pErrorText,
+        this.pHasFocus,
+        this.pAutoFillHints,
+      ],
+      builder: (final values) {
+        final text = values[0]?.toString() ?? "";
+        final title = values[1];
+        final showTitleDot = values[2] == true;
+        final enabled = values[3] != false;
+        final readOnly = (values[4] ?? false) || !enabled;
+        final obscured = values[5] ?? false;
+        final hint = values[6];
+        final errorText = values[7];
+        final hasFocus = values[8] == true;
+        final autoFillHints = values[9] ?? [];
         final hasError = errorText != null;
         this.event = WTextFieldEvent(
           makeup: this.widget.makeup,

@@ -161,13 +161,13 @@ abstract class WFieldState<T extends WField> extends State<T> {
     this._removeListenerShowTitleDot?.call();
     this._removeListenerTitle?.call();
     this._removeListenerValue?.call();
-    this.pEnabled?.disposeIfTemp();
-    this.pErrorText?.disposeIfTemp();
-    this.pObscured?.disposeIfTemp();
-    this.pReadOnly?.disposeIfTemp();
-    this.pShowTitleDot?.disposeIfTemp();
-    this.pTitle?.disposeIfTemp();
-    this.pValue.disposeIfTemp();
+    this.pEnabled?.disposeIfMarkedAsTemp();
+    this.pErrorText?.disposeIfMarkedAsTemp();
+    this.pObscured?.disposeIfMarkedAsTemp();
+    this.pReadOnly?.disposeIfMarkedAsTemp();
+    this.pShowTitleDot?.disposeIfMarkedAsTemp();
+    this.pTitle?.disposeIfMarkedAsTemp();
+    this.pValue.disposeIfMarkedAsTemp();
     super.dispose();
   }
 }
