@@ -8,7 +8,7 @@
 
 name: xyz_flutter_plus
 publish_to: none
-version: 0.8.0
+version: 0.9.0
 
 ## -----------------------------------------------------------------------------
 
@@ -54,9 +54,7 @@ dependencies:
   
   flutter_svg:
 
-   xyz_pod:
-    git:
-      url: https://github.com/robmllze/xyz_pod.git
+  xyz_pod: ^0.5.0
 
   xyz_config:
     git:
