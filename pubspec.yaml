@@ -8,7 +8,7 @@
 
 name: xyz_flutter_plus
 publish_to: none
-version: 0.9.1
+version: 0.9.2
 
 ## -----------------------------------------------------------------------------
 
@@ -54,7 +54,7 @@ dependencies:
   
   flutter_svg:
 
-  xyz_pod: ^0.5.0
+  xyz_pod: ^0.6.1
 
   xyz_gen: ^0.19.0
 
