@@ -54,7 +54,7 @@ dependencies:
   
   flutter_svg:
 
-  xyz_pod: ^0.6.1
+  xyz_pod: ^0.7.1
 
   xyz_gen: ^0.19.0
 
