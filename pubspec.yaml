@@ -19,19 +19,6 @@ environment:
 
 ## -----------------------------------------------------------------------------
 
-dependency_overrides:
-
-  # xyz_utils:
-  #   path: ../xyz_utils
-
-  # xyz_pod:
-  #   path: ../xyz_pod
-
-  # xyz_gen:
-  #   path: ../xyz_gen
-
-## -----------------------------------------------------------------------------
-
 dependencies:
 
   flutter:
@@ -54,9 +41,9 @@ dependencies:
   
   flutter_svg:
 
-  xyz_pod: ^0.8.0
+  xyz_pod: any
 
-  xyz_gen: ^0.21.0
+  xyz_gen: any
 
   xyz_config:
     git:
