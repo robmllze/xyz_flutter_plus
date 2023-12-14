@@ -104,9 +104,9 @@ class _State extends State<WCheckbox> {
             ].nonNulls,
           PodListBuilder(
             pods: [this.widget.pValue, this.widget.pEnabled],
-            builder: (final values) {
-              final value = values[0] == true;
-              final enabled = values[1] != false;
+            builder: (_, __, final values) {
+              final value = values.elementAt(0) == true;
+              final enabled = values.elementAt(1) != false;
               switch (this.widget.type) {
                 case WCheckboxType.CHECKBOX:
                   return WMaterialCheckbox(

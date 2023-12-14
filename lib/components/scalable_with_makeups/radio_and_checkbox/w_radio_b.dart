@@ -90,10 +90,10 @@ class _State extends State<WRadioB> {
                 this.widget.pEnabled,
                 this.widget.pErrorText,
               ],
-              builder: (final values) {
-                final value = values[0] == true;
-                final enabled = values[1] != false;
-                final errorText = values[2];
+              builder: (_, __, final values) {
+                final value = values.elementAt(0) == true;
+                final enabled = values.elementAt(1) != false;
+                final errorText = values.elementAt(2);
                 final error = errorText != null;
                 return WRadio(
                   value: value,

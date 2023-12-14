@@ -230,17 +230,17 @@ class WTextFieldState extends WFieldState<WTextField> {
         this.pHasFocus,
         this.pAutoFillHints,
       ],
-      builder: (final values) {
-        final text = values[0]?.toString() ?? "";
-        final title = values[1];
-        final showTitleDot = values[2] == true;
-        final enabled = values[3] != false;
-        final readOnly = (values[4] ?? false) || !enabled;
-        final obscured = values[5] ?? false;
-        final hint = values[6];
-        final errorText = values[7];
-        final hasFocus = values[8] == true;
-        final autoFillHints = values[9] ?? [];
+      builder: (_, __, final values) {
+        final text = values.elementAt(0)?.toString() ?? "";
+        final title = values.elementAt(1);
+        final showTitleDot = values.elementAt(2) == true;
+        final enabled = values.elementAt(3) != false;
+        final readOnly = (values.elementAt(4) ?? false) || !enabled;
+        final obscured = values.elementAt(5) ?? false;
+        final hint = values.elementAt(6);
+        final errorText = values.elementAt(7);
+        final hasFocus = values.elementAt(8) == true;
+        final autoFillHints = values.elementAt(9) ?? [];
         final hasError = errorText != null;
         this.event = WTextFieldEvent(
           makeup: this.widget.makeup,

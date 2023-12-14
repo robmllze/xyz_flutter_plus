@@ -129,8 +129,7 @@ class _State extends State<WButton> {
   Widget build(_) {
     return PodBuilder(
       pod: this._pEnabled,
-      builder: (final enabled0) {
-        final enabled = enabled0 ?? true;
+      builder: (_, __, final enabled) {
         final m =
             enabled ? this.widget.makeup : this.widget.makeup?.disabledMakeup ?? this.widget.makeup;
         final borderSide = m?.shape?.side;
@@ -153,7 +152,7 @@ class _State extends State<WButton> {
                   child: Center(
                     child: PodBuilder(
                       pod: this._pLoadingBuilder,
-                      builder: (final loadingBuilder) {
+                      builder: (_, __, final loadingBuilder) {
                         final child = Row(
                           mainAxisSize: MainAxisSize.min,
                           mainAxisAlignment: MainAxisAlignment.center,
