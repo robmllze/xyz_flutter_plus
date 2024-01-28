@@ -8,7 +8,7 @@
 
 import 'package:xyz_utils/web_friendly/app/screen_calculator.dart';
 
-import '/all.dart';
+import '/_common.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 

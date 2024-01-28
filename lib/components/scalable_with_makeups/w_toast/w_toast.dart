@@ -8,7 +8,7 @@
 
 import 'package:xyz_gen/generators/generate_makeups/all_generate_makeups.g.dart';
 
-import '/all.dart';
+import '/_common.dart';
 
 part '_w_toast_makeup.g.dart';
 

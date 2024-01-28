@@ -7,8 +7,9 @@
 #.title~
 
 name: xyz_flutter_plus
-publish_to: none
-version: 0.16.0
+description: A set of utilities for Flutter projects to help with with the UI and other common tasks.
+repository: https://github.com/robmllze/xyz_flutter_plus
+version: 0.17.0
 
 ## -----------------------------------------------------------------------------
 
@@ -24,30 +25,22 @@ dependencies:
   flutter:
     sdk: flutter
 
-  async:
-  connectivity_plus:
-  crypto:
-  device_info_plus:
-  encrypt:
-  equatable:
-  go_router:
-  html:
-  http:
-  meta:
-  shared_preferences:
-  url_launcher:
+  xyz_pod: ^0.12.3
+  xyz_gen: ^0.30.0
+  xyz_utils: ^0.30.2
+  xyz_config: ^0.10.1
 
-  #
-  
-  flutter_svg:
-
-  xyz_pod: any
-  xyz_gen: any
-  xyz_utils: any
-
-  xyz_config:
-    git:
-      url: https://github.com/robmllze/xyz_config.git
+  async: ^2.11.0
+  connectivity_plus: ^5.0.2
+  crypto: ^3.0.3
+  device_info_plus: ^9.1.1
+  equatable: ^2.0.5
+  go_router: ^13.1.0
+  html: ^0.15.4
+  http: ^1.2.0
+  meta: ^1.10.0
+  shared_preferences: ^2.2.2
+  url_launcher: ^6.2.4
 
 ## -----------------------------------------------------------------------------
 
@@ -55,8 +48,5 @@ dev_dependencies:
 
   flutter_test:
     sdk: flutter
-  flutter_lints:
-
-## -----------------------------------------------------------------------------
-
-flutter:
+    
+  flutter_lints: ^3.0.1

@@ -8,7 +8,7 @@
 
 import 'package:flutter/gestures.dart';
 
-import '/all.dart';
+import '/_common.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
