@@ -57,7 +57,8 @@ class WAction extends StatelessWidget {
   Widget build(_) {
     final firstIconPadding = this.firstIconPadding ?? EdgeInsets.only(left: $8);
     final firstPadding = this.firstPadding ?? EdgeInsets.only(left: $16);
-    final secondIconPadding = this.secondIconPadding ?? EdgeInsets.only(right: $8);
+    final secondIconPadding =
+        this.secondIconPadding ?? EdgeInsets.only(right: $8);
     final secondPadding = this.secondPadding ?? EdgeInsets.only(right: $16);
     return GestureDetector(
       behavior: HitTestBehavior.translucent,
@@ -83,14 +84,17 @@ class WAction extends StatelessWidget {
                 if (this.first != null)
                   Expanded(
                     child: Padding(
-                      padding: firstIcon == null ? firstIconPadding : firstPadding,
+                      padding:
+                          firstIcon == null ? firstIconPadding : firstPadding,
                       child: this.first!,
                     ),
                   ),
                 if (this.second != null)
                   Expanded(
                     child: Padding(
-                      padding: secondIcon == null ? secondIconPadding : secondPadding,
+                      padding: secondIcon == null
+                          ? secondIconPadding
+                          : secondPadding,
                       child: this.second!,
                     ),
                   ),

@@ -117,7 +117,8 @@ class ExpandedHitTestArea extends SingleChildRenderObjectWidget {
   //
 
   @override
-  RenderObject createRenderObject(BuildContext context) => RenderExpandedHitTestArea(
+  RenderObject createRenderObject(BuildContext context) =>
+      RenderExpandedHitTestArea(
         onTap: onTap,
         detectionSize: detectionSize,
         detectionBorder: detectionBorder,
@@ -156,7 +157,8 @@ class TestGestureArenaMember extends GestureArenaMember {
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-class RenderExpandedHitTestArea extends RenderBox with RenderObjectWithChildMixin<RenderBox> {
+class RenderExpandedHitTestArea extends RenderBox
+    with RenderObjectWithChildMixin<RenderBox> {
   //
   //
   //

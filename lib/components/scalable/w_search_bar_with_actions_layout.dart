@@ -58,7 +58,8 @@ class WSearchBarWithActionsLayout extends StatelessWidget {
               width: searchBarWith,
               child: searchField,
             ),
-            ...actionsAndTheirWidths.map((e) => SizedBox(width: e.$2, child: e.$1)),
+            ...actionsAndTheirWidths
+                .map((e) => SizedBox(width: e.$2, child: e.$1)),
           ],
         );
       },

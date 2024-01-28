@@ -123,6 +123,8 @@ abstract class CommonPalette {
   Color get google => const Color(0xffdd4b39);
 
   Color get dividerColor {
-    return LerpBlender(color1: this.background, color2: this.foreground, blendWeight: 0.1).blend();
+    return LerpBlender(
+            color1: this.background, color2: this.foreground, blendWeight: 0.1)
+        .blend();
   }
 }
