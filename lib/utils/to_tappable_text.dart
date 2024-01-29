@@ -37,7 +37,7 @@ extension ToTappableText on Text {
     Size? detectionBorder,
   ]) {
     return WTapDetector(
-      detectionBorder: detectionBorder ?? Size.square($16),
+      detectionBorder: detectionBorder ?? Size.square(16.sc),
       onTap: onTap,
       child: this,
     );
@@ -55,7 +55,7 @@ extension ToTappableText on Text {
     return WStatefulBuilder(
       builder: (_, final state) {
         return WTapDetector(
-          detectionBorder: detectionBorder ?? Size.square($16),
+          detectionBorder: detectionBorder ?? Size.square(16.sc),
           onTap: isLoading
               ? null
               : () async {

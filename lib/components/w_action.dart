@@ -55,11 +55,12 @@ class WAction extends StatelessWidget {
 
   @override
   Widget build(_) {
-    final firstIconPadding = this.firstIconPadding ?? EdgeInsets.only(left: $8);
-    final firstPadding = this.firstPadding ?? EdgeInsets.only(left: $16);
+    final firstIconPadding =
+        this.firstIconPadding ?? EdgeInsets.only(left: 8.sc);
+    final firstPadding = this.firstPadding ?? EdgeInsets.only(left: 16.sc);
     final secondIconPadding =
-        this.secondIconPadding ?? EdgeInsets.only(right: $8);
-    final secondPadding = this.secondPadding ?? EdgeInsets.only(right: $16);
+        this.secondIconPadding ?? EdgeInsets.only(right: 8.sc);
+    final secondPadding = this.secondPadding ?? EdgeInsets.only(right: 16.sc);
     return GestureDetector(
       behavior: HitTestBehavior.translucent,
       onTap: this.onTap,

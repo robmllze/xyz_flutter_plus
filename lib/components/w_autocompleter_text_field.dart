@@ -63,7 +63,7 @@ class _State extends State<WAutocompleterTextField> {
   String? _previousNotSelectedText;
   bool _isLoading = false;
   bool _shouldHandleChange = true;
-  final _optionHeight = $40;
+  final _optionHeight = 40.sc;
 
   //
   //
@@ -212,16 +212,16 @@ class _State extends State<WAutocompleterTextField> {
                 (options.length <= widget.maxOptionsVisible
                     ? options.length
                     : widget.maxOptionsVisible) +
-            $20,
+            20.sc,
         child: CompositedTransformFollower(
           link: this._layerLink,
           showWhenUnlinked: false,
-          offset: Offset(0.0, size.height + $4),
+          offset: Offset(0.0, size.height + 4.sc),
           child: Material(
-            elevation: $4,
+            elevation: 4.sc,
             child: Scrollbar(
               child: ListView(
-                padding: EdgeInsets.only(bottom: $20),
+                padding: EdgeInsets.only(bottom: 20.sc),
                 shrinkWrap: true,
                 children: options
                     .map(

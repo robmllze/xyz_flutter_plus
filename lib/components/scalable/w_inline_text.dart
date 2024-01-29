@@ -137,7 +137,7 @@ TextSpan createTextSpanFromList(List<String> inputs) {
       text: value,
       style: TextStyle(
         color: Colors.black,
-        fontSize: $16,
+        fontSize: 16.sc,
       ),
     );
   }).toList();

@@ -107,10 +107,10 @@ class _State extends State<WCustomScrollBar> {
             top: 0,
             bottom: 0,
             child: Container(
-              width: $8,
+              width: 8.sc,
               decoration: BoxDecoration(
                 color: this.widget.color,
-                borderRadius: BorderRadius.circular($4),
+                borderRadius: BorderRadius.circular(4.sc),
               ),
               child: GestureDetector(
                 onVerticalDragStart: (_) => _resetTimer(),
@@ -128,10 +128,10 @@ class _State extends State<WCustomScrollBar> {
                 },
                 child: Container(
                   width: double.infinity,
-                  height: $60,
+                  height: 60.sc,
                   decoration: BoxDecoration(
                     color: this.widget.color,
-                    borderRadius: BorderRadius.circular($4),
+                    borderRadius: BorderRadius.circular(4.sc),
                   ),
                 ),
               ),

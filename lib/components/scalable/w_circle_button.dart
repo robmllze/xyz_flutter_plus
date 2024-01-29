@@ -41,15 +41,15 @@ class WCircleButton extends StatelessWidget {
       child: Opacity(
         opacity: this.onTap != null ? 1.0 : 0.5,
         child: Container(
-          constraints: BoxConstraints(minHeight: $32, minWidth: $32),
+          constraints: BoxConstraints(minHeight: 32.sc, minWidth: 32.sc),
           decoration: BoxDecoration(
             color: this.color,
             shape: BoxShape.circle,
             boxShadow: [
               BoxShadow(
                 color: Colors.black.withOpacity(0.12),
-                blurRadius: $4,
-                offset: Offset(0.0, $4),
+                blurRadius: 4.sc,
+                offset: Offset(0.0, 4.sc),
               ),
             ],
           ),

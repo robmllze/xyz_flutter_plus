@@ -22,9 +22,9 @@ class WHorizontalSeparator extends StatelessWidget {
   //
 
   const WHorizontalSeparator({
-    Key? key,
+    super.key,
     this.text,
-  }) : super(key: key);
+  });
 
   //
   //
@@ -36,17 +36,17 @@ class WHorizontalSeparator extends StatelessWidget {
       children: [
         Expanded(
           child: Divider(
-            height: 0.5.scaled,
+            height: 0.5.sc,
             color: text?.style?.color,
           ),
         ),
         if (this.text != null) ...[
-          SizedBox(width: $12),
+          SizedBox(width: 12.sc),
           this.text!,
-          SizedBox(width: $12),
+          SizedBox(width: 12.sc),
           Expanded(
             child: Divider(
-              height: 0.5.scaled,
+              height: 0.5.sc,
               color: text?.style?.color,
             ),
           ),

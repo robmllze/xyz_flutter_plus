@@ -73,7 +73,7 @@ class _State extends State<WToast> {
   @override
   Widget build(_) {
     final m = this.widget.makeup;
-    final radius = m?.radius ?? Radius.circular($4);
+    final radius = m?.radius ?? Radius.circular(4.sc);
     return GestureDetector(
       behavior: HitTestBehavior.translucent,
       onTap: this.widget.onTap,
@@ -86,7 +86,7 @@ class _State extends State<WToast> {
         child: WIntrinsicRow(
           children: [
             Container(
-              width: $4,
+              width: 4.sc,
               decoration: BoxDecoration(
                 color: m?.barColor,
                 borderRadius: BorderRadius.only(
@@ -101,7 +101,7 @@ class _State extends State<WToast> {
             ],
             Expanded(
               child: Padding(
-                padding: EdgeInsets.all($12),
+                padding: EdgeInsets.all(12.sc),
                 child: WColumn(
                   children: [
                     if (widget.title != null)
@@ -156,8 +156,8 @@ class _State extends State<WToast> {
               WIconButton(
                 icon: ConstrainedBox(
                   constraints: BoxConstraints(
-                    minHeight: $32,
-                    minWidth: $32,
+                    minHeight: 32.sc,
+                    minWidth: 32.sc,
                   ),
                   child: Center(
                     child: m?.closeIcon,

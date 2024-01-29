@@ -41,8 +41,8 @@ class WIconButton extends StatelessWidget {
       onTapDown: this.onTap != null ? (_) => this.onTap?.call() : null,
       child: ConstrainedBox(
         constraints: BoxConstraints(
-          minHeight: $48,
-          minWidth: $48,
+          minHeight: 48.sc,
+          minWidth: 48.sc,
         ),
         child: Opacity(
           opacity: this.onTap != null ? 1.0 : 0.5,
