@@ -114,3 +114,9 @@ class Unit {
   static const zero = Unit(0.0);
   num get auto => DoubleDotScaled(this._value).sc;
 }
+
+// ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+
+Future<void> loadAppUnitsFromDeviceStorage() async {
+  await Units.pUnits.set(await Units.getUnitsFromSharedPreferences() ?? const Units());
+}
