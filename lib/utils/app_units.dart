@@ -74,7 +74,7 @@ class AppUnit {
   final double _value;
   const AppUnit(this._value);
   static const zero = AppUnit(0.0);
-  num get auto => Sc(this._value).sc;
+  double get sc => Sc(this._value).sc;
 }
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
