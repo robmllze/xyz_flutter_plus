@@ -9,7 +9,7 @@
 name: xyz_flutter_plus
 description: A set of utilities for Flutter projects to help with with the UI and other common tasks.
 repository: https://github.com/robmllze/xyz_flutter_plus
-version: 0.21.5
+version: 0.21.6
 
 ## -----------------------------------------------------------------------------
 
@@ -27,7 +27,7 @@ dependencies:
 
   xyz_config: ^0.11.1
   xyz_gen: ^0.31.0
-  xyz_pod: ^0.14.1
+  xyz_pod: ^0.14.2
   xyz_utils: ^0.31.1
 
   async: ^2.11.0
