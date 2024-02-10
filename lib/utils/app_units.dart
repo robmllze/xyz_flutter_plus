@@ -94,7 +94,8 @@ Future<bool> setAppScaleToDeviceStorage(double appScale) async {
   return sharedPreferences.setDouble("app_scale", appScale);
 }
 
-Future<void> updateAppScaleToDeviceStorage(double Function(double) update) async {
+Future<void> updateAppScaleToDeviceStorage(
+    double Function(double) update) async {
   final updatedAppScale = update(pAppUnits.value.appScale);
   await setAppScaleToDeviceStorage(updatedAppScale);
 }
@@ -102,6 +103,7 @@ Future<void> updateAppScaleToDeviceStorage(double Function(double) update) async
 Future<void> resetappScale() => setAppScaleToDeviceStorage(1.0);
 
 Future<void> loadAppUnitsFromDeviceStorage() async {
-  final loadedAppUnits = await getAppUnitsFromDeviceStorage() ?? const AppUnits();
+  final loadedAppUnits =
+      await getAppUnitsFromDeviceStorage() ?? const AppUnits();
   await pAppUnits.set(loadedAppUnits);
 }

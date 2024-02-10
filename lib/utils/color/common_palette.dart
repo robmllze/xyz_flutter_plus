@@ -124,7 +124,9 @@ abstract class CommonPalette {
 
   Color get dividerColor {
     return LerpBlender(
-            color1: this.background, color2: this.foreground, blendWeight: 0.1,)
-        .blend();
+      color1: this.background,
+      color2: this.foreground,
+      blendWeight: 0.1,
+    ).blend();
   }
 }

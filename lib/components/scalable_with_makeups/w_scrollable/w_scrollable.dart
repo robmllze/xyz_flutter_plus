@@ -47,7 +47,7 @@ class WScrollable extends StatefulWidget {
     ScrollController? controller,
     this.onEdgeMin,
     this.onEdgeMax,
-  })  : this.controller = controller ?? ScrollController();
+  }) : this.controller = controller ?? ScrollController();
 
   //
   //

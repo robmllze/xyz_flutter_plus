@@ -90,8 +90,10 @@ class ColorMixer {
   //
   //
 
-  String getColorRangeDartCode(String baseName,
-      [String prefix = "@override\nfinal ",]) {
+  String getColorRangeDartCode(
+    String baseName, [
+    String prefix = "@override\nfinal ",
+  ]) {
     final output = StringBuffer();
     output.writeln("// $baseName");
 

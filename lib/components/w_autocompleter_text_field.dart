@@ -77,7 +77,8 @@ class _State extends State<WAutocompleterTextField> {
       }
     });
     this._controller.addListener(
-        widget.getOptions != null ? this._onChanged : this._onChangeAsync,);
+          widget.getOptions != null ? this._onChanged : this._onChangeAsync,
+        );
     super.initState();
   }
 
