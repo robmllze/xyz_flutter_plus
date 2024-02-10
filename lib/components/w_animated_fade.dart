@@ -29,7 +29,7 @@ class WAnimatedFade extends StatefulWidget {
   //
 
   const WAnimatedFade({
-    Key? key,
+    super.key,
     this.layer1,
     required this.layer2,
     this.delay = const Duration(milliseconds: 0),
@@ -38,7 +38,7 @@ class WAnimatedFade extends StatefulWidget {
     this.begin = 0.0,
     this.end = 1.0,
     this.onComplete,
-  }) : super(key: key);
+  });
 
   //
   //

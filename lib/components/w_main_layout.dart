@@ -26,13 +26,13 @@ class WMainLayout extends StatelessWidget {
   //
 
   const WMainLayout({
-    Key? key,
+    super.key,
     this.header,
     this.footer,
     this.top,
     this.body,
     this.bottom,
-  }) : super(key: key);
+  });
 
   //
   //

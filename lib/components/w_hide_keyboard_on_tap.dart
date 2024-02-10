@@ -24,8 +24,8 @@ class WHideKeyboardOnTap extends StatelessWidget {
 
   const WHideKeyboardOnTap({
     this.child,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   //
   //

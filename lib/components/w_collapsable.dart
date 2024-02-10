@@ -24,11 +24,11 @@ class WCollapsable extends StatefulWidget {
   //
 
   const WCollapsable({
-    Key? key,
+    super.key,
     this.collapsed = false,
     this.child,
     this.shouldEnableStaticMode = true,
-  }) : super(key: key);
+  });
 
   //
   //

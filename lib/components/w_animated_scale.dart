@@ -28,7 +28,7 @@ class WAnimatedScale extends StatefulWidget {
   //
 
   const WAnimatedScale({
-    Key? key,
+    super.key,
     required this.child,
     this.delay = const Duration(milliseconds: 0),
     this.duration = const Duration(milliseconds: 500),
@@ -36,7 +36,7 @@ class WAnimatedScale extends StatefulWidget {
     this.begin = 0.75,
     this.end = 1.0,
     this.alignment = Alignment.center,
-  }) : super(key: key);
+  });
 
   //
   //

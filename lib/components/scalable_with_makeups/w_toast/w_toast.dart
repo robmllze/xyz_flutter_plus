@@ -46,7 +46,7 @@ class WToast extends StatefulWidget {
   //
 
   const WToast({
-    Key? key,
+    super.key,
     this.title,
     this.description,
     this.date,
@@ -57,7 +57,7 @@ class WToast extends StatefulWidget {
     this.onTap,
     this.onTapAction,
     this.onTapClose,
-  }) : super(key: key);
+  });
 
   @override
   _State createState() => _State();

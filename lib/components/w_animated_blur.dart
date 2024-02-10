@@ -32,7 +32,7 @@ class WAnimatedBlur extends StatefulWidget {
   //
 
   const WAnimatedBlur({
-    Key? key,
+    super.key,
     required this.child,
     this.delay = Duration.zero,
     this.duration = const Duration(milliseconds: 1500),
@@ -42,7 +42,7 @@ class WAnimatedBlur extends StatefulWidget {
     this.color,
     this.blendMode = BlendMode.darken,
     this.disabled = false,
-  }) : super(key: key);
+  });
 
   //
   //

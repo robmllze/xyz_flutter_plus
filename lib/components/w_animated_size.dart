@@ -28,7 +28,7 @@ class WAnimatedSize extends StatefulWidget {
   //
 
   const WAnimatedSize({
-    Key? key,
+    super.key,
     required this.child,
     this.delay = const Duration(milliseconds: 0),
     this.duration = const Duration(milliseconds: 500),
@@ -36,7 +36,7 @@ class WAnimatedSize extends StatefulWidget {
     this.begin = 0.5,
     this.end = 1.0,
     this.direction = WAnimatedResize_Direction.TOP_TO_BOTTOM,
-  }) : super(key: key);
+  });
 
   //
   //

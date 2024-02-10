@@ -25,10 +25,10 @@ class WIconButton extends StatelessWidget {
   //
 
   const WIconButton({
-    Key? key,
+    super.key,
     required this.icon,
     this.onTap,
-  }) : super(key: key);
+  });
 
   //
   //

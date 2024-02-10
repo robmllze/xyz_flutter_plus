@@ -23,10 +23,10 @@ class WCircle extends StatelessWidget {
   //
 
   const WCircle({
-    Key? key,
+    super.key,
     required this.child,
     this.diameter,
-  }) : super(key: key);
+  });
 
   //
   //
@@ -51,10 +51,10 @@ class Circle extends StatelessWidget {
   final Color color;
 
   const Circle({
-    Key? key,
+    super.key,
     required this.radius,
     required this.color,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(_) {

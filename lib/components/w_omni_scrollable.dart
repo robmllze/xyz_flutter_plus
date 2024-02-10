@@ -21,7 +21,7 @@ class WOmniScrollable extends StatelessWidget {
   //
   //
 
-  const WOmniScrollable({Key? key, required this.child}) : super(key: key);
+  const WOmniScrollable({super.key, required this.child});
 
   //
   //

@@ -39,7 +39,7 @@ class WScrollable extends StatefulWidget {
   //
 
   WScrollable({
-    Key? key,
+    super.key,
     this.makeup,
     required this.child,
     this.axis = Axis.vertical,
@@ -47,8 +47,7 @@ class WScrollable extends StatefulWidget {
     ScrollController? controller,
     this.onEdgeMin,
     this.onEdgeMax,
-  })  : this.controller = controller ?? ScrollController(),
-        super(key: key);
+  })  : this.controller = controller ?? ScrollController();
 
   //
   //

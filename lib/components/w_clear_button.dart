@@ -23,10 +23,10 @@ class WClearButton extends StatelessWidget {
   //
 
   const WClearButton({
-    Key? key,
+    super.key,
     required this.child,
     required this.onPressed,
-  }) : super(key: key);
+  });
 
   //
   //

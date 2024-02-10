@@ -65,7 +65,7 @@ class WScrollbar extends StatefulWidget {
   //
 
   const WScrollbar({
-    Key? key,
+    super.key,
     required this.child,
     this.controller,
     this.style = _kScrollbarStyle,
@@ -74,7 +74,7 @@ class WScrollbar extends StatefulWidget {
     this.thumbVisibility,
     this.showTrackOnHover,
     this.notificationPredicate,
-  }) : super(key: key);
+  });
 
   //
   //
@@ -121,25 +121,18 @@ class _Scrollbar extends RawScrollbar {
   //
 
   const _Scrollbar({
-    Key? key,
-    required Widget child,
-    ScrollController? controller,
-    bool? thumbVisibility,
+    required super.child,
+    super.controller,
+    super.thumbVisibility,
     this.showTrackOnHover,
     this.hoverThickness,
     this.color,
     this.scrollbarFadeDuration,
     this.scrollbarTimeToFade,
-    double? thickness,
-    Radius? radius,
+    super.thickness,
+    super.radius,
     ScrollNotificationPredicate? notificationPredicate,
   }) : super(
-          key: key,
-          child: child,
-          controller: controller,
-          thumbVisibility: thumbVisibility,
-          thickness: thickness,
-          radius: radius,
           fadeDuration: scrollbarFadeDuration ?? _kScrollbarFadeDuration,
           timeToFade: scrollbarTimeToFade ?? _kScrollbarTimeToFade,
           pressDuration: Duration.zero,

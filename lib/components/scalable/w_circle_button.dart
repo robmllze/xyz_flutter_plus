@@ -24,11 +24,11 @@ class WCircleButton extends StatelessWidget {
   //
 
   const WCircleButton({
-    Key? key,
+    super.key,
     this.onTap,
     required this.color,
     required this.child,
-  }) : super(key: key);
+  });
 
   //
   //

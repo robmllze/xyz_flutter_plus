@@ -29,7 +29,7 @@ class WRow extends StatelessWidget {
   //
 
   const WRow({
-    Key? key,
+    super.key,
     this.mainAxisAlignment = MainAxisAlignment.start,
     this.mainAxisSize = MainAxisSize.min,
     this.crossAxisAlignment = CrossAxisAlignment.start,
@@ -38,7 +38,7 @@ class WRow extends StatelessWidget {
     this.textBaseline,
     this.divider,
     this.children = const <Widget>[],
-  }) : super(key: key);
+  });
 
   //
   //

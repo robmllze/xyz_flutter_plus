@@ -31,14 +31,14 @@ class WInlineText extends StatelessWidget {
 
   const WInlineText(
     this.text, {
-    Key? key,
+    super.key,
     this.style,
     this.namedStyles = const {},
     this.namedWidgets = const {},
     this.namedCallbacks = const {},
     this.textAlign = TextAlign.left,
     this.softWrap = true,
-  }) : super(key: key);
+  });
 
   //
   //

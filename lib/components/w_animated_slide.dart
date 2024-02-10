@@ -28,7 +28,7 @@ class WAnimatedSlide extends StatefulWidget {
   //
 
   const WAnimatedSlide({
-    Key? key,
+    super.key,
     this.child,
     this.color = Colors.transparent,
     this.delay = const Duration(milliseconds: 0),
@@ -36,7 +36,7 @@ class WAnimatedSlide extends StatefulWidget {
     this.curve = Curves.easeInOutCirc,
     this.duration = const Duration(milliseconds: 250),
     this.extent = 0.25,
-  }) : super(key: key);
+  });
 
   //
   //

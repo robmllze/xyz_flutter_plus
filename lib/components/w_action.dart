@@ -32,7 +32,7 @@ class WAction extends StatelessWidget {
   //
 
   const WAction({
-    Key? key,
+    super.key,
     this.first,
     this.second,
     this.firstIcon,
@@ -47,7 +47,7 @@ class WAction extends StatelessWidget {
     this.firstPadding,
     this.secondPadding,
     this.secondIconPadding,
-  }) : super(key: key);
+  });
 
   //
   //

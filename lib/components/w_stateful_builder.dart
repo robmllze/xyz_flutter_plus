@@ -17,9 +17,9 @@ class WStatefulBuilder extends StatefulWidget {
 
   final Widget Function(BuildContext context, _State state) builder;
   const WStatefulBuilder({
-    Key? key,
+    super.key,
     required this.builder,
-  }) : super(key: key);
+  });
 
   //
   //
