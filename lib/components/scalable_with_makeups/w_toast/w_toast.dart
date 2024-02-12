@@ -6,7 +6,7 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
-import 'package:xyz_gen/xyz_gen.dart';
+import 'package:xyz_gen_annotations/xyz_gen_annotations.dart';
 
 import '/_common.dart';
 
@@ -136,8 +136,7 @@ class _State extends State<WToast> {
                         style: m?.descriptionTextStyle,
                       ),
                     ],
-                    if (this.widget.action != null &&
-                        this.widget.onTapAction != null) ...[
+                    if (this.widget.action != null && this.widget.onTapAction != null) ...[
                       wHeight8(),
                       GestureDetector(
                         onTap: this.widget.onTapAction,
