@@ -21,7 +21,7 @@ class WAnimatedSize extends StatefulWidget {
   final Curve curve;
   final double begin;
   final double end;
-  final WAnimatedResize_Direction direction;
+  final WAnimatedResizeDirection direction;
 
   //
   //
@@ -35,7 +35,7 @@ class WAnimatedSize extends StatefulWidget {
     this.curve = Curves.linear,
     this.begin = 0.5,
     this.end = 1.0,
-    this.direction = WAnimatedResize_Direction.TOP_TO_BOTTOM,
+    this.direction = WAnimatedResizeDirection.TOP_TO_BOTTOM,
   });
 
   //
@@ -99,23 +99,23 @@ class _State extends State<WAnimatedSize> with SingleTickerProviderStateMixin {
     double axisAlignment;
 
     switch (widget.direction) {
-      case WAnimatedResize_Direction.TOP_TO_BOTTOM:
+      case WAnimatedResizeDirection.TOP_TO_BOTTOM:
         axis = Axis.vertical;
         axisAlignment = -1.0;
         break;
-      case WAnimatedResize_Direction.BOTTOM_TO_TOP:
+      case WAnimatedResizeDirection.BOTTOM_TO_TOP:
         axis = Axis.vertical;
         axisAlignment = 1.0;
         break;
-      case WAnimatedResize_Direction.LEFT_TO_RIGHT:
+      case WAnimatedResizeDirection.LEFT_TO_RIGHT:
         axis = Axis.horizontal;
         axisAlignment = -1.0;
         break;
-      case WAnimatedResize_Direction.RIGHT_TO_LEFT:
+      case WAnimatedResizeDirection.RIGHT_TO_LEFT:
         axis = Axis.horizontal;
         axisAlignment = 1.0;
         break;
-      case WAnimatedResize_Direction.CENTER:
+      case WAnimatedResizeDirection.CENTER:
         axis = Axis.horizontal;
         axisAlignment = 0.0;
         break;
@@ -132,7 +132,7 @@ class _State extends State<WAnimatedSize> with SingleTickerProviderStateMixin {
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-enum WAnimatedResize_Direction {
+enum WAnimatedResizeDirection {
   TOP_TO_BOTTOM,
   BOTTOM_TO_TOP,
   LEFT_TO_RIGHT,

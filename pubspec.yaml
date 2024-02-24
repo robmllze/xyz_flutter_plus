@@ -7,9 +7,9 @@
 #.title~
 
 name: xyz_flutter_plus
-description: A set of utilities for Flutter projects to help with with the UI and other common tasks.
+description: This package is designed to speed up development by providing a set of utilities that are commonly used in most Flutter apps.
 repository: https://github.com/robmllze/xyz_flutter_plus
-version: 0.21.13
+version: 0.22.0
 
 ## -----------------------------------------------------------------------------
 
@@ -26,7 +26,7 @@ dependencies:
     sdk: flutter
 
   xyz_config: ^0.11.4
-  xyz_gen_annotations: ^0.3.0
+  xyz_gen_annotations: ^0.4.0
   xyz_pod: ^0.15.1
   xyz_utils: ^0.34.1
 

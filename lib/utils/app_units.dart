@@ -95,7 +95,8 @@ Future<bool> setAppScaleToDeviceStorage(double appScale) async {
 }
 
 Future<void> updateAppScaleToDeviceStorage(
-    double Function(double) update) async {
+  double Function(double) update,
+) async {
   final updatedAppScale = update(pAppUnits.value.appScale);
   await setAppScaleToDeviceStorage(updatedAppScale);
 }
