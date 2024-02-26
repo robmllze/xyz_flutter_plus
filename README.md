@@ -2,7 +2,7 @@
 
 [![pub package](https://img.shields.io/pub/v/xyz_flutter_plus.svg)](https://pub.dev/packages/xyz_flutter_plus)
 
-This package is designed to speed up development by providing a set of utilities that are commonly used in most Flutter apps.
+This package is designed to speed up development by providing a set of utilities that are commonly used in Flutter apps.
 
 ## Documentation
 
