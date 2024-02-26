@@ -56,10 +56,10 @@ dev_dependencies:
 dependency_overrides:
 
   xyz_config:
-    path: ../../xyz_config
+    path: ../xyz_config
   xyz_gen_annotations:
-    path: ../../xyz_gen_annotations
+    path: ../xyz_gen_annotations
   xyz_pod:
-    path: ../../xyz_pod
+    path: ../xyz_pod
   xyz_utils:
-    path: ../../xyz_utils
+    path: ../xyz_utils
