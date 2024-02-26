@@ -14,14 +14,14 @@ part '_w_scrollable_makeup.g.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-const W_SCROLLABLE_PARAMETERS = {
-  "insidePadding": "EdgeInsets?",
-  "thumbVisibility": "bool?",
-  "outsidePadding": "EdgeInsets?",
-  "style": "WScrollbarStyle?",
-};
-
-@GenerateMakeups(parameters: W_SCROLLABLE_PARAMETERS)
+@GenerateMakeups(
+  properties: {
+    "insidePadding": "EdgeInsets?",
+    "thumbVisibility": "bool?",
+    "outsidePadding": "EdgeInsets?",
+    "style": "WScrollbarStyle?",
+  },
+)
 class WScrollable extends StatefulWidget {
   //
   //

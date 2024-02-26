@@ -14,20 +14,20 @@ part '_w_toast_makeup.g.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-const W_TOAST_PARAMETERS = {
-  "actionTextStyle": "TextStyle?",
-  "backgroundColor": "Color?",
-  "barColor": "Color?",
-  "closeIcon": "Widget?",
-  "dateTextStyle": "TextStyle?",
-  "descriptionTextStyle": "TextStyle?",
-  "icon": "Widget?",
-  "radius": "Radius?",
-  "shadow": "List<BoxShadow>?",
-  "titleTextStyle": "TextStyle?",
-};
-
-@GenerateMakeups(parameters: W_TOAST_PARAMETERS)
+@GenerateMakeups(
+  properties: {
+    "actionTextStyle": "TextStyle?",
+    "backgroundColor": "Color?",
+    "barColor": "Color?",
+    "closeIcon": "Widget?",
+    "dateTextStyle": "TextStyle?",
+    "descriptionTextStyle": "TextStyle?",
+    "icon": "Widget?",
+    "radius": "Radius?",
+    "shadow": "List<BoxShadow>?",
+    "titleTextStyle": "TextStyle?",
+  },
+)
 class WToast extends StatefulWidget {
   //
   //
@@ -136,8 +136,7 @@ class _State extends State<WToast> {
                         style: m?.descriptionTextStyle,
                       ),
                     ],
-                    if (this.widget.action != null &&
-                        this.widget.onTapAction != null) ...[
+                    if (this.widget.action != null && this.widget.onTapAction != null) ...[
                       wHeight8(),
                       GestureDetector(
                         onTap: this.widget.onTapAction,
