@@ -9,14 +9,14 @@
 name: xyz_flutter_plus
 description: This package is designed to speed up development by providing a set of utilities that are commonly used in Flutter apps.
 repository: https://github.com/robmllze/xyz_flutter_plus
-version: 0.23.2
+version: 0.23.3
 
 ## -----------------------------------------------------------------------------
 
 environment:
 
-  sdk: '>= 3.0.0 < 4.0.0'
-  flutter: '>= 3.0.0'
+  sdk: ">=3.2.6 <4.0.0"
+  flutter: ">=1.17.0"
 
 ## -----------------------------------------------------------------------------
 
@@ -27,7 +27,7 @@ dependencies:
 
   xyz_config: ^0.12.1
   xyz_gen_annotations: ^0.6.0
-  xyz_pod: ^0.17.0
+  xyz_pod: ^0.18.1
   xyz_utils: ^0.36.0
 
   async: ^2.11.0

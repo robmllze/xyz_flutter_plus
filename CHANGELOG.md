@@ -8,7 +8,7 @@
 
 - Initial release.
 
-## [0.23.2]
+## [0.23.3]
 
 - Current release.
 
