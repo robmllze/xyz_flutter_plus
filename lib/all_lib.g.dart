@@ -7,8 +7,6 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
-library;
-
 export 'components/all_components.g.dart';
 export 'components/scalable/w_circle_button.dart';
 export 'components/scalable/w_custom_scroll_bar.dart';
@@ -46,6 +44,7 @@ export 'components/w_rebuilder.dart';
 export 'components/w_row.dart';
 export 'components/w_scrollbar.dart';
 export 'components/w_slider.dart';
+export 'components/w_spinner.dart';
 export 'components/w_stateful_builder.dart';
 export 'components/w_tap_detector.dart';
 export 'components/w_widget_calculator.dart';
