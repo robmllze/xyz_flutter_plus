@@ -12,7 +12,7 @@
 
 import 'dart:ui' show Color;
 
-import '/utils/color/color_blenders.dart';
+import '/src/utils/color/color_blenders.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
