@@ -50,7 +50,7 @@ export 'components/w_tap_detector.dart';
 export 'components/w_widget_calculator.dart';
 export 'utils/all_utils.g.dart';
 export 'utils/app_layout.dart';
-export 'utils/app_units.dart';
+export 'utils/app_scale.dart';
 export 'utils/color/color_blenders.dart';
 export 'utils/color/color_mixer.dart';
 export 'utils/color/color_utils.dart';
