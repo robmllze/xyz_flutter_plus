@@ -14,18 +14,14 @@ import '/_common.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-final pDefaultAppScale = Pod<AppScale>(const AppScale());
-
-// ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
-
 class AppScale {
   //
   //
   //
 
-  static SharedPreferences? sharedPreferences;
+  static final pDefaultAppScale = Pod<AppScale>(const AppScale());
 
-  static AppScale? currentUnits;
+  static SharedPreferences? sharedPreferences;
 
   //
   //
@@ -37,12 +33,14 @@ class AppScale {
   //
   //
 
+  @visibleForTesting
   const AppScale([this.sc = 1.0]);
 
   //
   //
   //
 
+  @visibleForTesting
   factory AppScale.determineFrom({
     required double scaleDivisor,
     required Size scaleSize,
@@ -60,6 +58,7 @@ class AppScale {
   //
   //
 
+  @visibleForTesting
   factory AppScale.rescale(AppScale other, double sc) {
     return AppScale(other.sc * sc);
   }
@@ -127,7 +126,7 @@ class AppScale {
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
 extension NumToScExtension on num {
-  double get sc => this * pDefaultAppScale.value.sc;
+  double get sc => this * AppScale.pDefaultAppScale.value.sc;
 }
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
