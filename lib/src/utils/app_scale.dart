@@ -81,7 +81,7 @@ class AppScale {
   //
   //
 
-  static Future<bool> setAndSaveAppScale(
+  static Future<bool> setAppScaleAndSaveToCache(
     double appScale, [
     Pod<AppScale>? pAppScale,
   ]) async {
@@ -94,29 +94,29 @@ class AppScale {
   //
   //
 
-  static Future<void> updateAndSaveAppScale(
+  static Future<void> updateAppScaleAndSaceToCache(
     double Function(double) update, [
     Pod<AppScale>? pAppScale,
   ]) async {
     final appScale = update(
       (pAppScale ?? pDefaultAppScale).value.sc,
     );
-    await setAndSaveAppScale(appScale);
+    await setAppScaleAndSaveToCache(appScale);
   }
 
   //
   //
   //
 
-  static Future<void> resetAndSaveAppScale() async {
-    await setAndSaveAppScale(1.0);
+  static Future<void> resetAppScaleAndSaveToCache() async {
+    await setAppScaleAndSaveToCache(1.0);
   }
 
   //
   //
   //
 
-  static Future<void> getAndSetAppScale([
+  static Future<void> setAppScaleFromCache([
     Pod<AppScale>? pAppScale,
   ]) async {
     final appScale = await getAppScaleFromCache() ?? const AppScale();
