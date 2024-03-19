@@ -1,17 +1,16 @@
 //.title
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //
-// X|Y|Z & Dev
+// X|Y|Z & Dev 
 //
 // Copyright Ⓒ Robert Mollentze, xyzand.dev
-//
+// 
 // Licensing details can be found in the LICENSE file in the root directory.
-//
+// 
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
-import 'package:flutter/material.dart';
-import '../utils/app_scale.dart';
+import '/_common.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
@@ -59,11 +58,9 @@ class WAction extends StatelessWidget {
 
   @override
   Widget build(_) {
-    final firstIconPadding =
-        this.firstIconPadding ?? EdgeInsets.only(left: 8.sc);
+    final firstIconPadding = this.firstIconPadding ?? EdgeInsets.only(left: 8.sc);
     final firstPadding = this.firstPadding ?? EdgeInsets.only(left: 16.sc);
-    final secondIconPadding =
-        this.secondIconPadding ?? EdgeInsets.only(right: 8.sc);
+    final secondIconPadding = this.secondIconPadding ?? EdgeInsets.only(right: 8.sc);
     final secondPadding = this.secondPadding ?? EdgeInsets.only(right: 16.sc);
     return GestureDetector(
       behavior: HitTestBehavior.translucent,
@@ -89,17 +86,14 @@ class WAction extends StatelessWidget {
                 if (this.first != null)
                   Expanded(
                     child: Padding(
-                      padding:
-                          firstIcon == null ? firstIconPadding : firstPadding,
+                      padding: firstIcon == null ? firstIconPadding : firstPadding,
                       child: this.first!,
                     ),
                   ),
                 if (this.second != null)
                   Expanded(
                     child: Padding(
-                      padding: secondIcon == null
-                          ? secondIconPadding
-                          : secondPadding,
+                      padding: secondIcon == null ? secondIconPadding : secondPadding,
                       child: this.second!,
                     ),
                   ),
