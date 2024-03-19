@@ -19,16 +19,15 @@ class AppScalePod<T extends AppScaleEnumMixin> extends AppPropertyPod<T> {
   //
   //
 
-  static AppScalePod? pDefault;
+  static AppScalePod get pDefault => _pDefault;
+  static late AppScalePod _pDefault;
 
   //
   //
   //
 
-  AppScalePod({
-    required super.values,
-  }) {
-    pDefault = this;
+  AppScalePod({required super.values}) {
+    _pDefault = this;
   }
 
   //
@@ -63,7 +62,7 @@ mixin AppScaleEnumMixin implements Enum {
 }
 
 extension NumToScExtension on num {
-  double get sc => this * AppScalePod.pDefault!.value.scale;
+  double get sc => this * AppScalePod.pDefault.value.scale;
 }
 
 class Sc {

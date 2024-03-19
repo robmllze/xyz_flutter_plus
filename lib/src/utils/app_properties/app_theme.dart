@@ -19,16 +19,15 @@ class AppThemePod<T extends AppScaleEnumMixin> extends AppPropertyPod<T> {
   //
   //
 
-  static AppThemePod? pDefault;
+  static AppThemePod get pDefault => _pDefault;
+  static late AppThemePod _pDefault;
 
   //
   //
   //
 
-  AppThemePod({
-    required super.values,
-  }) {
-    pDefault = this;
+  AppThemePod({required super.values}) {
+    _pDefault = this;
   }
 
   //

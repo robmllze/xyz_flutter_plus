@@ -3,7 +3,7 @@
 ## [0.30.0]
 
 - Released @ 2024-03-19 02:39:20.026456Z
-- Simplified classes
+- Simplify classes
 
 ## [0.29.1]
 

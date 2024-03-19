@@ -21,19 +21,19 @@ class AppLocalePod<T extends AppLocaleEnumMixin> extends AppPropertyPod<T> {
   //
   //
 
-  static AppLocalePod? pDefault;
   static final _fileReader = TranslationFileReader(
     fileReader: (filePath) => rootBundle.loadString(filePath),
   );
 
+  static AppLocalePod get pDefault => _pDefault;
+  static late AppLocalePod _pDefault;
+
   //
   //
   //
 
-  AppLocalePod({
-    required super.values,
-  }) {
-    pDefault = this;
+  AppLocalePod({required super.values}) {
+    _pDefault = this;
   }
 
   //
