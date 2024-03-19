@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.30.0]
+
+- Released @ 2024-03-19 02:39:20.026456Z
+- Simplified classes
+
 ## [0.29.1]
 
 - Released @ 2024-03-19 02:04:23.582999Z
