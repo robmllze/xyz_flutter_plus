@@ -14,27 +14,20 @@ import '/_common.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-class AppThemePod extends AppPropertyPod<AppThemeEnumMixin> {
+class AppThemePod<T extends AppScaleEnumMixin> extends AppPropertyPod<T> {
   //
   //
   //
 
   static AppThemePod? pDefault;
-  static SharedPreferences? _sharedPreferences;
-  //
-  //
-  //
-
-  final List<AppThemeEnumMixin> values;
 
   //
   //
   //
 
-  AppThemePod(
-    super.value, {
-    required this.values,
-  }) : super(propertyKey: "app_theme") {
+  AppThemePod({
+    required super.values,
+  }) {
     pDefault = this;
   }
 
@@ -43,15 +36,9 @@ class AppThemePod extends AppPropertyPod<AppThemeEnumMixin> {
   //
 
   @override
-  Future<void> setProperty(AppThemeEnumMixin? property) async {
-    if (property != null) {
-      _sharedPreferences ??= await SharedPreferences.getInstance();
-      await _sharedPreferences!.setString(
-        super.propertyKey,
-        property.name,
-      );
-      await this.set(property);
-    }
+  Future<void> setProperty(T property) async {
+    await super.setProperty(property);
+    await this.set(property);
   }
 
   //
@@ -59,16 +46,18 @@ class AppThemePod extends AppPropertyPod<AppThemeEnumMixin> {
   //
 
   @override
-  Future<AppThemeEnumMixin?> getProperty() async {
-    _sharedPreferences ??= await SharedPreferences.getInstance();
-    final string = _sharedPreferences!.getString(super.propertyKey);
-    if (string != null) {
-      final property = this.values.valueOf(string);
-      if (property != null) {
-        await this.set(property);
-        return property;
-      }
+  Future<T?> getProperty() async {
+    final property = await super.getProperty();
+    if (property != null) {
+      await this.set(property);
     }
-    return null;
+    return property;
   }
+}
+
+// ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+
+/// A mixin for an enum that represents a theme.
+mixin AppThemeEnumMixin implements Enum {
+  ThemeData get themeData;
 }

@@ -10,17 +10,54 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
+import 'package:flutter/services.dart' show rootBundle;
+
 import '/_common.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-extension NumToScExtension on num {
-  double get sc => this * AppScalePod.pDefault!.value;
-}
+class AppLocalePod<T extends AppLocaleEnumMixin> extends AppPropertyPod<T> {
+  //
+  //
+  //
 
-class Sc {
-  final double _value;
-  const Sc(this._value);
-  static const zero = Sc(0.0);
-  double get sc => this._value.sc;
+  static AppLocalePod? pDefault;
+  static final _fileReader = TranslationFileReader(
+    fileReader: (filePath) => rootBundle.loadString(filePath),
+  );
+
+  //
+  //
+  //
+
+  AppLocalePod({
+    required super.values,
+  }) {
+    pDefault = this;
+  }
+
+  //
+  //
+  //
+
+  @override
+  Future<void> setProperty(T property) async {
+    await _fileReader.read(property);
+    await super.setProperty(property);
+    await this.set(property);
+  }
+
+  //
+  //
+  //
+
+  @override
+  Future<T?> getProperty() async {
+    final property = await super.getProperty();
+    if (property != null) {
+      await _fileReader.read(property);
+      await this.set(property);
+    }
+    return property;
+  }
 }

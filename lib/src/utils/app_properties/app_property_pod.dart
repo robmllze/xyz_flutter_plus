@@ -14,28 +14,57 @@ import '/_common.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-abstract class AppPropertyPod<T> extends Pod<T> {
+abstract class AppPropertyPod<T extends Enum> extends Pod<T> {
   //
   //
   //
 
-  final String propertyKey;
-
-  //
-  //
-  //
-
-  AppPropertyPod(super.value, {required this.propertyKey});
+  static SharedPreferences? _sharedPreferences;
 
   //
   //
   //
 
-  Future<void> setProperty(T value);
+  final List<T> values;
 
   //
   //
   //
 
-  Future<T?> getProperty();
+  AppPropertyPod({
+    required this.values,
+  }) : super(values.first);
+
+  //
+  //
+  //
+
+  @mustBeOverridden
+  @mustCallSuper
+  Future<void> setProperty(T property) async {
+    _sharedPreferences ??= await SharedPreferences.getInstance();
+    await _sharedPreferences!.setString(this.propertyKey, property.name);
+  }
+
+  //
+  //
+  //
+
+  @mustBeOverridden
+  @mustCallSuper
+  Future<T?> getProperty() async {
+    _sharedPreferences ??= await SharedPreferences.getInstance();
+    final raw = _sharedPreferences!.getString(this.propertyKey);
+    if (raw != null) {
+      final property = this.values.valueOf(raw);
+      return property;
+    }
+    return null;
+  }
+
+  //
+  //
+  //
+
+  String get propertyKey => T.hashCode.toString();
 }

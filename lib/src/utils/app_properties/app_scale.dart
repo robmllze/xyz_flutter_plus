@@ -14,19 +14,20 @@ import '/_common.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-class AppScalePod extends AppPropertyPod<double> {
+class AppScalePod<T extends AppScaleEnumMixin> extends AppPropertyPod<T> {
   //
   //
   //
 
   static AppScalePod? pDefault;
-  static SharedPreferences? _sharedPreferences;
 
   //
   //
   //
 
-  AppScalePod(super.value) : super(propertyKey: "app_scale") {
+  AppScalePod({
+    required super.values,
+  }) {
     pDefault = this;
   }
 
@@ -35,12 +36,9 @@ class AppScalePod extends AppPropertyPod<double> {
   //
 
   @override
-  Future<void> setProperty(double? property) async {
-    _sharedPreferences ??= await SharedPreferences.getInstance();
-    if (property != null) {
-      await _sharedPreferences!.setDouble(this.propertyKey, property);
-      await this.set(property);
-    }
+  Future<void> setProperty(T property) async {
+    await super.setProperty(property);
+    await this.set(property);
   }
 
   //
@@ -48,9 +46,29 @@ class AppScalePod extends AppPropertyPod<double> {
   //
 
   @override
-  Future<double?> getProperty() async {
-    _sharedPreferences ??= await SharedPreferences.getInstance();
-    final property = _sharedPreferences!.getDouble(this.propertyKey);
+  Future<T?> getProperty() async {
+    final property = await super.getProperty();
+    if (property != null) {
+      await this.set(property);
+    }
     return property;
   }
+}
+
+// ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+
+/// A mixin for an enum that represents a scale.
+mixin AppScaleEnumMixin implements Enum {
+  double get scale;
+}
+
+extension NumToScExtension on num {
+  double get sc => this * AppScalePod.pDefault!.value.scale;
+}
+
+class Sc {
+  final double _value;
+  const Sc(this._value);
+  static const zero = Sc(0.0);
+  double get sc => this._value.sc;
 }
