@@ -73,7 +73,7 @@ mixin AppLocaleEnumMixin implements Enum {
   /// The translation file reader for this locale.
   TranslationFileReader get translationFileReader {
     return TranslationFileReader(
-      translationsDirPath: ["assets", "translations"],
+      translationsDirPath: ["translations"],
       fileReader: (filePath) => rootBundle.loadString(filePath),
     );
   }
