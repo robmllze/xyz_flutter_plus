@@ -45,11 +45,9 @@ class AppThemePod<T extends AppThemeEnumMixin> extends AppPropertyPod<T> {
   //
 
   @override
-  Future<T?> getProperty() async {
+  Future<T> getProperty() async {
     final property = await super.getProperty();
-    if (property != null) {
-      await this.set(property);
-    }
+    await this.set(property);
     return property;
   }
 }

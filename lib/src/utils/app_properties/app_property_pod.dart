@@ -52,14 +52,16 @@ abstract class AppPropertyPod<T extends Enum> extends Pod<T> {
 
   @mustBeOverridden
   @mustCallSuper
-  Future<T?> getProperty() async {
+  Future<T> getProperty() async {
     _sharedPreferences ??= await SharedPreferences.getInstance();
     final raw = _sharedPreferences!.getString(this.propertyKey);
     if (raw != null) {
       final property = this.values.valueOf(raw);
-      return property;
+      if (property != null) {
+        return property;
+      }
     }
-    return null;
+    return this.value;
   }
 
   //

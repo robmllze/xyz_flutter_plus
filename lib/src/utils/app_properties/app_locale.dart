@@ -48,12 +48,10 @@ class AppLocalePod<T extends AppLocaleEnumMixin> extends AppPropertyPod<T> {
   //
 
   @override
-  Future<T?> getProperty() async {
+  Future<T> getProperty() async {
     final property = await super.getProperty();
-    if (property != null) {
-      await property._read();
-      await this.set(property);
-    }
+    await property._read();
+    await this.set(property);
     return property;
   }
 }
