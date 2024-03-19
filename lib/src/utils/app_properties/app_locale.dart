@@ -28,16 +28,7 @@ class AppLocalePod<T extends AppLocaleEnumMixin> extends AppPropertyPod<T> {
   //
   //
 
-  final TranslationFileReader? fileReader;
-
-  //
-  //
-  //
-
-  AppLocalePod({
-    required super.values,
-    required this.fileReader,
-  }) {
+  AppLocalePod({required super.values}) {
     _pDefault = this;
   }
 
@@ -77,8 +68,7 @@ mixin AppLocaleEnumMixin implements Enum {
   LocaleRef get localeRef => LocaleRef.fromCode(localeCode);
 
   /// The description of this locale.
-  String get localeDescription =>
-      "Locales.descriptions.${this.name}||${this.name}".tr();
+  String get localeDescription => "Locales.descriptions.${this.name}||${this.name}".tr();
 
   /// The translation file reader for this locale.
   TranslationFileReader get translationFileReader {
