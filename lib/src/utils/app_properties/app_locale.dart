@@ -21,9 +21,14 @@ class AppLocalePod<T extends AppLocaleEnumMixin> extends AppPropertyPod<T> {
   //
   //
 
-  static final _fileReader = TranslationFileReader(
+  static final _defaultFileReader = TranslationFileReader(
+    translationsDirPath: ["assets", "translations"],
     fileReader: (filePath) => rootBundle.loadString(filePath),
   );
+
+  //
+  //
+  //
 
   static AppLocalePod get pDefault => _pDefault;
   static late AppLocalePod _pDefault;
@@ -32,7 +37,16 @@ class AppLocalePod<T extends AppLocaleEnumMixin> extends AppPropertyPod<T> {
   //
   //
 
-  AppLocalePod({required super.values}) {
+  final TranslationFileReader? fileReader;
+
+  //
+  //
+  //
+
+  AppLocalePod({
+    required super.values,
+    required this.fileReader,
+  }) {
     _pDefault = this;
   }
 
@@ -42,7 +56,7 @@ class AppLocalePod<T extends AppLocaleEnumMixin> extends AppPropertyPod<T> {
 
   @override
   Future<void> setProperty(T property) async {
-    await _fileReader.read(property);
+    await (this.fileReader ?? _defaultFileReader).read(property);
     await super.setProperty(property);
     await this.set(property);
   }
@@ -55,7 +69,7 @@ class AppLocalePod<T extends AppLocaleEnumMixin> extends AppPropertyPod<T> {
   Future<T?> getProperty() async {
     final property = await super.getProperty();
     if (property != null) {
-      await _fileReader.read(property);
+      await (this.fileReader ?? _defaultFileReader).read(property);
       await this.set(property);
     }
     return property;
