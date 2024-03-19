@@ -44,14 +44,18 @@ extension TextStyleWithFontWeights on TextStyle {
         fontWeight: FONT_WEIGHT_REGULAR,
       );
   TextStyle get wLight => this.copyWith(fontWeight: FONT_WEIGHT_LIGHT);
-  TextStyle get wExtraLight => this.copyWith(fontWeight: FONT_WEIGHT_EXTRA_LIGHT);
+  TextStyle get wExtraLight =>
+      this.copyWith(fontWeight: FONT_WEIGHT_EXTRA_LIGHT);
   TextStyle get wThin => this.copyWith(fontWeight: FONT_WEIGHT_THIN);
 }
 
 extension TextStyleWithDecorations on TextStyle {
-  TextStyle get wUnderlined => this.copyWith(decoration: TextDecoration.underline);
-  TextStyle get wOverlined => this.copyWith(decoration: TextDecoration.overline);
-  TextStyle get wLineThough => this.copyWith(decoration: TextDecoration.lineThrough);
+  TextStyle get wUnderlined =>
+      this.copyWith(decoration: TextDecoration.underline);
+  TextStyle get wOverlined =>
+      this.copyWith(decoration: TextDecoration.overline);
+  TextStyle get wLineThough =>
+      this.copyWith(decoration: TextDecoration.lineThrough);
 }
 
 extension TextStyleWithItalic on TextStyle {
@@ -59,6 +63,8 @@ extension TextStyleWithItalic on TextStyle {
 }
 
 extension TextStyleWithSpacing on TextStyle {
-  TextStyle wWordSpacing(double wordSpacing) => this.copyWith(wordSpacing: wordSpacing);
-  TextStyle wLetterSpacing(double letterSpacing) => this.copyWith(letterSpacing: letterSpacing);
+  TextStyle wWordSpacing(double wordSpacing) =>
+      this.copyWith(wordSpacing: wordSpacing);
+  TextStyle wLetterSpacing(double letterSpacing) =>
+      this.copyWith(letterSpacing: letterSpacing);
 }
