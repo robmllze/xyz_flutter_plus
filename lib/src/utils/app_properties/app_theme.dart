@@ -14,7 +14,7 @@ import '/_common.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-class AppThemePod<T extends AppScaleEnumMixin> extends AppPropertyPod<T> {
+class AppThemePod<T extends AppThemeEnumMixin> extends AppPropertyPod<T> {
   //
   //
   //
