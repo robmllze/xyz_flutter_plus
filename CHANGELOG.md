@@ -4,7 +4,6 @@
 
 - Released @ 2024-03-20 03:19:55.022999Z
 - Update dependencies
-- Small update
 
 ## [0.35.1]
 
