@@ -8,7 +8,7 @@
 ## [0.35.0]
 
 - Released @ 2024-03-20 02:02:41.924685Z
-- Fixed issues with AppPropertyPod classes
+- Fix issues with AppPropertyPod classes
 
 ## [0.34.5]
 
