@@ -10,11 +10,11 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
-import '/_common.dart';
+import "/_common.dart";
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-abstract class AppPropertyPod<T extends Enum> extends Pod<T> {
+abstract class AppPropertyPod<T extends Enum> extends Pod<T?> {
   //
   //
   //
@@ -33,7 +33,7 @@ abstract class AppPropertyPod<T extends Enum> extends Pod<T> {
 
   AppPropertyPod({
     required this.values,
-  }) : super(values.first);
+  }) : super(values.firstOrNull);
 
   //
   //
@@ -52,7 +52,7 @@ abstract class AppPropertyPod<T extends Enum> extends Pod<T> {
 
   @mustBeOverridden
   @mustCallSuper
-  Future<T> getProperty() async {
+  Future<T?> getProperty() async {
     _sharedPreferences ??= await SharedPreferences.getInstance();
     final raw = _sharedPreferences!.getString(this.propertyKey);
     if (raw != null) {

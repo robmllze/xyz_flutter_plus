@@ -10,9 +10,9 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
-import 'package:flutter/services.dart' show rootBundle;
+import "package:flutter/services.dart" show rootBundle;
 
-import '/_common.dart';
+import "/_common.dart";
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
@@ -21,8 +21,12 @@ class AppLocalePod<T extends AppLocaleEnumMixin> extends AppPropertyPod<T> {
   //
   //
 
-  static AppLocalePod get pDefault => _pDefault;
-  static late AppLocalePod _pDefault;
+  static AppLocalePod get pDefault {
+    assert(_pDefault != null, "AppLocalePod.pDefault is null");
+    return _pDefault!;
+  }
+
+  static AppLocalePod? _pDefault;
 
   //
   //
@@ -48,9 +52,9 @@ class AppLocalePod<T extends AppLocaleEnumMixin> extends AppPropertyPod<T> {
   //
 
   @override
-  Future<T> getProperty() async {
+  Future<T?> getProperty() async {
     final property = await super.getProperty();
-    await property._read();
+    await property?._read();
     await this.set(property);
     return property;
   }

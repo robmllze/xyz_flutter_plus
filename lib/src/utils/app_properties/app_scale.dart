@@ -10,7 +10,7 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
-import '/_common.dart';
+import "/_common.dart";
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
@@ -19,8 +19,12 @@ class AppScalePod<T extends AppScaleEnumMixin> extends AppPropertyPod<T> {
   //
   //
 
-  static AppScalePod get pDefault => _pDefault;
-  static late AppScalePod _pDefault;
+  static AppScalePod get pDefault {
+    assert(_pDefault != null, "AppScalePod.pDefault is null");
+    return _pDefault!;
+  }
+
+  static AppScalePod? _pDefault;
 
   //
   //
@@ -45,7 +49,7 @@ class AppScalePod<T extends AppScaleEnumMixin> extends AppPropertyPod<T> {
   //
 
   @override
-  Future<T> getProperty() async {
+  Future<T?> getProperty() async {
     final property = await super.getProperty();
     await this.set(property);
     return property;
@@ -60,7 +64,7 @@ mixin AppScaleEnumMixin implements Enum {
 }
 
 extension NumToScExtension on num {
-  double get sc => this * AppScalePod.pDefault.value.scale;
+  double get sc => this * (AppScalePod._pDefault?.value?.scale ?? 1.0);
 }
 
 class Sc {

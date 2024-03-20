@@ -10,7 +10,7 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
-import '/_common.dart';
+import "/_common.dart";
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
@@ -19,8 +19,12 @@ class AppThemePod<T extends AppThemeEnumMixin> extends AppPropertyPod<T> {
   //
   //
 
-  static AppThemePod get pDefault => _pDefault;
-  static late AppThemePod _pDefault;
+  static AppThemePod get pDefault {
+    assert(_pDefault != null, "AppThemePod.pDefault is null");
+    return _pDefault!;
+  }
+
+  static AppThemePod? _pDefault;
 
   //
   //
@@ -45,7 +49,7 @@ class AppThemePod<T extends AppThemeEnumMixin> extends AppPropertyPod<T> {
   //
 
   @override
-  Future<T> getProperty() async {
+  Future<T?> getProperty() async {
     final property = await super.getProperty();
     await this.set(property);
     return property;
