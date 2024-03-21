@@ -13,13 +13,13 @@
 name: xyz_flutter_plus
 description: This package provides a set of utilities that are commonly used in Flutter apps.
 repository: https://github.com/robmllze/xyz_flutter_plus
-version: 0.37.0
+version: 0.39.0
 
 ## -----------------------------------------------------------------------------
 
 environment:
 
-  sdk: ">=3.2.6 <4.0.0"
+  sdk: '>=3.3.1 <4.0.0'
   flutter: ">=1.17.0"
 
 ## -----------------------------------------------------------------------------
@@ -29,23 +29,24 @@ dependencies:
   flutter:
     sdk: flutter
 
-  xyz_config: ^0.22.0
-  xyz_gen_annotations: ^0.13.0
-  xyz_pod: ^0.22.0
-  xyz_utils: ^0.49.0
+  xyz_config: ^0.24.0
+  xyz_gen_annotations: ^0.15.0
+  xyz_pod: ^0.23.0
+  xyz_utils: ^0.51.0
 
   async: ^2.11.0
-  connectivity_plus: ^5.0.2
+  connectivity_plus: ^6.0.1
   crypto: ^3.0.3
-  device_info_plus: ^9.1.1
+  device_info_plus: ^10.0.1
   equatable: ^2.0.5
-  go_router: ^13.1.0
+  go_router: ^13.2.1
   html: ^0.15.4
-  http: ^1.2.0
-  meta: ^1.10.0
-  path: ^1.8.3
+  http: ^1.2.1
+  meta: ^1.11.0
+  path: ^1.9.0
   shared_preferences: ^2.2.2
-  url_launcher: ^6.2.4
+  url_launcher: ^6.2.5
+
 
 ## -----------------------------------------------------------------------------
 
