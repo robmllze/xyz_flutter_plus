@@ -1,7 +1,7 @@
 ##.title
 ## ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 ##
-## X|Y|Z & Dev
+## 🇽🇾🇿 & Dev
 ##
 ## Copyright Ⓒ Robert Mollentze, xyzand.dev
 ## 
@@ -13,14 +13,14 @@
 name: xyz_flutter_plus
 description: This package provides a set of utilities that are commonly used in Flutter apps.
 repository: https://github.com/robmllze/xyz_flutter_plus
-version: 0.38.0
+version: 0.38.1
 
 ## -----------------------------------------------------------------------------
 
 environment:
 
   sdk: '>=3.3.1 <4.0.0'
-  flutter: ">=1.17.0"
+  flutter: '>=1.17.0'
 
 ## -----------------------------------------------------------------------------
 
@@ -29,10 +29,10 @@ dependencies:
   flutter:
     sdk: flutter
 
-  xyz_config: ^0.24.0
-  xyz_gen_annotations: ^0.15.0
-  xyz_pod: ^0.23.0
-  xyz_utils: ^0.51.0
+  xyz_config: ^0.24.1
+  xyz_gen_annotations: ^0.15.1
+  xyz_pod: ^0.23.1
+  xyz_utils: ^0.51.1
 
   async: ^2.11.0
   connectivity_plus: ^6.0.1

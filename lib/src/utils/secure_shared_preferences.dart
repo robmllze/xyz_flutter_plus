@@ -1,7 +1,7 @@
 //.title
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //
-// X|Y|Z & Dev
+// 🇽🇾🇿 & Dev
 //
 // Copyright Ⓒ Robert Mollentze, xyzand.dev
 //
@@ -47,7 +47,7 @@ export 'package:shared_preferences/shared_preferences.dart';
 
 //   Future<bool> setStringSalsa20(String key, String value) {
 //     // Password = hardcoded password + key.
-//     final password = Key.fromUtf8("${this.password}$key");
+//     final password = Key.fromUtf8('${this.password}$key');
 //     final encrypter = Encrypter(Salsa20(password));
 //     final encrypted = encrypter.encrypt(value, iv: IV.fromLength(8));
 //     return this.sharedPreferences.setString(key, encrypted.base64);
@@ -61,7 +61,7 @@ export 'package:shared_preferences/shared_preferences.dart';
 //     final raw = this.sharedPreferences.getString(key);
 //     if (raw != null) {
 //       // Password = hardcoded password + key.
-//       final password = Key.fromUtf8("${this.password}$key");
+//       final password = Key.fromUtf8('${this.password}$key');
 //       final encrypter = Encrypter(Salsa20(password));
 //       final decrypted = encrypter.decrypt(
 //         Encrypted.fromBase64(raw),

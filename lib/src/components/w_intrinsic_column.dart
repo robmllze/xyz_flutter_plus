@@ -1,7 +1,7 @@
 //.title
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //
-// X|Y|Z & Dev
+// 🇽🇾🇿 & Dev
 //
 // Copyright Ⓒ Robert Mollentze, xyzand.dev
 //
@@ -18,7 +18,7 @@ import 'package:flutter/material.dart';
 /// ```dart
 /// IntrinsicColumn(
 ///   children: [
-///     Text("Hello World!"),
+///     Text('Hello World!'),
 ///     // The width of the Container will match the width of the Text.
 ///     Container(
 ///       // Underline thickness.

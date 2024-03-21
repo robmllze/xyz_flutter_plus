@@ -1,7 +1,7 @@
 //.title
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //
-// X|Y|Z & Dev
+// 🇽🇾🇿 & Dev
 //
 // Copyright Ⓒ Robert Mollentze, xyzand.dev
 //
@@ -103,7 +103,7 @@ class ColorMixer {
 
     void add(i) {
       final color = this.getMix(i)?.value.toRadixString(16).toUpperCase();
-      //output.writeln("@override");
+      //output.writeln('@override');
       output.writeln('$prefix$baseName$i = const Color(0x$color);');
     }
 
