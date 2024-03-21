@@ -104,7 +104,7 @@ class ColorMixer {
     void add(i) {
       final color = this.getMix(i)?.value.toRadixString(16).toUpperCase();
       //output.writeln("@override");
-      output.writeln("$prefix$baseName$i = const Color(0x$color);");
+      output.writeln('$prefix$baseName$i = const Color(0x$color);');
     }
 
     add(0);

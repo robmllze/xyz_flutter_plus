@@ -48,7 +48,7 @@ class WIndentedJson extends StatelessWidget {
       for (final entry in data.entries) {
         children.add(
           Text(
-            "${_indent(level)}${entry.key}:",
+            '${_indent(level)}${entry.key}:',
             style: style?.copyWith(fontWeight: FontWeight.bold),
           ),
         );
@@ -61,7 +61,7 @@ class WIndentedJson extends StatelessWidget {
     } else {
       children.add(
         Text(
-          "${_indent(level)}$data",
+          '${_indent(level)}$data',
           style: style?.copyWith(fontWeight: FontWeight.normal),
         ),
       );
