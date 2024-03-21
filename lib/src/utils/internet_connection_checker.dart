@@ -10,11 +10,11 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
-import "dart:async";
-import "package:connectivity_plus/connectivity_plus.dart";
-import "package:http/http.dart" as http;
+import 'dart:async';
+import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:http/http.dart' as http;
 
-import "/_common.dart";
+import '/_common.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
@@ -23,7 +23,7 @@ class InternetConnectionChecker {
   //
   //
 
-  static final pingUrl = Uri.parse("https://httpstat.us/200");
+  static final pingUrl = Uri.parse('https://httpstat.us/200');
   static const kTimeOutDuration = Duration(seconds: 5);
   static const kDebounceDelay = Duration(seconds: 3);
 

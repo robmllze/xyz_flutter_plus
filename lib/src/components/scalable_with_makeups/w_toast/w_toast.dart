@@ -10,26 +10,26 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
-import "package:xyz_gen_annotations/xyz_gen_annotations.dart";
+import 'package:xyz_gen_annotations/xyz_gen_annotations.dart';
 
-import "/_common.dart";
+import '/_common.dart';
 
-part "_w_toast_makeup.g.dart";
+part '_w_toast_makeup.g.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
 @GenerateMakeups(
   properties: {
-    "actionTextStyle": "TextStyle?",
-    "backgroundColor": "Color?",
-    "barColor": "Color?",
-    "closeIcon": "Widget?",
-    "dateTextStyle": "TextStyle?",
-    "descriptionTextStyle": "TextStyle?",
-    "icon": "Widget?",
-    "radius": "Radius?",
-    "shadow": "List<BoxShadow>?",
-    "titleTextStyle": "TextStyle?",
+    'actionTextStyle': 'TextStyle?',
+    'backgroundColor': 'Color?',
+    'barColor': 'Color?',
+    'closeIcon': 'Widget?',
+    'dateTextStyle': 'TextStyle?',
+    'descriptionTextStyle': 'TextStyle?',
+    'icon': 'Widget?',
+    'radius': 'Radius?',
+    'shadow': 'List<BoxShadow>?',
+    'titleTextStyle': 'TextStyle?',
   },
 )
 class WToast extends StatefulWidget {

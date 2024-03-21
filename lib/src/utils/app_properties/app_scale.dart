@@ -10,7 +10,7 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
-import "/_common.dart";
+import '/_common.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
@@ -20,7 +20,7 @@ class AppScalePod<T extends AppScaleEnumMixin> extends AppPropertyPod<T> {
   //
 
   static AppScalePod get pDefault {
-    assert(_pDefault != null, "AppScalePod.pDefault is null");
+    assert(_pDefault != null, 'AppScalePod.pDefault is null');
     return _pDefault!;
   }
 

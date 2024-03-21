@@ -10,20 +10,20 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
-import "package:xyz_gen_annotations/xyz_gen_annotations.dart";
+import 'package:xyz_gen_annotations/xyz_gen_annotations.dart';
 
-import "/_common.dart";
+import '/_common.dart';
 
-part "_w_scrollable_makeup.g.dart";
+part '_w_scrollable_makeup.g.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
 @GenerateMakeups(
   properties: {
-    "insidePadding": "EdgeInsets?",
-    "thumbVisibility": "bool?",
-    "outsidePadding": "EdgeInsets?",
-    "style": "WScrollbarStyle?",
+    'insidePadding': 'EdgeInsets?',
+    'thumbVisibility': 'bool?',
+    'outsidePadding': 'EdgeInsets?',
+    'style': 'WScrollbarStyle?',
   },
 )
 class WScrollable extends StatefulWidget {

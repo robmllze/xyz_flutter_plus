@@ -10,9 +10,9 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
-import "package:flutter/gestures.dart";
+import 'package:flutter/gestures.dart';
 
-import "/_common.dart";
+import '/_common.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
@@ -50,17 +50,17 @@ class WInlineText extends StatelessWidget {
 
   @override
   Widget build(final context) {
-    const opening = "{{";
-    const closing = "}}";
+    const opening = '{{';
+    const closing = '}}';
 
     final segments =
-        text.split(RegExp(r"(?<=" + closing + r")|(?=" + opening + r")"));
+        text.split(RegExp(r'(?<=' + closing + r')|(?=' + opening + r')'));
     final spans = <InlineSpan>[];
 
     for (final segment in segments) {
       if (segment.startsWith(opening) && segment.endsWith(closing)) {
         final data = segment.substring(2, segment.length - 2);
-        final parts = data.split(":");
+        final parts = data.split(':');
         final length = parts.length;
         final key = parts.firstOrNull;
         final widget = namedWidgets[key];
@@ -101,8 +101,8 @@ class WInlineText extends StatelessWidget {
         }
       } else {
         final data = segment
-            .replaceAll("\\$opening", opening)
-            .replaceAll("\\$closing", opening);
+            .replaceAll('\\$opening', opening)
+            .replaceAll('\\$closing', opening);
         spans.add(
           TextSpan(
             text: data,

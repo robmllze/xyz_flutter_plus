@@ -10,9 +10,9 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
-export "package:async/async.dart";
+export 'package:async/async.dart';
 
-import "/_common.dart";
+import '/_common.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
@@ -130,7 +130,7 @@ class _State extends State<WAutocompleterTextField> {
   //
 
   void _onChangeAsync() async {
-    if (this._controller.text == (this._previousText ?? "")) {
+    if (this._controller.text == (this._previousText ?? '')) {
       return;
     }
     this._previousText = this._controller.text;

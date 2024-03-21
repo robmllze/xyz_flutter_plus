@@ -10,9 +10,9 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
-import "package:flutter/services.dart" show rootBundle;
+import 'package:flutter/services.dart' show rootBundle;
 
-import "/_common.dart";
+import '/_common.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
@@ -22,7 +22,7 @@ class AppLocalePod<T extends AppLocaleEnumMixin> extends AppPropertyPod<T> {
   //
 
   static AppLocalePod get pDefault {
-    assert(_pDefault != null, "AppLocalePod.pDefault is null");
+    assert(_pDefault != null, 'AppLocalePod.pDefault is null');
     return _pDefault!;
   }
 
@@ -70,12 +70,12 @@ mixin AppLocaleEnumMixin implements Enum {
   LocaleRef get localeRef => LocaleRef.fromCode(localeCode);
 
   /// The description of this locale.
-  String get localeDescription => "Locales.descriptions.${this.name}".tr();
+  String get localeDescription => 'Locales.descriptions.${this.name}'.tr();
 
   /// The translation file reader for this locale.
   TranslationFileReader get translationFileReader {
     return TranslationFileReader(
-      translationsDirPath: ["assets", "translations"],
+      translationsDirPath: ['assets', 'translations'],
       fileReader: (filePath) => rootBundle.loadString(filePath),
     );
   }

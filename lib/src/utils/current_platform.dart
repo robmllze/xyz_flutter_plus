@@ -10,11 +10,11 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
-import "package:flutter/foundation.dart"
+import 'package:flutter/foundation.dart'
     show TargetPlatform, defaultTargetPlatform, kIsWeb;
-import "package:flutter/widgets.dart" show MediaQueryData, WidgetsBinding;
+import 'package:flutter/widgets.dart' show MediaQueryData, WidgetsBinding;
 
-import "package:device_info_plus/device_info_plus.dart" as device_info_plus;
+import 'package:device_info_plus/device_info_plus.dart' as device_info_plus;
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
@@ -24,7 +24,7 @@ class CurrentPlatform {
   //
 
   final _deviceInfoPlugin = device_info_plus.DeviceInfoPlugin();
-  String _name = "UNKNOWN";
+  String _name = 'UNKNOWN';
   String get name => this._name;
 
   //
@@ -50,11 +50,11 @@ class CurrentPlatform {
   bool supportsPushNotifications() {
     if (kIsWeb) {
       return [
-        "SAFARI ON MACOS",
-        "SAFARI ON IOS",
-        "CHROME ON MACOS",
-        "CHROME ON WINDOWS",
-        "CHROME ON ANDROID",
+        'SAFARI ON MACOS',
+        'SAFARI ON IOS',
+        'CHROME ON MACOS',
+        'CHROME ON WINDOWS',
+        'CHROME ON ANDROID',
       ].contains(this.name);
     }
     return true;
@@ -70,16 +70,16 @@ class CurrentPlatform {
       final info = await this._deviceInfoPlugin.webBrowserInfo;
       final browserName = info.browserName.name.toUpperCase();
       if (isOsMacOs) {
-        return "$browserName ON MACOS";
+        return '$browserName ON MACOS';
       }
       if (isOsWindows) {
-        return "$browserName ON WINDOWS";
+        return '$browserName ON WINDOWS';
       }
       if (isOsIos) {
-        return "$browserName ON IOS";
+        return '$browserName ON IOS';
       }
       if (isOsAndroid) {
-        return "$browserName ON ANDROID";
+        return '$browserName ON ANDROID';
       }
     } else {
       if (isOsAndroid) {
@@ -91,7 +91,7 @@ class CurrentPlatform {
         return info.model;
       }
     }
-    return "UNKNOWN";
+    return 'UNKNOWN';
   }
 
   static final isOsIos = defaultTargetPlatform == TargetPlatform.iOS;

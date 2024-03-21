@@ -10,8 +10,8 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
-import "package:flutter/material.dart";
-import "color_blenders.dart";
+import 'package:flutter/material.dart';
+import 'color_blenders.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
@@ -96,10 +96,10 @@ class ColorMixer {
 
   String getColorRangeDartCode(
     String baseName, [
-    String prefix = "@override\nfinal ",
+    String prefix = '@override\nfinal ',
   ]) {
     final output = StringBuffer();
-    output.writeln("// $baseName");
+    output.writeln('// $baseName');
 
     void add(i) {
       final color = this.getMix(i)?.value.toRadixString(16).toUpperCase();

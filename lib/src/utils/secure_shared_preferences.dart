@@ -10,7 +10,7 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
-export "package:shared_preferences/shared_preferences.dart";
+export 'package:shared_preferences/shared_preferences.dart';
 //import 'package:shared_preferences/shared_preferences.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
@@ -106,7 +106,7 @@ String specificKey({
   required String key,
   required String appId,
 }) {
-  return "$appId?key=$key";
+  return '$appId?key=$key';
 }
 
 String specificVersionKey({
@@ -114,5 +114,5 @@ String specificVersionKey({
   required String appId,
   required String appVersion,
 }) {
-  return "$appId?version=$appVersion&key=$key";
+  return '$appId?version=$appVersion&key=$key';
 }
