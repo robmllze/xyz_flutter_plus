@@ -68,5 +68,5 @@ abstract class AppPropertyPod<T extends Enum> extends Pod<T?> {
   //
   //
 
-  String get propertyKey => T.hashCode.toString();
+  String get propertyKey => T.toString();
 }
