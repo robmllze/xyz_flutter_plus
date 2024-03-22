@@ -19,11 +19,7 @@ class AppScalePod<T extends AppScaleEnumMixin> extends AppPropertyPod<T> {
   //
   //
 
-  static AppScalePod get pDefault {
-    assert(_pDefault != null, 'AppScalePod.pDefault is null');
-    return _pDefault!;
-  }
-
+  static AppScalePod? get pDefault => _pDefault;
   static AppScalePod? _pDefault;
 
   //

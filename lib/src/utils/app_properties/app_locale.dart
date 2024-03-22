@@ -21,11 +21,7 @@ class AppLocalePod<T extends AppLocaleEnumMixin> extends AppPropertyPod<T> {
   //
   //
 
-  static AppLocalePod get pDefault {
-    assert(_pDefault != null, 'AppLocalePod.pDefault is null');
-    return _pDefault!;
-  }
-
+  static AppLocalePod? get pDefault => _pDefault;
   static AppLocalePod? _pDefault;
 
   //
