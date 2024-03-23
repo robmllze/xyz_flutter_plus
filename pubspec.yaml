@@ -4,28 +4,26 @@
 ## 🇽🇾🇿 & Dev
 ##
 ## Copyright Ⓒ Robert Mollentze, xyzand.dev
-## 
+##
 ## Licensing details can be found in the LICENSE file in the root directory.
-## 
+##
 ## ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 ##.title~
 
 name: xyz_flutter_plus
 description: This package provides a set of utilities that are commonly used in Flutter apps.
 repository: https://github.com/robmllze/xyz_flutter_plus
-version: 0.40.3
+version: 0.41.0
 
 ## -----------------------------------------------------------------------------
 
 environment:
-
-  sdk: '>=3.3.1 <4.0.0'
-  flutter: '>=1.17.0'
+  sdk: ">=3.3.1 <4.0.0"
+  flutter: ">=1.17.0"
 
 ## -----------------------------------------------------------------------------
 
 dependencies:
-
   flutter:
     sdk: flutter
 
@@ -47,9 +45,7 @@ dependencies:
   shared_preferences: ^2.2.2
   url_launcher: ^6.2.5
 
-
 ## -----------------------------------------------------------------------------
 
 dev_dependencies:
-
   flutter_lints: ^3.0.1

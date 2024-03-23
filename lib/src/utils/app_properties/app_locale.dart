@@ -65,13 +65,10 @@ mixin AppLocaleEnumMixin implements Enum {
   /// The reference to this locale.
   LocaleRef get localeRef => LocaleRef.fromCode(localeCode);
 
-  /// The description of this locale.
-  String get localeDescription => 'Locales.descriptions.${this.name}'.tr();
-
   /// The translation file reader for this locale.
   TranslationFileReader get translationFileReader {
     return TranslationFileReader(
-      translationsDirPath: ['assets', 'translations'],
+      translationsDirPath: ['translations'],
       fileReader: (filePath) => rootBundle.loadString(filePath),
     );
   }
