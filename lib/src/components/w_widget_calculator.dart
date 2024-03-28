@@ -3,9 +3,7 @@
 //
 // 🇽🇾🇿 & Dev
 //
-// Copyright Ⓒ Robert Mollentze, xyzand.dev
-//
-// Licensing details can be found in the LICENSE file in the root directory.
+// Licencing details are in the LICENSE file in the root directory.
 //
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
@@ -60,8 +58,7 @@ class _State extends State<WWidgetCalculator> {
     super.initState();
     // Wait for the layout to finish before measuring the size.
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      final renderBox =
-          this._key.currentContext?.findRenderObject() as RenderBox?;
+      final renderBox = this._key.currentContext?.findRenderObject() as RenderBox?;
       this.widget.pRenderBox?.set(renderBox);
       this.widget.onPostRender?.call(renderBox);
     });

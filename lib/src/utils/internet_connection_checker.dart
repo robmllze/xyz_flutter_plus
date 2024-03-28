@@ -3,9 +3,7 @@
 //
 // 🇽🇾🇿 & Dev
 //
-// Copyright Ⓒ Robert Mollentze, xyzand.dev
-//
-// Licensing details can be found in the LICENSE file in the root directory.
+// Licencing details are in the LICENSE file in the root directory.
 //
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
@@ -61,15 +59,11 @@ class InternetConnectionChecker {
     void Function()? onInternetConnectionRestored,
     void Function()? onInternetConnectionLost,
   }) {
-    this._stream =
-        Connectivity().onConnectivityChanged.listen((_) => this._debouncer());
+    this._stream = Connectivity().onConnectivityChanged.listen((_) => this._debouncer());
     () async {
       await this.hasInternet();
       this.pHasInternet.addListener(() async {
-        (this.pHasInternet.value
-                ? onInternetConnectionRestored
-                : onInternetConnectionLost)
-            ?.call();
+        (this.pHasInternet.value ? onInternetConnectionRestored : onInternetConnectionLost)?.call();
       });
     }();
   }

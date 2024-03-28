@@ -3,9 +3,7 @@
 //
 // 🇽🇾🇿 & Dev
 //
-// Copyright Ⓒ Robert Mollentze, xyzand.dev
-//
-// Licensing details can be found in the LICENSE file in the root directory.
+// Licencing details are in the LICENSE file in the root directory.
 //
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
@@ -123,9 +121,7 @@ class _State extends State<WCustomScrollBar> {
                   if (this.widget.scrollController != null) {
                     this.widget.scrollController?.jumpTo(
                           this.widget.scrollController!.offset +
-                              offset *
-                                  widget.scrollController!.position
-                                      .maxScrollExtent,
+                              offset * widget.scrollController!.position.maxScrollExtent,
                         );
                   }
                   this._resetTimer();

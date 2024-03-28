@@ -3,9 +3,7 @@
 //
 // 🇽🇾🇿 & Dev
 //
-// Copyright Ⓒ Robert Mollentze, xyzand.dev
-//
-// Licensing details can be found in the LICENSE file in the root directory.
+// Licencing details are in the LICENSE file in the root directory.
 //
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
@@ -135,8 +133,7 @@ class _State extends State<WAutocompleterTextField> {
     }
     this._previousText = this._controller.text;
 
-    if (this._controller.value.selection.start !=
-        this._controller.value.selection.end) {
+    if (this._controller.value.selection.start != this._controller.value.selection.end) {
       return;
     }
 
@@ -184,8 +181,7 @@ class _State extends State<WAutocompleterTextField> {
       if (options.first != this._controller.text) {
         this._showOptionsOverlayEntry(options);
 
-        if (notSelectedText.length >
-            (this._previousNotSelectedText?.length ?? 0)) {
+        if (notSelectedText.length > (this._previousNotSelectedText?.length ?? 0)) {
           this._controller.value = this._controller.value.copyWith(
                 text: options.first,
                 selection: selection.copyWith(

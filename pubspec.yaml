@@ -3,9 +3,7 @@
 ##
 ## 🇽🇾🇿 & Dev
 ##
-## Copyright Ⓒ Robert Mollentze, xyzand.dev
-##
-## Licensing details can be found in the LICENSE file in the root directory.
+## Licencing details are in the LICENSE file in the root directory.
 ##
 ## ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 ##.title~
@@ -13,7 +11,7 @@
 name: xyz_flutter_plus
 description: This package provides a set of utilities that are commonly used in Flutter apps.
 repository: https://github.com/robmllze/xyz_flutter_plus
-version: 0.41.6
+version: 0.42.0
 
 ## -----------------------------------------------------------------------------
 

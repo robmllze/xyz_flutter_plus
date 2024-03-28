@@ -3,9 +3,7 @@
 //
 // 🇽🇾🇿 & Dev
 //
-// Copyright Ⓒ Robert Mollentze, xyzand.dev
-//
-// Licensing details can be found in the LICENSE file in the root directory.
+// Licencing details are in the LICENSE file in the root directory.
 //
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
@@ -56,8 +54,7 @@ enum AppLayout {
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
 ScreenCalculator getCurrentScreenCalculator() {
-  final firstDisplay =
-      WidgetsBinding.instance.platformDispatcher.displays.first;
+  final firstDisplay = WidgetsBinding.instance.platformDispatcher.displays.first;
   final displaySize = firstDisplay.size;
   final displayPixelRatio = firstDisplay.devicePixelRatio;
   final screenSize = displaySize / displayPixelRatio;

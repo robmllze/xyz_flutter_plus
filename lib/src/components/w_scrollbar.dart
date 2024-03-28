@@ -3,9 +3,7 @@
 //
 // 🇽🇾🇿 & Dev
 //
-// Copyright Ⓒ Robert Mollentze, xyzand.dev
-//
-// Licensing details can be found in the LICENSE file in the root directory.
+// Licencing details are in the LICENSE file in the root directory.
 //
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
@@ -140,8 +138,7 @@ class _Scrollbar extends RawScrollbar {
           fadeDuration: scrollbarFadeDuration ?? _kScrollbarFadeDuration,
           timeToFade: scrollbarTimeToFade ?? _kScrollbarTimeToFade,
           pressDuration: Duration.zero,
-          notificationPredicate:
-              notificationPredicate ?? defaultScrollNotificationPredicate,
+          notificationPredicate: notificationPredicate ?? defaultScrollNotificationPredicate,
         );
 
   //
@@ -233,8 +230,7 @@ class _ScrollbarState extends RawScrollbarState<_Scrollbar> {
 
     return MaterialStateProperty.resolveWith((Set<MaterialState> states) {
       if (states.contains(MaterialState.hovered) && this._showTrackOnHover) {
-        return this._scrollbarTheme.trackColor?.resolve(states) ??
-            onSurface.withOpacity(0.05);
+        return this._scrollbarTheme.trackColor?.resolve(states) ?? onSurface.withOpacity(0.05);
       }
       return const Color(0x00000000);
     });
@@ -249,8 +245,7 @@ class _ScrollbarState extends RawScrollbarState<_Scrollbar> {
 
     return MaterialStateProperty.resolveWith((Set<MaterialState> states) {
       if (states.contains(MaterialState.hovered) && this._showTrackOnHover) {
-        return this._scrollbarTheme.trackBorderColor?.resolve(states) ??
-            onSurface.withOpacity(0.1);
+        return this._scrollbarTheme.trackBorderColor?.resolve(states) ?? onSurface.withOpacity(0.1);
       }
       return const Color(0x00000000);
     });

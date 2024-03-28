@@ -3,9 +3,7 @@
 //
 // 🇽🇾🇿 & Dev
 //
-// Copyright Ⓒ Robert Mollentze, xyzand.dev
-//
-// Licensing details can be found in the LICENSE file in the root directory.
+// Licencing details are in the LICENSE file in the root directory.
 //
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
@@ -45,8 +43,7 @@ class WActivityFeedEntry extends StatelessWidget {
     super.key,
     this.padding = const EdgeInsets.only(left: 12.0, bottom: 32.0),
     this.title,
-    this.titleStyle =
-        const TextStyle(fontSize: 14.0, fontWeight: FontWeight.bold),
+    this.titleStyle = const TextStyle(fontSize: 14.0, fontWeight: FontWeight.bold),
     this.titlePadding = const EdgeInsets.only(bottom: 12.0),
     this.body,
     this.bodyStyle = const TextStyle(fontSize: 12.0),

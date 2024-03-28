@@ -3,9 +3,7 @@
 //
 // 🇽🇾🇿 & Dev
 //
-// Copyright Ⓒ Robert Mollentze, xyzand.dev
-//
-// Licensing details can be found in the LICENSE file in the root directory.
+// Licencing details are in the LICENSE file in the root directory.
 //
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
@@ -82,8 +80,8 @@ class _State extends State<WSlider> {
 
   void _updateValue(Offset localPosition, BoxConstraints constraints) {
     final dx = localPosition.dx.clamp(0, constraints.maxWidth);
-    final newValue = this.widget.min +
-        (this.widget.max - this.widget.min) * (dx / constraints.maxWidth);
+    final newValue =
+        this.widget.min + (this.widget.max - this.widget.min) * (dx / constraints.maxWidth);
     if (this.pValue.value != newValue && this.widget.onChanged != null) {
       this.widget.onChanged!(newValue);
     }
@@ -101,8 +99,7 @@ class _State extends State<WSlider> {
       builder: (_, final value, __) {
         return LayoutBuilder(
           builder: (_, final constraints) {
-            final thumbX = ((value - this.widget.min) /
-                    (this.widget.max - this.widget.min)) *
+            final thumbX = ((value - this.widget.min) / (this.widget.max - this.widget.min)) *
                 constraints.maxWidth;
             return GestureDetector(
               behavior: HitTestBehavior.opaque,
@@ -196,7 +193,6 @@ class _Painter extends CustomPainter {
 
   @override
   bool shouldRepaint(_Painter oldDelegate) {
-    return oldDelegate.thumbX != thumbX ||
-        oldDelegate.trackCornerRadius != trackCornerRadius;
+    return oldDelegate.thumbX != thumbX || oldDelegate.trackCornerRadius != trackCornerRadius;
   }
 }
