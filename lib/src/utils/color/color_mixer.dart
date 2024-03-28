@@ -172,7 +172,8 @@ class BrightnessMixer extends ColorMixer {
   @override
   Color? getMix(int value) {
     assert(value >= 0 && value <= 1000);
-    final mixedColor = this.blender.blend(baseColor, previousMixer?.getMix(value));
+    final mixedColor =
+        this.blender.blend(baseColor, previousMixer?.getMix(value));
     var t = value / 1000.0;
     t = super.getFirstCurve()!.transform(t);
     const white = Color(0xFFFFFFFF);
@@ -218,7 +219,8 @@ class HueMixer extends ColorMixer {
   @override
   Color? getMix(int value) {
     assert(value >= 0 && value <= 1000);
-    final mixedColor = this.blender.blend(baseColor, previousMixer?.getMix(value));
+    final mixedColor =
+        this.blender.blend(baseColor, previousMixer?.getMix(value));
     final hslColor = HSLColor.fromColor(mixedColor);
     final t = value / 1000;
     final hue = hslColor.hue;
@@ -267,7 +269,8 @@ class SaturationMixer extends ColorMixer {
   @override
   Color? getMix(int value) {
     assert(value >= 0 && value <= 1000);
-    final mixedColor = this.blender.blend(baseColor, previousMixer?.getMix(value));
+    final mixedColor =
+        this.blender.blend(baseColor, previousMixer?.getMix(value));
     final hslColor = HSLColor.fromColor(mixedColor);
     final t = value / 1000;
     final saturation = hslColor.saturation;
@@ -317,7 +320,8 @@ class LightnessMixer extends ColorMixer {
   @override
   Color? getMix(int value) {
     assert(value >= 0 && value <= 1000);
-    final mixedColor = this.blender.blend(baseColor, previousMixer?.getMix(value));
+    final mixedColor =
+        this.blender.blend(baseColor, previousMixer?.getMix(value));
     final hslColor = HSLColor.fromColor(mixedColor);
     final t = value / 1000;
     final lightness = hslColor.lightness;

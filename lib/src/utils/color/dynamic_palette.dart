@@ -72,13 +72,20 @@ class DynamicPalette extends CommonPalette {
   //
 
   DynamicPalette.pro({
-    this.primaryMixer = const BrightnessMixer(baseColor: ExampleFlatColors.wetAsphalt),
-    this.secondaryMixer = const BrightnessMixer(baseColor: ExampleFlatColors.belizeHole),
-    this.successMixer = const BrightnessMixer(baseColor: ExampleFlatColors.greenSea),
-    this.neutralMixer = const BrightnessMixer(baseColor: ExampleFlatColors.asbestos700),
-    this.errorMixer = const BrightnessMixer(baseColor: ExampleFlatColors.pomegranate),
-    this.warningMixer = const BrightnessMixer(baseColor: ExampleFlatColors.pumpkin),
-    this.contrastMixer = const BrightnessMixer(baseColor: ExampleFlatColors.wetAsphalt),
+    this.primaryMixer =
+        const BrightnessMixer(baseColor: ExampleFlatColors.wetAsphalt),
+    this.secondaryMixer =
+        const BrightnessMixer(baseColor: ExampleFlatColors.belizeHole),
+    this.successMixer =
+        const BrightnessMixer(baseColor: ExampleFlatColors.greenSea),
+    this.neutralMixer =
+        const BrightnessMixer(baseColor: ExampleFlatColors.asbestos700),
+    this.errorMixer =
+        const BrightnessMixer(baseColor: ExampleFlatColors.pomegranate),
+    this.warningMixer =
+        const BrightnessMixer(baseColor: ExampleFlatColors.pumpkin),
+    this.contrastMixer =
+        const BrightnessMixer(baseColor: ExampleFlatColors.wetAsphalt),
   });
 
   //
@@ -86,13 +93,19 @@ class DynamicPalette extends CommonPalette {
   //
 
   DynamicPalette.grape({
-    this.primaryMixer = const BrightnessMixer(baseColor: ExampleFlatColors.wisteria700),
-    this.secondaryMixer = const BrightnessMixer(baseColor: ExampleFlatColors.peterRiver),
-    this.successMixer = const BrightnessMixer(baseColor: ExampleFlatColors.emerald),
+    this.primaryMixer =
+        const BrightnessMixer(baseColor: ExampleFlatColors.wisteria700),
+    this.secondaryMixer =
+        const BrightnessMixer(baseColor: ExampleFlatColors.peterRiver),
+    this.successMixer =
+        const BrightnessMixer(baseColor: ExampleFlatColors.emerald),
     this.neutralMixer = const BrightnessMixer(baseColor: Color(0xFF675876)),
-    this.errorMixer = const BrightnessMixer(baseColor: ExampleFlatColors.alizarin),
-    this.warningMixer = const BrightnessMixer(baseColor: ExampleFlatColors.carrot),
-    this.contrastMixer = const BrightnessMixer(baseColor: ExampleFlatColors.wisteria700),
+    this.errorMixer =
+        const BrightnessMixer(baseColor: ExampleFlatColors.alizarin),
+    this.warningMixer =
+        const BrightnessMixer(baseColor: ExampleFlatColors.carrot),
+    this.contrastMixer =
+        const BrightnessMixer(baseColor: ExampleFlatColors.wisteria700),
   });
 
   //
