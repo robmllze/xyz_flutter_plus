@@ -12,8 +12,6 @@ import 'package:xyz_gen_annotations/xyz_gen_annotations.dart';
 
 import '/_common.dart';
 
-part '_w_toast_makeup.g.dart';
-
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
 @GenerateMakeups(
@@ -138,8 +136,7 @@ class _State extends State<WToast> {
                         style: m?.descriptionTextStyle,
                       ),
                     ],
-                    if (this.widget.action != null &&
-                        this.widget.onTapAction != null) ...[
+                    if (this.widget.action != null && this.widget.onTapAction != null) ...[
                       wHeight8(),
                       GestureDetector(
                         onTap: this.widget.onTapAction,

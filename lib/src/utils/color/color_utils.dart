@@ -11,7 +11,7 @@
 import 'package:crypto/crypto.dart' show sha256;
 import 'dart:convert' show utf8;
 
-import 'package:flutter/painting.dart';
+import '/_common.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
@@ -49,9 +49,17 @@ extension ColorUtils on Color {
   }
 }
 
-Color generateAvatarColorFromName(String name) {
+// ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+
+Color mapTextToColor(
+  String text, {
+  double saturation = 0.35,
+  double lightness = 0.7,
+  Color blendColor = const Color(0xFFFFFFFF),
+  double blendWeight = 0.0,
+}) {
   // Generate a hash value from the name.
-  final bytes = utf8.encode(name);
+  final bytes = utf8.encode(text);
   final hash = sha256.convert(bytes);
   final hashString = hash.toString();
 
@@ -62,5 +70,15 @@ Color generateAvatarColorFromName(String name) {
   final hue = hashInteger % 360;
 
   // Create a color with the desired saturation, lightness, and alpha values.
-  return HSLColor.fromAHSL(1.0, hue.toDouble(), 0.35, 0.7).toColor();
+  final baseColor = HSLColor.fromAHSL(1.0, hue.toDouble(), saturation, lightness).toColor();
+
+  // Blend the base color with the blend color using the specified blend weight.
+  final blendedColor = blendWeight > 0.0
+      ? LerpBlender(
+          color1: baseColor,
+          color2: blendColor,
+          blendWeight: blendWeight,
+        ).blend()
+      : baseColor;
+  return blendedColor;
 }

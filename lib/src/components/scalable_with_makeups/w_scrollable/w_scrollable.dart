@@ -12,7 +12,7 @@ import 'package:xyz_gen_annotations/xyz_gen_annotations.dart';
 
 import '/_common.dart';
 
-part '_w_scrollable_makeup.g.dart';
+import 'w_scrollable_makeup.g.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
