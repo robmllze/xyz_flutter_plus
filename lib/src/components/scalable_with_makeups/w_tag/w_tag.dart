@@ -57,12 +57,11 @@ class WTag extends StatelessWidget {
               Theme.of(context).colorScheme.secondary.withOpacity(0.25),
           borderRadius: makeup?.borderRadius ?? BorderRadius.circular(4.sc),
         ),
-        margin: this.makeup?.margin ?? EdgeInsets.all(4.sc),
+        margin: this.makeup?.margin ?? EdgeInsets.zero,
         padding: this.makeup?.padding ?? EdgeInsets.all(4.sc),
         child: Text(
           this.text,
-          style: this.makeup?.textStyle ??
-              Theme.of(context).textTheme.bodySmall?.wMedium,
+          style: this.makeup?.textStyle ?? Theme.of(context).textTheme.bodySmall?.wMedium,
         ),
       ),
     );
