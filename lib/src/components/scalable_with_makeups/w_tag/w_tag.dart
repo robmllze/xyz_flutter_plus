@@ -49,22 +49,23 @@ class WTag extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: this.onTap,
-      child: Container(
-        decoration: BoxDecoration(
-          color: this.makeup?.backgroundColor ??
-              Theme.of(context).colorScheme.secondary.withOpacity(0.25),
-          borderRadius: makeup?.borderRadius ?? BorderRadius.circular(4.sc),
-        ),
-        margin: this.makeup?.margin ?? EdgeInsets.zero,
-        padding: this.makeup?.padding ?? EdgeInsets.all(4.sc),
-        child: Text(
-          this.text,
-          style: this.makeup?.textStyle ??
-              Theme.of(context).textTheme.bodySmall?.wMedium,
-        ),
-      ),
-    );
+    return text.isNotEmpty
+        ? GestureDetector(
+            onTap: this.onTap,
+            child: Container(
+              decoration: BoxDecoration(
+                color: this.makeup?.backgroundColor ??
+                    Theme.of(context).colorScheme.secondary.withOpacity(0.25),
+                borderRadius: makeup?.borderRadius ?? BorderRadius.circular(4.sc),
+              ),
+              margin: this.makeup?.margin ?? EdgeInsets.zero,
+              padding: this.makeup?.padding ?? EdgeInsets.all(4.sc),
+              child: Text(
+                this.text,
+                style: this.makeup?.textStyle ?? Theme.of(context).textTheme.bodySmall?.wMedium,
+              ),
+            ),
+          )
+        : const SizedBox();
   }
 }
