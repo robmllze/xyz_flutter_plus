@@ -61,7 +61,8 @@ class WTag extends StatelessWidget {
         padding: this.makeup?.padding ?? EdgeInsets.all(4.sc),
         child: Text(
           this.text,
-          style: this.makeup?.textStyle ?? Theme.of(context).textTheme.bodySmall?.wMedium,
+          style: this.makeup?.textStyle ??
+              Theme.of(context).textTheme.bodySmall?.wMedium,
         ),
       ),
     );

@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.43.0]
+
+- Released @ 2024-04-21 06:09:54.087310Z
+- Added WTag component
+
 ## [0.42.6]
 
 - Released @ 2024-04-21 04:15:13.670440Z
