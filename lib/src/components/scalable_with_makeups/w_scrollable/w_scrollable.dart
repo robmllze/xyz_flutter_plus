@@ -12,8 +12,6 @@ import 'package:xyz_gen_annotations/xyz_gen_annotations.dart';
 
 import '/_common.dart';
 
-import 'w_scrollable_makeup.g.dart';
-
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
 @GenerateMakeups(
