@@ -37,7 +37,7 @@ class WCircleButton extends StatelessWidget {
   //
 
   @override
-  Widget build(_) {
+  Widget build(BuildContext context) {
     return GestureDetector(
       onTap: this.onTap,
       child: Opacity(

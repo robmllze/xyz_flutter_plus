@@ -93,7 +93,7 @@ class _State extends State<WCustomScrollBar> {
   //
 
   @override
-  Widget build(_) {
+  Widget build(BuildContext context) {
     return Stack(
       children: [
         Listener(
@@ -121,9 +121,7 @@ class _State extends State<WCustomScrollBar> {
                   if (this.widget.scrollController != null) {
                     this.widget.scrollController?.jumpTo(
                           this.widget.scrollController!.offset +
-                              offset *
-                                  widget.scrollController!.position
-                                      .maxScrollExtent,
+                              offset * widget.scrollController!.position.maxScrollExtent,
                         );
                   }
                   this._resetTimer();

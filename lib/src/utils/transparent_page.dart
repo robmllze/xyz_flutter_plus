@@ -35,7 +35,7 @@ class TransparentPage extends MaterialPage {
   //
 
   @override
-  Route createRoute(_) {
+  Route createRoute(BuildContext context) {
     return _TransparentRoute(settings: this, builder: (_) => this.child);
   }
 }

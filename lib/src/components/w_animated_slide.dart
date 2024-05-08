@@ -108,7 +108,7 @@ class _State extends State<WAnimatedSlide> with SingleTickerProviderStateMixin {
   //
 
   @override
-  Widget build(_) {
+  Widget build(BuildContext context) {
     return Container(
       color: this.widget.color,
       child: SlideTransition(

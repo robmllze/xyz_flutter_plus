@@ -112,7 +112,7 @@ class _State extends State<WCollapsable> with SingleTickerProviderStateMixin {
   //
 
   @override
-  Widget build(_) {
+  Widget build(BuildContext context) {
     return FadeTransition(
       opacity: this._animation,
       child: SizeTransition(

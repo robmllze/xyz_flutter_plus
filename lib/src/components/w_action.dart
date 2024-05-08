@@ -55,7 +55,7 @@ class WAction extends StatelessWidget {
   //
 
   @override
-  Widget build(_) {
+  Widget build(BuildContext context) {
     final firstIconPadding =
         this.firstIconPadding ?? EdgeInsets.only(left: 8.sc);
     final firstPadding = this.firstPadding ?? EdgeInsets.only(left: 16.sc);

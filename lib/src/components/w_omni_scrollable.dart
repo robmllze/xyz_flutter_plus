@@ -30,7 +30,7 @@ class WOmniScrollable extends StatelessWidget {
   //
 
   @override
-  Widget build(_) {
+  Widget build(BuildContext context) {
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       physics: const BouncingScrollPhysics(),

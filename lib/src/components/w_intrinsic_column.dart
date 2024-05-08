@@ -32,7 +32,7 @@ class WIntrinsicColumn extends StatelessWidget {
   const WIntrinsicColumn({super.key, this.children = const []});
 
   @override
-  Widget build(_) {
+  Widget build(BuildContext context) {
     return IntrinsicWidth(
       child: Column(
         mainAxisSize: MainAxisSize.min,

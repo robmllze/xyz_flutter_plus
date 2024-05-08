@@ -35,7 +35,7 @@ class WIconButton extends StatelessWidget {
   //
 
   @override
-  Widget build(_) {
+  Widget build(BuildContext context) {
     return GestureDetector(
       behavior: HitTestBehavior.translucent,
       onTapDown: this.onTap != null ? (_) => this.onTap?.call() : null,

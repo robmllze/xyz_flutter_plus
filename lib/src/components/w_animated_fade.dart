@@ -110,7 +110,7 @@ class _State extends State<WAnimatedFade> with SingleTickerProviderStateMixin {
   //
 
   @override
-  Widget build(_) {
+  Widget build(BuildContext context) {
     final layer1 = this.widget.layer1;
     final layer2 = this.widget.layer2;
     return Stack(

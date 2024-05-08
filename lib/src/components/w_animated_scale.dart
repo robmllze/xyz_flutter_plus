@@ -96,7 +96,7 @@ class _State extends State<WAnimatedScale> with SingleTickerProviderStateMixin {
   //
 
   @override
-  Widget build(_) {
+  Widget build(BuildContext context) {
     return ScaleTransition(
       scale: this._animation,
       alignment: this.widget.alignment,

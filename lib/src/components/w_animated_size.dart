@@ -96,7 +96,7 @@ class _State extends State<WAnimatedSize> with SingleTickerProviderStateMixin {
   //
 
   @override
-  Widget build(_) {
+  Widget build(BuildContext context) {
     Axis axis;
     double axisAlignment;
 

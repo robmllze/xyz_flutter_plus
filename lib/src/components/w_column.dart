@@ -47,7 +47,7 @@ class WColumn extends StatelessWidget {
   //
 
   @override
-  Widget build(_) {
+  Widget build(BuildContext context) {
     final dividedChildren = <Widget>[];
     if (children.isNotEmpty) {
       if (children.length != 1) {

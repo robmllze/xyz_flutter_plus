@@ -112,7 +112,7 @@ class _State extends State<WScrollable> {
   //
 
   @override
-  Widget build(_) {
+  Widget build(BuildContext context) {
     return Padding(
       padding: this.widget.makeup?.outsidePadding ?? EdgeInsets.zero,
       child: WScrollbar(

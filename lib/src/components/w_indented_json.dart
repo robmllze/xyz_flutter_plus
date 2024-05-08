@@ -72,5 +72,5 @@ class WIndentedJson extends StatelessWidget {
   //
 
   @override
-  Widget build(_) => this._buildTree(this.data);
+  Widget build(BuildContext context) => this._buildTree(this.data);
 }

@@ -94,5 +94,5 @@ class _State extends State<WGlobalOverlay> {
   //
 
   @override
-  Widget build(_) => const SizedBox.shrink();
+  Widget build(BuildContext context) => const SizedBox.shrink();
 }

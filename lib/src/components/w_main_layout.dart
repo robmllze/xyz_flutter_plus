@@ -41,7 +41,7 @@ class WMainLayout extends StatelessWidget {
   //
 
   @override
-  Widget build(_) {
+  Widget build(BuildContext context) {
     return WColumn(
       children: [
         const SizedBox(width: double.infinity),

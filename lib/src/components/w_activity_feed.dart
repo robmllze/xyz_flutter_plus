@@ -62,7 +62,7 @@ class WActivityFeedEntry extends StatelessWidget {
   //
 
   @override
-  Widget build(_) {
+  Widget build(BuildContext context) {
     return Padding(
       padding: this.padding,
       child: Column(
@@ -166,7 +166,7 @@ class WActivityFeed extends StatelessWidget {
   //
 
   @override
-  Widget build(_) {
+  Widget build(BuildContext context) {
     List<Widget>? a;
     Widget? b;
     if (children.isEmpty) {

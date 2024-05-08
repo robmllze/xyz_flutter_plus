@@ -102,7 +102,7 @@ class _State extends State<WAnimatedBlur> with SingleTickerProviderStateMixin {
   //
 
   @override
-  Widget build(_) {
+  Widget build(BuildContext context) {
     return AnimatedBuilder(
       animation: this._animation,
       child: this.widget.child,

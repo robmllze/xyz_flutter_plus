@@ -33,7 +33,7 @@ class WIntrinsicRow extends StatelessWidget {
   const WIntrinsicRow({super.key, this.children = const []});
 
   @override
-  Widget build(_) {
+  Widget build(BuildContext context) {
     return IntrinsicHeight(
       child: Row(
         mainAxisSize: MainAxisSize.min,

@@ -39,7 +39,7 @@ class WSearchBarWithActionsLayout extends StatelessWidget {
   //
 
   @override
-  Widget build(_) {
+  Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (_, constraints) {
         final maxWidth = constraints.maxWidth;
@@ -60,8 +60,7 @@ class WSearchBarWithActionsLayout extends StatelessWidget {
               width: searchBarWith,
               child: searchField,
             ),
-            ...actionsAndTheirWidths
-                .map((e) => SizedBox(width: e.$2, child: e.$1)),
+            ...actionsAndTheirWidths.map((e) => SizedBox(width: e.$2, child: e.$1)),
           ],
         );
       },

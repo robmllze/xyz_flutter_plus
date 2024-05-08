@@ -71,7 +71,7 @@ class _State extends State<WToast> {
   //
 
   @override
-  Widget build(_) {
+  Widget build(BuildContext context) {
     final m = this.widget.makeup;
     final radius = m?.radius ?? Radius.circular(4.sc);
     return GestureDetector(
@@ -136,8 +136,7 @@ class _State extends State<WToast> {
                         style: m?.descriptionTextStyle,
                       ),
                     ],
-                    if (this.widget.action != null &&
-                        this.widget.onTapAction != null) ...[
+                    if (this.widget.action != null && this.widget.onTapAction != null) ...[
                       wHeight8(),
                       GestureDetector(
                         onTap: this.widget.onTapAction,

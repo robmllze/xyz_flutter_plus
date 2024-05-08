@@ -35,7 +35,7 @@ class WCircle extends StatelessWidget {
   //
 
   @override
-  Widget build(_) {
+  Widget build(BuildContext context) {
     return Container(
       width: this.diameter,
       height: this.diameter,
@@ -59,7 +59,7 @@ class Circle extends StatelessWidget {
   });
 
   @override
-  Widget build(_) {
+  Widget build(BuildContext context) {
     return CustomPaint(
       size: Size(radius * 2, radius * 2),
       painter: _CirclePainter(radius: radius, color: color),

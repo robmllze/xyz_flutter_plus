@@ -35,7 +35,7 @@ class WClearButton extends StatelessWidget {
   //
 
   @override
-  Widget build(_) {
+  Widget build(BuildContext context) {
     return RawMaterialButton(
       constraints: const BoxConstraints(),
       fillColor: Colors.transparent,

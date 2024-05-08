@@ -60,7 +60,7 @@ class _WTapDetectorState extends State<WTapDetector> {
   //
 
   @override
-  Widget build(_) {
+  Widget build(BuildContext context) {
     return ConstrainedBox(
       constraints: BoxConstraints(
         minWidth: this.widget.detectionSize?.width != null
@@ -119,8 +119,7 @@ class ExpandedHitTestArea extends SingleChildRenderObjectWidget {
   //
 
   @override
-  RenderObject createRenderObject(BuildContext context) =>
-      RenderExpandedHitTestArea(
+  RenderObject createRenderObject(BuildContext context) => RenderExpandedHitTestArea(
         onTap: onTap,
         detectionSize: detectionSize,
         detectionBorder: detectionBorder,
@@ -147,20 +146,19 @@ class TestGestureArenaMember extends GestureArenaMember {
   //
 
   @override
-  void acceptGesture(int key) => this.onTap?.call();
+  void acceptGesture(int pointer) => this.onTap?.call();
 
   //
   //
   //
 
   @override
-  void rejectGesture(int key) {}
+  void rejectGesture(int pointer) {}
 }
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-class RenderExpandedHitTestArea extends RenderBox
-    with RenderObjectWithChildMixin<RenderBox> {
+class RenderExpandedHitTestArea extends RenderBox with RenderObjectWithChildMixin<RenderBox> {
   //
   //
   //

@@ -42,7 +42,7 @@ class WBlur extends StatelessWidget {
   //
 
   @override
-  Widget build(_) {
+  Widget build(BuildContext context) {
     if (child == null) return const SizedBox();
     return ClipRRect(
       child: ImageFiltered(
