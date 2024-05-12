@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.45.0]
+
+- Released @ 2024-05-12 02:07:07.442913Z
+- Removed HTML dependencies
+
 ## [0.44.1]
 
 - Released @ 2024-05-09 21:10:53.303641Z

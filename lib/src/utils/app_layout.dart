@@ -55,7 +55,8 @@ enum AppLayout {
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
 ScreenCalculator getCurrentScreenCalculator() {
-  final firstDisplay = WidgetsBinding.instance.platformDispatcher.displays.first;
+  final firstDisplay =
+      WidgetsBinding.instance.platformDispatcher.displays.first;
   final displaySize = firstDisplay.size;
   final displayPixelRatio = firstDisplay.devicePixelRatio;
   final screenSize = displaySize / displayPixelRatio;
