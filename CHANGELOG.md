@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.47.0]
+
+- Released @ 2024-05-12 11:46:46.418507Z
+- Added contrast color method
+
 ## [0.46.0]
 
 - Released @ 2024-05-12 02:43:58.430220Z
