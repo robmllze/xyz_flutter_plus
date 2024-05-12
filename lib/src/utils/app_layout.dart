@@ -37,14 +37,13 @@ enum AppLayout {
   //
 
   static AppLayout fromScreenCalculator(ScreenCalculator calculator) {
-    // TODO: Implement this for WASM
-    // if (CurrentPlatform.isMobile) {
-    //   if (calculator.isVertical) {
-    //     return AppLayout.MOBILE;
-    //   } else {
-    //     return AppLayout.MOBILE_HORIZONTAL;
-    //   }
-    // }
+    if (CurrentPlatform.isMobile) {
+      if (calculator.isVertical) {
+        return AppLayout.MOBILE;
+      } else {
+        return AppLayout.MOBILE_HORIZONTAL;
+      }
+    }
     if (calculator.isAspectRatioMobile && calculator.isVertical) {
       return AppLayout.NARROW;
     }
@@ -55,8 +54,7 @@ enum AppLayout {
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
 ScreenCalculator getCurrentScreenCalculator() {
-  final firstDisplay =
-      WidgetsBinding.instance.platformDispatcher.displays.first;
+  final firstDisplay = WidgetsBinding.instance.platformDispatcher.displays.first;
   final displaySize = firstDisplay.size;
   final displayPixelRatio = firstDisplay.devicePixelRatio;
   final screenSize = displaySize / displayPixelRatio;
