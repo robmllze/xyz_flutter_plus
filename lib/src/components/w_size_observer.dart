@@ -12,30 +12,22 @@ import '/_common.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-class WGlobalOverlay extends StatefulWidget {
+class WSizeObserver extends StatefulWidget {
   //
   //
   //
 
-  final double? left;
-  final double? right;
-  final double? top;
-  final double? bottom;
-  final Widget? background;
   final Widget child;
+  final Function(Size size) onChange;
 
   //
   //
   //
 
-  const WGlobalOverlay({
+  const WSizeObserver({
     super.key,
-    this.left,
-    this.right,
-    this.top,
-    this.bottom,
-    this.background,
     required this.child,
+    required this.onChange,
   });
 
   //
@@ -48,12 +40,12 @@ class WGlobalOverlay extends StatefulWidget {
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-class _State extends State<WGlobalOverlay> {
+class _State extends State<WSizeObserver> {
   //
   //
   //
 
-  late final OverlayEntry _overlayEntry;
+  final _key = GlobalKey();
 
   //
   //
@@ -62,7 +54,7 @@ class _State extends State<WGlobalOverlay> {
   @override
   void initState() {
     super.initState();
-    this._createOverlayEntry();
+    WidgetsBinding.instance.addPostFrameCallback(this._onPostFrame);
   }
 
   //
@@ -70,45 +62,19 @@ class _State extends State<WGlobalOverlay> {
   //
 
   @override
-  void dispose() {
-    this._overlayEntry.remove();
-    super.dispose();
-  }
-
-  //
-  //
-  //
-
-  void _createOverlayEntry() {
-    this._overlayEntry = OverlayEntry(
-      builder: (context) {
-        final l = this.widget.left ?? 0.0;
-        final r = this.widget.right;
-        final t = this.widget.top ?? 0.0;
-        final b = this.widget.bottom;
-        final x = l + (r != null ? MediaQuery.of(context).size.width - r : 0.0);
-        final y = t + (b != null ? MediaQuery.of(context).size.height - b : 0.0);
-        return Stack(
-          children: [
-            if (this.widget.background != null) this.widget.background!,
-            Positioned(
-              top: y,
-              left: x,
-              child: this.widget.child,
-            ),
-          ],
-        );
-      },
+  Widget build(BuildContext context) {
+    return SizedBox(
+      key: this._key,
+      child: this.widget.child,
     );
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      Overlay.of(context).insert(this._overlayEntry);
-    });
   }
 
   //
   //
   //
 
-  @override
-  Widget build(BuildContext context) => const SizedBox.shrink();
+  void _onPostFrame(_) {
+    final renderBox = this._key.currentContext?.findRenderObject() as RenderBox;
+    this.widget.onChange(renderBox.size);
+  }
 }
