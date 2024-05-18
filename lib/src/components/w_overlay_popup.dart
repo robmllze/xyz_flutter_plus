@@ -18,10 +18,15 @@ class WOverlayPopup extends StatelessWidget {
   //
 
   final Widget Function(
-          BuildContext context, VoidCallback open, VoidCallback close,)?
-      buttonBuilder;
+    BuildContext context,
+    VoidCallback open,
+    VoidCallback close,
+  )? buttonBuilder;
   final Widget Function(
-      BuildContext context, VoidCallback open, VoidCallback close,)? itemBuilder;
+    BuildContext context,
+    VoidCallback open,
+    VoidCallback close,
+  )? itemBuilder;
   final Color? backgroundColor;
 
   //
@@ -45,8 +50,11 @@ class WOverlayPopup extends StatelessWidget {
       initialValue: null,
       builder: (context, child, pPosition) {
         final position = pPosition.value;
-        final button = buttonBuilder?.call(context,
-            () => pPosition.set(Offset.zero), () => pPosition.set(null),);
+        final button = buttonBuilder?.call(
+          context,
+          () => pPosition.set(Offset.zero),
+          () => pPosition.set(null),
+        );
         return Stack(
           children: [
             if (button != null) button,
