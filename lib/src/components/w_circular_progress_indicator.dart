@@ -12,12 +12,12 @@ import '/_common.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-class MyCircularProgressIndicator extends StatelessWidget {
+class WCircularProgressIndicator extends StatelessWidget {
   //
   //
   //
 
-  const MyCircularProgressIndicator({super.key});
+  const WCircularProgressIndicator({super.key});
 
   //
   //
