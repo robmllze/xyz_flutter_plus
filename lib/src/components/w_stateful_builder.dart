@@ -47,5 +47,5 @@ class _State extends State<WStatefulBuilder> {
   //
 
   @override
-  Widget build(final context) => this.widget.builder(context, this);
+  Widget build(BuildContext context) => this.widget.builder(context, this);
 }

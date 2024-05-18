@@ -34,7 +34,7 @@ class WHideKeyboardOnTap extends StatelessWidget {
   //
 
   @override
-  Widget build(final context) {
+  Widget build(BuildContext context) {
     return GestureDetector(
       behavior: HitTestBehavior.opaque,
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),

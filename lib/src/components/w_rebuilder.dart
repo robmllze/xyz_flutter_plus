@@ -49,7 +49,7 @@ class _State extends State<WRebuilder> {
   //
 
   @override
-  Widget build(final context) {
+  Widget build(BuildContext context) {
     this._rebuildAllChildren(context);
     return this.widget.child;
   }
