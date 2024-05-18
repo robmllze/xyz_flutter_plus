@@ -63,8 +63,9 @@ class WBlurryContainer extends StatelessWidget {
         );
     return LayoutBuilder(
       builder: (context, constraints) {
-        final width =
-            this.width?.isInfinite == true || this.expandWidth ? constraints.maxWidth : this.width;
+        final width = this.width?.isInfinite == true || this.expandWidth
+            ? constraints.maxWidth
+            : this.width;
         final height = this.height?.isInfinite == true || this.expandHeight
             ? constraints.maxHeight
             : this.height;

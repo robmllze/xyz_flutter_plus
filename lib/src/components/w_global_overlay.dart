@@ -87,7 +87,8 @@ class _State extends State<WGlobalOverlay> {
         final t = this.widget.top ?? 0.0;
         final b = this.widget.bottom;
         final x = l + (r != null ? MediaQuery.of(context).size.width - r : 0.0);
-        final y = t + (b != null ? MediaQuery.of(context).size.height - b : 0.0);
+        final y =
+            t + (b != null ? MediaQuery.of(context).size.height - b : 0.0);
         return Stack(
           children: [
             if (this.widget.background != null) this.widget.background!,
