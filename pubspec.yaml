@@ -25,10 +25,10 @@ dependencies:
   flutter:
     sdk: flutter
 
-  xyz_config: ^0.28.1
-  xyz_gen_annotations: ^0.32.0
+  xyz_config: ^0.28.2
+  xyz_gen_annotations: ^0.32.1
   xyz_pod: ^0.29.0
-  xyz_utils: ^0.53.0
+  xyz_utils: ^0.54.0
 
   async: ^2.11.0
   connectivity_plus: ^6.0.1
