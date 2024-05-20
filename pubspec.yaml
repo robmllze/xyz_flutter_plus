@@ -27,7 +27,7 @@ dependencies:
 
   xyz_config: ^0.28.2
   xyz_gen_annotations: ^0.32.1
-  xyz_pod: ^0.29.0
+  xyz_pod: ^0.30.0
   xyz_utils: ^0.54.0
 
   async: ^2.11.0
