@@ -18,7 +18,7 @@ class WSurface extends StatelessWidget {
   //
 
   final Widget? child;
-  final BorderRadius? borderRadius;
+  final BorderRadius borderRadius;
   final BoxConstraints constraints;
   final BoxDecoration decoration;
   final EdgeInsets? padding;
@@ -33,7 +33,7 @@ class WSurface extends StatelessWidget {
   const WSurface({
     super.key,
     this.child,
-    this.borderRadius,
+    this.borderRadius = BorderRadius.zero,
     this.constraints = const BoxConstraints(),
     this.decoration = const BoxDecoration(),
     this.padding,
@@ -48,19 +48,16 @@ class WSurface extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final radius = Radius.circular(16.sc);
-    final borderRadius1 = this.borderRadius ??
-        BorderRadius.only(bottomLeft: radius, bottomRight: radius);
     final color1 = this.color ?? Theme.of(context).colorScheme.surfaceContainer;
     return ClipRRect(
-      borderRadius: borderRadius1,
+      borderRadius: borderRadius,
       child: Container(
         width: width,
         height: height,
         constraints: this.constraints,
         decoration: this.decoration.copyWith(
               color: color1,
-              borderRadius: borderRadius1,
+              borderRadius: borderRadius,
             ),
         padding: this.padding ?? EdgeInsets.zero,
         child: child,
