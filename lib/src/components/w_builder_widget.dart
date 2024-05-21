@@ -73,8 +73,7 @@ Widget _builder<T>(
       widget = onNoUsableDataBuilder?.call(context, child);
     }
   } else {
-    widget = onLoadingBuilder?.call(context, child) ??
-        const WCircularProgressIndicator();
+    widget = onLoadingBuilder?.call(context, child);
   }
   widget ??= const SizedBox.shrink();
   return widget;
