@@ -55,8 +55,9 @@ class WSurface extends StatelessWidget {
     final borderRadius1 = this.borderRadius ?? BorderRadius.circular(16.sc);
     return LayoutBuilder(
       builder: (context, constraints) {
-        final width =
-            this.width?.isInfinite == true || this.expandWidth ? constraints.maxWidth : this.width;
+        final width = this.width?.isInfinite == true || this.expandWidth
+            ? constraints.maxWidth
+            : this.width;
         final height = this.height?.isInfinite == true || this.expandHeight
             ? constraints.maxHeight
             : this.height;
