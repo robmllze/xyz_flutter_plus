@@ -35,6 +35,7 @@ export 'components/w_animated_slide.dart';
 export 'components/w_autocompleter_text_field.dart';
 export 'components/w_blur.dart';
 export 'components/w_blurry_overlay.dart';
+export 'components/w_builder_widget.dart';
 export 'components/w_circle.dart';
 export 'components/w_clear_button.dart';
 export 'components/w_clipped_container.dart';
