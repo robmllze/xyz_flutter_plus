@@ -55,8 +55,8 @@ class WBlurryContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final radius = Radius.circular(16.sc);
-    final borderRadius1 =
-        this.borderRadius ?? BorderRadius.only(bottomLeft: radius, bottomRight: radius);
+    final borderRadius1 = this.borderRadius ??
+        BorderRadius.only(bottomLeft: radius, bottomRight: radius);
     final color1 = this.color ?? Theme.of(context).colorScheme.surfaceContainer;
     return ClipRRect(
       borderRadius: borderRadius1,
