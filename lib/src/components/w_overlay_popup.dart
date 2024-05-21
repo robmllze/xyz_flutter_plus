@@ -89,12 +89,9 @@ class WOverlayPopup extends StatelessWidget {
                           pPosition.set(null);
                         },
                         child: WBlurryContainer(
-                          color: this.backgroundColor ??
-                              Theme.of(context).colorScheme.shadow,
+                          color: this.backgroundColor ?? Theme.of(context).colorScheme.shadow,
                           sigma: 3.0,
                           opacity: 0.25,
-                          expandHeight: true,
-                          expandWidth: true,
                         ),
                       ),
                       child: overlay,
