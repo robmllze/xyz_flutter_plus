@@ -8,6 +8,8 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
+import 'dart:math' as math;
+
 import '/_common.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
@@ -19,11 +21,13 @@ class WDivider extends StatelessWidget {
 
   final double? thickness;
   final Color? color;
-  final double? height;
-  final Widget? child;
+  final double? size;
   final Axis? orientation;
   final bool? overflow;
-  final double? childSpacing;
+  final double? childMainAxisPadding;
+  final WDividerAlignment? childAlignment;
+  final BoxDecoration? childDecoration;
+  final Widget? child;
 
   //
   //
@@ -33,12 +37,72 @@ class WDivider extends StatelessWidget {
     super.key,
     this.thickness,
     this.color,
-    this.height,
-    this.child,
+    this.size,
     this.orientation,
     this.overflow,
-    this.childSpacing,
+    this.childMainAxisPadding,
+    this.childAlignment,
+    this.childDecoration,
+    this.child,
   });
+
+  //
+  //
+  //
+
+  factory WDivider.horizontal({
+    Key? key,
+    double? thickness,
+    Color? color,
+    double? size,
+    bool? overflow,
+    Widget? child,
+    double? childMainAxisPadding,
+    WDividerAlignment? childAlignment,
+    BoxDecoration? childDecoration,
+  }) {
+    return WDivider(
+      key: key,
+      thickness: thickness,
+      color: color,
+      size: size,
+      orientation: Axis.horizontal,
+      overflow: overflow,
+      childMainAxisPadding: childMainAxisPadding,
+      childAlignment: childAlignment,
+      childDecoration: childDecoration,
+      child: child,
+    );
+  }
+
+  //
+  //
+  //
+
+  factory WDivider.vertical({
+    Key? key,
+    double? thickness,
+    Color? color,
+    double? size,
+    bool? overflow,
+    Widget? child,
+    double? childMainAxisPadding,
+    WDividerAlignment? childAlignment,
+    BoxDecoration? childDecoration,
+  }) {
+    return WDivider(
+      key: key,
+      thickness: thickness,
+      color: color,
+      size: size,
+      orientation: Axis.vertical,
+      overflow: overflow,
+      childMainAxisPadding: childMainAxisPadding,
+      childAlignment: childAlignment,
+      childDecoration: childDecoration,
+      child: child,
+    );
+  }
 
   //
   //
@@ -49,8 +113,13 @@ class WDivider extends StatelessWidget {
     final $orientation = orientation ?? Axis.horizontal;
     final $thickness = thickness ?? 1.sc;
     final $color = color ?? Theme.of(context).colorScheme.surfaceContainer;
-    final $spacing = childSpacing ?? 8.sc;
-    final line = $orientation == Axis.horizontal
+    final $size = math.max($thickness, size ?? $thickness);
+    final $spacing = childMainAxisPadding ?? 8.sc;
+    final $childAlignment = childAlignment?.toAlignment($orientation) ?? Alignment.center;
+    final vertical = $orientation == Axis.vertical;
+    final horizontal = $orientation == Axis.horizontal;
+    final screenSize = MediaQuery.of(context).size;
+    final container = horizontal
         ? Container(
             width: double.infinity,
             height: $thickness,
@@ -61,33 +130,75 @@ class WDivider extends StatelessWidget {
             height: double.infinity,
             color: $color,
           );
-    final flex = WFlex(
-      direction: $orientation,
-      mainAxisSize: MainAxisSize.max,
-      firstIfNotEmpty: line,
-      lastIfNotEmpty: line,
+    final $overflow = overflow ?? false;
+    final stack = Stack(
+      alignment: Alignment.center,
       children: [
-        if (this.child != null)
-          Padding(
-            padding: EdgeInsets.symmetric(
-              vertical: $orientation == Axis.vertical ? $spacing : 0,
-              horizontal: $orientation == Axis.horizontal ? $spacing : 0,
+        container,
+        if (child != null)
+          Align(
+            alignment: $childAlignment,
+            child: IntrinsicHeight(
+              child: IntrinsicWidth(
+                child: Container(
+                  height: horizontal ? $size : null,
+                  width: vertical ? $size : null,
+                  decoration: (this.childDecoration ?? const BoxDecoration()).copyWith(
+                    color: this.childDecoration?.color ?? Theme.of(context).colorScheme.surface,
+                    borderRadius: this.childDecoration?.borderRadius ??
+                        BorderRadius.circular(math.max(8.sc, 0.25 * $size)),
+                  ),
+                  padding: EdgeInsets.symmetric(
+                    vertical: vertical ? $spacing : 0.0,
+                    horizontal: horizontal ? $spacing : 0.0,
+                  ),
+                  alignment: Alignment.center,
+                  child: child!,
+                ),
+              ),
             ),
-            child: this.child,
           ),
       ],
     );
-
-    final $overflow = overflow ?? false;
-    final result = $overflow
+    final line = $overflow
         ? OverflowBox(
-            minWidth: 0,
-            minHeight: 0,
-            maxWidth: double.infinity,
-            maxHeight: double.infinity,
-            child: flex,
+            maxWidth: horizontal ? screenSize.width : null,
+            maxHeight: vertical ? screenSize.height : null,
+            child: stack,
           )
-        : flex;
+        : stack;
+    final result = SizedBox(
+      width: vertical ? $size : null,
+      height: horizontal ? $size : null,
+      child: line,
+    );
     return result;
+  }
+}
+
+// ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+
+enum WDividerAlignment {
+  //
+  //
+  //
+
+  START,
+  CENTER,
+  END;
+
+  //
+  //
+  //
+
+  Alignment toAlignment(Axis axis) {
+    switch (this) {
+      case WDividerAlignment.START:
+        return axis == Axis.horizontal ? Alignment.centerLeft : Alignment.topCenter;
+      case WDividerAlignment.CENTER:
+        return Alignment.center;
+      case WDividerAlignment.END:
+        return axis == Axis.horizontal ? Alignment.centerRight : Alignment.bottomCenter;
+    }
   }
 }
