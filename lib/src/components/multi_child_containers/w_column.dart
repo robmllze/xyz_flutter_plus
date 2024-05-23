@@ -8,38 +8,27 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
-import 'package:flutter/material.dart';
+import '/_common.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-/// We can use the IntrinsicRow to draw a colored bar on the left side of some
-/// Text:
-/// ```dart
-/// IntrinsicColumn(
-///   children: [
-///     Text('Hello World!'),
-///     // The height of the Container will match the height of the Text.
-///     Container(
-///       // Bar thickness.
-///       width: 2.0,
-///       // Bar color.
-///       color: Colors.red,
-///     ),
-///   ],
-/// )
-/// ```
-class WIntrinsicRow extends StatelessWidget {
-  final List<Widget> children;
-  const WIntrinsicRow({super.key, this.children = const []});
+class WColumn extends WFlex {
+  //
+  //
+  //
 
-  @override
-  Widget build(BuildContext context) {
-    return IntrinsicHeight(
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: this.children,
-      ),
-    );
-  }
+  const WColumn({
+    super.key,
+    super.mainAxisAlignment,
+    super.mainAxisSize,
+    super.crossAxisAlignment,
+    super.verticalDirection,
+    super.children,
+    super.textDirection,
+    super.textBaseline,
+    super.firstIfNotEmpty,
+    super.divider,
+    super.lastIfNotEmpty,
+    super.elements,
+  }) : super(direction: Axis.vertical);
 }

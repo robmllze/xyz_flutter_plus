@@ -9,7 +9,7 @@
 //.title~
 
 import 'package:flutter/material.dart';
-import 'w_blur.dart';
+import '../w_blur.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 

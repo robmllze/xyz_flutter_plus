@@ -8,55 +8,27 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
-import 'package:flutter/material.dart';
-
-import 'w_column.dart';
+import '/_common.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-class WMainLayout extends StatelessWidget {
+class WRow extends WFlex {
   //
   //
   //
 
-  final Widget? header;
-  final Widget? footer;
-  final Widget? top, body, bottom;
-
-  //
-  //
-  //
-
-  const WMainLayout({
+  const WRow({
     super.key,
-    this.header,
-    this.footer,
-    this.top,
-    this.body,
-    this.bottom,
-  });
-
-  //
-  //
-  //
-
-  @override
-  Widget build(BuildContext context) {
-    return WColumn(
-      children: [
-        const SizedBox(width: double.infinity),
-        if (this.top != null) this.top!,
-        if (this.header != null) this.header!,
-        if (this.body != null)
-          Flexible(
-            fit: FlexFit.tight,
-            child: SizedBox(
-              child: body,
-            ),
-          ),
-        SizedBox(child: this.footer),
-        SizedBox(child: this.bottom),
-      ],
-    );
-  }
+    super.mainAxisAlignment,
+    super.mainAxisSize,
+    super.crossAxisAlignment,
+    super.verticalDirection,
+    super.children,
+    super.textDirection,
+    super.textBaseline,
+    super.firstIfNotEmpty,
+    super.divider,
+    super.lastIfNotEmpty,
+    super.elements,
+  }) : super(direction: Axis.horizontal);
 }

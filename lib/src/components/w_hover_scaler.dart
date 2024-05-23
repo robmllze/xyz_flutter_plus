@@ -67,7 +67,7 @@ class _WHoverScalerState extends State<WHoverScaler> {
           ..scale(
             this._isHovered ? this.widget.hoverScale : 1.0,
           ),
-        child: widget.child,
+        child: this.widget.child,
       ),
     );
   }

@@ -8,64 +8,54 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
-import 'dart:ui' as ui;
-import 'package:flutter/widgets.dart';
-import 'w_blur.dart';
+import 'package:flutter/material.dart';
+
+import '../multi_child_containers/w_column.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-class WFacade {
+class WMainLayout extends StatelessWidget {
   //
   //
   //
 
-  final ui.Image? image;
-  final double blurSigma;
-  final Widget? child;
+  final Widget? header;
+  final Widget? footer;
+  final Widget? top, body, bottom;
 
   //
   //
   //
 
-  const WFacade({
-    this.image,
-    this.child,
-    this.blurSigma = 0.0,
+  const WMainLayout({
+    super.key,
+    this.header,
+    this.footer,
+    this.top,
+    this.body,
+    this.bottom,
   });
 
   //
   //
   //
 
-  WFacade copyWith({
-    ui.Image? image,
-    double? blurSigma,
-    Color? blurColor,
-    Widget? child,
-  }) {
-    return WFacade(
-      image: image ?? this.image,
-      blurSigma: blurSigma ?? this.blurSigma,
-      child: child ?? this.child,
-    );
-  }
-
-  //
-  //
-  //
-
-  Widget draw() {
-    return Stack(
-      fit: StackFit.expand,
+  @override
+  Widget build(BuildContext context) {
+    return WColumn(
       children: [
-        WBlur(
-          sigma: blurSigma,
-          child: RawImage(
-            fit: BoxFit.fill,
-            image: image,
+        const SizedBox(width: double.infinity),
+        if (this.top != null) this.top!,
+        if (this.header != null) this.header!,
+        if (this.body != null)
+          Flexible(
+            fit: FlexFit.tight,
+            child: SizedBox(
+              child: body,
+            ),
           ),
-        ),
-        if (child != null) child!,
+        SizedBox(child: this.footer),
+        SizedBox(child: this.bottom),
       ],
     );
   }
