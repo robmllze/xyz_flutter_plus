@@ -23,12 +23,14 @@ class WRow extends WFlex {
     super.mainAxisSize,
     super.crossAxisAlignment,
     super.verticalDirection,
-    super.children,
     super.textDirection,
     super.textBaseline,
     super.firstIfNotEmpty,
     super.divider,
     super.lastIfNotEmpty,
-    super.elements,
-  }) : super(direction: Axis.horizontal);
+    List<Widget?>? children,
+  }) : super(
+          elements: children,
+          direction: Axis.horizontal,
+        );
 }
