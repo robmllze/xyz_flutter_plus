@@ -43,6 +43,7 @@ class _State extends State<WOverlay> {
   //
   //
 
+  final _offstageKey = GlobalKey();
   OverlayEntry? _overlayEntry;
   ScrollableState? _scrollable;
   ScrollPosition? _scrollPosition;
@@ -156,5 +157,13 @@ class _State extends State<WOverlay> {
   //
 
   @override
-  Widget build(BuildContext context) => const SizedBox.shrink();
+  Widget build(BuildContext context) {
+    return Offstage(
+      offstage: true,
+      child: SizedBox(
+        key: this._offstageKey,
+        child: this.widget.child,
+      ),
+    );
+  }
 }
