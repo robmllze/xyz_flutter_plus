@@ -115,7 +115,8 @@ class WDivider extends StatelessWidget {
     final $color = color ?? Theme.of(context).colorScheme.surfaceContainer;
     final $size = math.max($thickness, size ?? $thickness);
     final $spacing = childMainAxisPadding ?? 8.sc;
-    final $childAlignment = childAlignment?.toAlignment($orientation) ?? Alignment.center;
+    final $childAlignment =
+        childAlignment?.toAlignment($orientation) ?? Alignment.center;
     final vertical = $orientation == Axis.vertical;
     final horizontal = $orientation == Axis.horizontal;
     final screenSize = MediaQuery.of(context).size;
@@ -148,8 +149,10 @@ class WDivider extends StatelessWidget {
                   child: Container(
                     height: horizontal ? $size : null,
                     width: vertical ? $size : null,
-                    decoration: (this.childDecoration ?? const BoxDecoration()).copyWith(
-                      color: this.childDecoration?.color ?? Theme.of(context).colorScheme.surface,
+                    decoration: (this.childDecoration ?? const BoxDecoration())
+                        .copyWith(
+                      color: this.childDecoration?.color ??
+                          Theme.of(context).colorScheme.surface,
                       borderRadius: this.childDecoration?.borderRadius ??
                           BorderRadius.circular(math.max(8.sc, 0.25 * $size)),
                     ),
@@ -196,11 +199,15 @@ enum WDividerAlignment {
   Alignment toAlignment(Axis axis) {
     switch (this) {
       case WDividerAlignment.START:
-        return axis == Axis.horizontal ? Alignment.centerLeft : Alignment.topCenter;
+        return axis == Axis.horizontal
+            ? Alignment.centerLeft
+            : Alignment.topCenter;
       case WDividerAlignment.CENTER:
         return Alignment.center;
       case WDividerAlignment.END:
-        return axis == Axis.horizontal ? Alignment.centerRight : Alignment.bottomCenter;
+        return axis == Axis.horizontal
+            ? Alignment.centerRight
+            : Alignment.bottomCenter;
     }
   }
 }
