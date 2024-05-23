@@ -122,15 +122,12 @@ class _State extends State<WOverlay> {
     }
     this._overlayEntry = OverlayEntry(
       builder: (context) {
-        return SafeArea(
-          // TODO: Does this SafeArea work?
-          child: Positioned(
-            left: x,
-            top: y,
-            child: Material(
-              type: MaterialType.transparency,
-              child: this.widget.child,
-            ),
+        return Positioned(
+          left: x,
+          top: y,
+          child: Material(
+            type: MaterialType.transparency,
+            child: this.widget.child,
           ),
         );
       },
