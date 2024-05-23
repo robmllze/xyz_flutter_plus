@@ -75,6 +75,7 @@ class _State extends State<WOverlayPopup> {
         ) ??
         const SizedBox.shrink();
 
+    final $screenSize = MediaQuery.of(context).size;
     return Stack(
       children: [
         button,
@@ -88,8 +89,8 @@ class _State extends State<WOverlayPopup> {
               child: WAnimatedFade(
                 layer2: Container(
                   color: Theme.of(context).colorScheme.surfaceDim,
-                  width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.height,
+                  width: $screenSize.width,
+                  height: $screenSize.height,
                 ),
               ),
             ),

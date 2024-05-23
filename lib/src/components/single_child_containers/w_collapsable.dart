@@ -17,9 +17,11 @@ class WCollapsable extends StatefulWidget {
   //
   //
 
-  final Widget? child;
   final bool collapsed;
   final bool shouldEnableStaticMode;
+  final Curve curve;
+  final Duration duration;
+  final Widget? child;
 
   //
   //
@@ -28,8 +30,10 @@ class WCollapsable extends StatefulWidget {
   const WCollapsable({
     super.key,
     this.collapsed = false,
-    this.child,
     this.shouldEnableStaticMode = true,
+    this.duration = const Duration(milliseconds: 500),
+    this.curve = Curves.fastOutSlowIn,
+    this.child,
   });
 
   //
@@ -49,7 +53,7 @@ class _State extends State<WCollapsable> with SingleTickerProviderStateMixin {
 
   late final _ctrlAnimation = AnimationController(
     vsync: this,
-    duration: const Duration(milliseconds: 500),
+    duration: this.widget.duration,
   );
 
   //
@@ -58,7 +62,7 @@ class _State extends State<WCollapsable> with SingleTickerProviderStateMixin {
 
   late final _animation = CurvedAnimation(
     parent: this._ctrlAnimation,
-    curve: Curves.fastOutSlowIn,
+    curve: this.widget.curve,
   );
 
   //

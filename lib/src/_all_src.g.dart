@@ -45,7 +45,7 @@ export 'components/scalable/w_divider.dart';
 export 'components/scalable/w_horizontal_separator.dart';
 export 'components/scalable/w_icon_button.dart';
 export 'components/scalable/w_inline_text.dart';
-export 'components/scalable/w_popup.dart';
+export 'components/overlays/w_popup.dart';
 export 'components/scalable/w_search_bar_with_actions_layout.dart';
 export 'components/scalable/w_surface.dart';
 export 'components/scalable_with_makeups/w_scrollable/w_scrollable.dart';

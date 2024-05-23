@@ -70,10 +70,7 @@ class _State extends State<WOverlay> {
     } catch (_) {}
     if (this._scrollable != null) {
       this._scrollPosition = this._scrollable!.position;
-      this
-          ._scrollPosition!
-          .isScrollingNotifier
-          .addListener(this._scrollListener);
+      this._scrollPosition!.isScrollingNotifier.addListener(this._scrollListener);
     }
   }
 
@@ -93,8 +90,7 @@ class _State extends State<WOverlay> {
   //
 
   void _measureAndOverlay(_) {
-    final renderBox =
-        this._offstageKey.currentContext?.findRenderObject() as RenderBox;
+    final renderBox = this._offstageKey.currentContext?.findRenderObject() as RenderBox;
     final childSize = renderBox.size;
     final position = renderBox.localToGlobal(Offset.zero);
     this._positionOverlay(childSize, position);
@@ -121,14 +117,19 @@ class _State extends State<WOverlay> {
       y = 0;
     }
     this._overlayEntry = OverlayEntry(
-      builder: (context) => Positioned(
-        left: x,
-        top: y,
-        child: Material(
-          type: MaterialType.transparency,
-          child: this.widget.child,
-        ),
-      ),
+      builder: (context) {
+        return SafeArea(
+          // TODO: Does this SafeArea work?
+          child: Positioned(
+            left: x,
+            top: y,
+            child: Material(
+              type: MaterialType.transparency,
+              child: this.widget.child,
+            ),
+          ),
+        );
+      },
     );
 
     Overlay.of(context).insert(this._overlayEntry!);
@@ -142,10 +143,7 @@ class _State extends State<WOverlay> {
   void dispose() {
     this._overlayEntry?.remove();
     if (this._scrollPosition != null) {
-      this
-          ._scrollPosition!
-          .isScrollingNotifier
-          .removeListener(this._scrollListener);
+      this._scrollPosition!.isScrollingNotifier.removeListener(this._scrollListener);
     }
     super.dispose();
   }
@@ -156,6 +154,7 @@ class _State extends State<WOverlay> {
 
   @override
   Widget build(BuildContext context) {
+    // TODO: Does this need to render at all?
     return Offstage(
       offstage: true,
       child: SizedBox(
