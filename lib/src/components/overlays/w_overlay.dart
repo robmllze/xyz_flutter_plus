@@ -69,7 +69,10 @@ class _State extends State<WOverlay> {
     } catch (_) {}
     if (this._scrollable != null) {
       this._scrollPosition = this._scrollable!.position;
-      this._scrollPosition!.isScrollingNotifier.addListener(this._scrollListener);
+      this
+          ._scrollPosition!
+          .isScrollingNotifier
+          .addListener(this._scrollListener);
     }
   }
 
@@ -89,7 +92,8 @@ class _State extends State<WOverlay> {
   //
 
   void _measureAndOverlay(_) {
-    final renderBox = this._offstageKey.currentContext?.findRenderObject() as RenderBox;
+    final renderBox =
+        this._offstageKey.currentContext?.findRenderObject() as RenderBox;
     final childSize = renderBox.size;
     final position = renderBox.localToGlobal(Offset.zero);
     this._positionOverlay(childSize, position);
@@ -139,7 +143,10 @@ class _State extends State<WOverlay> {
   void dispose() {
     this._overlayEntry?.remove();
     if (this._scrollPosition != null) {
-      this._scrollPosition!.isScrollingNotifier.removeListener(this._scrollListener);
+      this
+          ._scrollPosition!
+          .isScrollingNotifier
+          .removeListener(this._scrollListener);
     }
     super.dispose();
   }
