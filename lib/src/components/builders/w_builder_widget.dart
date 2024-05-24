@@ -67,7 +67,7 @@ Widget _builder<T>(
   Widget? widget;
   if (snapshot.hasData) {
     if (snapshot.hasUsableData) {
-      final data = snapshot.data!;
+      final data = snapshot.data as T;
       widget = onDataBuilder(context, child, data);
     } else {
       widget = onNoUsableDataBuilder?.call(context, child);
