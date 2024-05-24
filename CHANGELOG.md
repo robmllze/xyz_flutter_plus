@@ -2,8 +2,9 @@
 
 ## [0.50.0+7]
 
-- Released @ 2024-05-24 09:53:45.878998Z
+- Released @ 2024-05-24 11:36:42.483343Z
 - Update dependencies
+- Update
 
 ## [0.50.0+6]
 
