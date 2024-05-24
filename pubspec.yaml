@@ -11,7 +11,7 @@
 name: xyz_flutter_plus
 description: This package provides a set of utilities that are commonly used in Flutter apps.
 repository: https://github.com/robmllze/xyz_flutter_plus
-version: 0.50.0+6
+version: 0.50.0+7
 
 ## -----------------------------------------------------------------------------
 
@@ -26,7 +26,7 @@ dependencies:
     sdk: flutter
 
   xyz_config: ^0.28.2
-  xyz_gen_annotations: ^0.40.0
+  xyz_gen_annotations: ^0.41.0
   xyz_pod: ^0.31.0
   xyz_utils: ^0.54.0
 
