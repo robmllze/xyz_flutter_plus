@@ -48,8 +48,9 @@ class WSurface extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final $color =
-        this.decoration?.color ?? this.color ?? Theme.of(context).colorScheme.surfaceContainer;
+    final $color = this.decoration?.color ??
+        this.color ??
+        Theme.of(context).colorScheme.surfaceContainer;
     final $borderRadius = this.decoration?.borderRadius ?? borderRadius;
     final $decoration = this.decoration?.copyWith(
               color: $color,
