@@ -48,15 +48,17 @@ class WSurface extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var $decoration = this.decoration ?? const BoxDecoration();
-    final $color = $decoration.color ??
-        this.color ??
-        Theme.of(context).colorScheme.surfaceContainer;
-    final $borderRadius = $decoration.borderRadius ?? borderRadius;
-    $decoration = $decoration.copyWith(
-      color: $color,
-      borderRadius: $borderRadius,
-    );
+    final $color =
+        this.decoration?.color ?? this.color ?? Theme.of(context).colorScheme.surfaceContainer;
+    final $borderRadius = this.decoration?.borderRadius ?? borderRadius;
+    final $decoration = this.decoration?.copyWith(
+              color: $color,
+              borderRadius: $borderRadius,
+            ) ??
+        BoxDecoration(
+          color: $color,
+          borderRadius: $borderRadius,
+        );
     return ClipRRect(
       borderRadius: $borderRadius,
       child: Container(
