@@ -8,33 +8,37 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
-import '/@ux/_common.dart';
+import '/@screen/_common.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-extension HapticFeedbackOnFunctionExtension on Function {
-  Function withLightImpact() => () {
-        HapticFeedback.lightImpact();
-        this();
-      };
+abstract base class ScreenPage extends StatefulWidget {
+  //
+  //
+  //
 
-  Function withMediumImpact() => () {
-        HapticFeedback.mediumImpact();
-        this();
-      };
+  final String? title;
+  final ScreenView screenState;
 
-  Function withHeavyImpact() => () {
-        HapticFeedback.heavyImpact();
-        this();
-      };
+  //
+  //
+  //
 
-  Function withVibrate() => () {
-        HapticFeedback.vibrate();
-        this();
-      };
+  const ScreenPage({
+    super.key,
+    this.title,
+    required this.screenState,
+  });
+}
 
-  Function selectionClick() => () {
-        HapticFeedback.selectionClick();
-        this();
-      };
+// ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+
+abstract base class ScreenPageView<T1 extends ScreenPage, T2 extends ModelScreenConfiguration,
+    T3 extends ScreenController<T2>> extends State<T1> {
+  //
+  //
+  //
+
+  late T3 c = this.widget.screenState.c as T3;
+  T3 get screenController => this.c;
 }

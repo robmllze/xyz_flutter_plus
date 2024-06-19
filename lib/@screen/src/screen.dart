@@ -8,43 +8,38 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
-import '/@ux/_common.dart';
+import 'package:xyz_gen_annotations/utils_src/generate_models/model.dart';
+
+import '/@screen/_common.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-extension HapticFeedbackOnFunctionExtension on Function {
-  Function withLightImpact() {
-    return () {
-      HapticFeedback.lightImpact();
-      this();
-    };
-  }
+abstract base class Screen<TModelScreenConfiguration extends Model> extends StatefulWidget {
+  //
+  //
+  //
 
-  Function withMediumImpact() {
-    return () {
-      HapticFeedback.mediumImpact();
-      this();
-    };
-  }
+  final ModelScreenConfiguration? configuration;
+  final Duration? controllerCacheTimeout;
 
-  Function withHeavyImpact() {
-    return () {
-      HapticFeedback.heavyImpact();
-      this();
-    };
-  }
+  //
+  //
+  //
 
-  Function withVibrate() {
-    return () {
-      HapticFeedback.vibrate();
-      this();
-    };
-  }
+  const Screen({
+    super.key,
+    this.configuration,
+    this.controllerCacheTimeout = Duration.zero,
+  });
 
-  Function selectionClick() {
-    return () {
-      HapticFeedback.selectionClick();
-      this();
-    };
+  //
+  //
+  //
+
+  ScreenController createController(
+    Screen screen,
+    ScreenView state,
+  ) {
+    return ScreenController(screen, state);
   }
 }

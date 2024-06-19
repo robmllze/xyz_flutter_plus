@@ -46,7 +46,7 @@ class ImageBuilder {
     return ImageBuilder._(
       path,
       key: key,
-      builder: (final image) => networkImage
+      builder: (image) => networkImage
           ? Image.network(
               path,
               fit: fit,

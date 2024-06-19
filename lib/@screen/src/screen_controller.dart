@@ -8,43 +8,42 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
-import '/@ux/_common.dart';
+import '/@screen/_common.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-extension HapticFeedbackOnFunctionExtension on Function {
-  Function withLightImpact() {
-    return () {
-      HapticFeedback.lightImpact();
-      this();
-    };
-  }
+base class ScreenController<TModelScreenConfiguration extends ModelScreenConfiguration> {
+  //
+  //
+  //
 
-  Function withMediumImpact() {
-    return () {
-      HapticFeedback.mediumImpact();
-      this();
-    };
-  }
+  final Screen? superScreen;
+  final ScreenView? superState;
+  final TModelScreenConfiguration? internalConfiguration;
 
-  Function withHeavyImpact() {
-    return () {
-      HapticFeedback.heavyImpact();
-      this();
-    };
-  }
+  //
+  //
+  //
 
-  Function withVibrate() {
-    return () {
-      HapticFeedback.vibrate();
-      this();
-    };
-  }
+  const ScreenController(
+    this.superScreen,
+    this.superState, [
+    this.internalConfiguration,
+  ]);
 
-  Function selectionClick() {
-    return () {
-      HapticFeedback.selectionClick();
-      this();
-    };
-  }
+  //
+  //
+  //
+
+  @mustCallSuper
+  @visibleForOverriding
+  void initController() async {}
+
+  //
+  //
+  //
+
+  @mustCallSuper
+  @visibleForOverriding
+  void dispose() async {}
 }
