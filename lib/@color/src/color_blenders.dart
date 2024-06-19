@@ -107,7 +107,8 @@ class AlphaBlender extends ColorBlender {
 
     // Calculate adjusted alpha for c2 based on blendWeight.
     final alphaAdjustment = 2.0 * (blendWeight - 0.5);
-    final adjustedAlpha = (c2.alpha + alphaAdjustment * 255.0).clamp(0, 255).toInt();
+    final adjustedAlpha =
+        (c2.alpha + alphaAdjustment * 255.0).clamp(0, 255).toInt();
 
     final alphaBlend = adjustedAlpha / 255.0;
 
@@ -210,7 +211,8 @@ class RGBAverageBlender extends ColorBlender {
   @override
   Color _blend(Color c1, Color c2, double blendWeight) {
     int blendComponent(int component1, int component2) {
-      return ((component1 * blendWeight) + (component2 * (1 - blendWeight))).toInt();
+      return ((component1 * blendWeight) + (component2 * (1 - blendWeight)))
+          .toInt();
     }
 
     return Color.fromARGB(
