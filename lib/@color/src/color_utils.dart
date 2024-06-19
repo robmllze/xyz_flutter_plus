@@ -8,14 +8,11 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
-import 'package:crypto/crypto.dart' show sha256;
-import 'dart:convert' show utf8;
-
-import '/_common.dart';
+import '/@color/_common.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-extension ColorUtils on Color {
+extension ColorExtension on Color {
   Color get inverted {
     return Color.fromRGBO(
       255 - this.red,
@@ -49,15 +46,13 @@ extension ColorUtils on Color {
   }
 
   Color contrast(Brightness brighness, double amount) {
-    return brighness == Brightness.light
-        ? this.darken(amount)
-        : this.lighten(amount);
+    return brighness == Brightness.light ? this.darken(amount) : this.lighten(amount);
   }
 }
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-extension BrightnessUtils on Brightness {
+extension BrightnessExtension on Brightness {
   Brightness get inverted {
     return this == Brightness.light ? Brightness.dark : Brightness.light;
   }
@@ -84,8 +79,7 @@ Color mapTextToColor(
   final hue = hashInteger % 360;
 
   // Create a color with the desired saturation, lightness, and alpha values.
-  final baseColor =
-      HSLColor.fromAHSL(1.0, hue.toDouble(), saturation, lightness).toColor();
+  final baseColor = HSLColor.fromAHSL(1.0, hue.toDouble(), saturation, lightness).toColor();
 
   // Blend the base color with the blend color using the specified blend weight.
   final blendedColor = blendWeight > 0.0

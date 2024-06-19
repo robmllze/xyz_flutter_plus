@@ -13,14 +13,14 @@ import 'package:flutter/material.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-const double _kScrollbarThickness = 8.0;
-const double _kScrollbarThicknessWithTrack = 12.0;
-const double _kScrollbarMargin = 2.0;
-const double _kScrollbarMinLength = 48.0;
-const Radius _kScrollbarRadius = Radius.circular(8.0);
-const Duration _kScrollbarFadeDuration = Duration(milliseconds: 300);
-const Duration _kScrollbarTimeToFade = Duration(milliseconds: 600);
-const WScrollbarStyle _kScrollbarStyle = WScrollbarStyle();
+const _kScrollbarThickness = 8.0;
+const _kScrollbarThicknessWithTrack = 12.0;
+const _kScrollbarMargin = 2.0;
+const _kScrollbarMinLength = 48.0;
+const _kScrollbarRadius = Radius.circular(8.0);
+const _kScrollbarFadeDuration = Duration(milliseconds: 300);
+const _kScrollbarTimeToFade = Duration(milliseconds: 600);
+const _kScrollbarStyle = WScrollbarStyle();
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
@@ -138,8 +138,7 @@ class _Scrollbar extends RawScrollbar {
           fadeDuration: scrollbarFadeDuration ?? _kScrollbarFadeDuration,
           timeToFade: scrollbarTimeToFade ?? _kScrollbarTimeToFade,
           pressDuration: Duration.zero,
-          notificationPredicate:
-              notificationPredicate ?? defaultScrollNotificationPredicate,
+          notificationPredicate: notificationPredicate ?? defaultScrollNotificationPredicate,
         );
 
   //
@@ -231,8 +230,7 @@ class _ScrollbarState extends RawScrollbarState<_Scrollbar> {
 
     return WidgetStateProperty.resolveWith((Set<WidgetState> states) {
       if (states.contains(WidgetState.hovered) && this._showTrackOnHover) {
-        return this._scrollbarTheme.trackColor?.resolve(states) ??
-            onSurface.withOpacity(0.05);
+        return this._scrollbarTheme.trackColor?.resolve(states) ?? onSurface.withOpacity(0.05);
       }
       return const Color(0x00000000);
     });
@@ -247,8 +245,7 @@ class _ScrollbarState extends RawScrollbarState<_Scrollbar> {
 
     return WidgetStateProperty.resolveWith((Set<WidgetState> states) {
       if (states.contains(WidgetState.hovered) && this._showTrackOnHover) {
-        return this._scrollbarTheme.trackBorderColor?.resolve(states) ??
-            onSurface.withOpacity(0.1);
+        return this._scrollbarTheme.trackBorderColor?.resolve(states) ?? onSurface.withOpacity(0.1);
       }
       return const Color(0x00000000);
     });

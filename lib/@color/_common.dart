@@ -8,10 +8,11 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
-library;
+export 'dart:ui' show Brightness, Color;
+export 'package:flutter/material.dart' show MaterialColor, ColorScheme;
+export 'package:flutter/widgets.dart' show Cubic, Curve, Curves, HSLColor, ParametricCurve;
 
-export '@theme/theme.dart';
-export '@experience/experience.dart';
-export '@color/color.dart';
+export 'package:crypto/crypto.dart' show sha256;
+export 'dart:convert' show utf8;
 
-export 'src/_all_src.g.dart';
+export 'color.dart';

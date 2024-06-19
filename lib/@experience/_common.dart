@@ -8,10 +8,7 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
-library;
+export 'package:flutter/services.dart';
+export 'package:flutter/material.dart';
 
-export '@theme/theme.dart';
-export '@experience/experience.dart';
-export '@color/color.dart';
-
-export 'src/_all_src.g.dart';
+export 'experience.dart';

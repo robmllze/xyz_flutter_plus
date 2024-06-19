@@ -8,10 +8,11 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
-library;
+export 'dart:ui' show FontWeight;
 
-export '@theme/theme.dart';
-export '@experience/experience.dart';
-export '@color/color.dart';
+export 'package:flutter/material.dart' show TextTheme, Theme;
+export 'package:flutter/widgets.dart';
 
-export 'src/_all_src.g.dart';
+export '/@color/color.dart';
+
+export 'theme.dart';

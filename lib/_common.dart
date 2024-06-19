@@ -15,4 +15,4 @@ export 'package:xyz_config/xyz_config.dart';
 export 'package:xyz_pod/xyz_pod.dart';
 export 'package:xyz_utils/xyz_utils.dart';
 
-export 'src/_all_src.g.dart';
+export 'xyz_flutter_plus.dart';
