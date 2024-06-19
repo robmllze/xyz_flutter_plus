@@ -8,43 +8,33 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
-import '/@experience/_common.dart';
+import '/@ux/_common.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
 extension HapticFeedbackOnFunctionExtension on Function {
-  Function withLightImpact() {
-    return () {
-      HapticFeedback.lightImpact();
-      this();
-    };
-  }
+  Function withLightImpact() => () {
+        HapticFeedback.lightImpact();
+        this();
+      };
 
-  Function withMediumImpact() {
-    return () {
-      HapticFeedback.mediumImpact();
-      this();
-    };
-  }
+  Function withMediumImpact() => () {
+        HapticFeedback.mediumImpact();
+        this();
+      };
 
-  Function withHeavyImpact() {
-    return () {
-      HapticFeedback.heavyImpact();
-      this();
-    };
-  }
+  Function withHeavyImpact() => () {
+        HapticFeedback.heavyImpact();
+        this();
+      };
 
-  Function withVibrate() {
-    return () {
-      HapticFeedback.vibrate();
-      this();
-    };
-  }
+  Function withVibrate() => () {
+        HapticFeedback.vibrate();
+        this();
+      };
 
-  Function selectionClick() {
-    return () {
-      HapticFeedback.selectionClick();
-      this();
-    };
-  }
+  Function selectionClick() => () {
+        HapticFeedback.selectionClick();
+        this();
+      };
 }
