@@ -19,7 +19,8 @@ extension TextStyleExtension on TextStyle {
 
   TextStyle get wInvertedColor {
     return this.copyWith(
-        color: (this.color ?? const Color.fromARGB(255, 0, 0, 0)).inverted,);
+      color: (this.color ?? const Color.fromARGB(255, 0, 0, 0)).inverted,
+    );
   }
 
   TextStyle get wBlack => this.copyWith(fontWeight: FONT_WEIGHT_BLACK);
