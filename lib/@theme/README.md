@@ -2,4 +2,4 @@
 
 ## Description
 
-Additional theme features for Flutter.
+Features to expand Flutter's theme capabilities.

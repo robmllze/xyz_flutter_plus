@@ -2,4 +2,4 @@
 
 ## Description
 
-Features for Flutter to enhance user experience.
+Features to expand Flutter's color capabilities.

@@ -11,7 +11,7 @@
 library;
 
 export '@theme/theme.dart';
-export '@experience/experience.dart';
+export '@ux/ux.dart';
 export '@color/color.dart';
 
 export 'src/_all_src.g.dart';
