@@ -8,11 +8,13 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
-import '/@color/_common.dart';
+import 'package:flutter/material.dart';
+
+import '/@color/src/_all_src.g.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-class ColorMixer {
+base class ColorMixer {
   //
   //
   //
@@ -44,7 +46,7 @@ class ColorMixer {
     this.curve = ColorCurves.medium,
     this.baseColor,
     this.previousMixer,
-    this.blender = const LerpBlender(),
+    this.blender = const LerpColorBlender(),
   });
 
   //
@@ -110,241 +112,5 @@ class ColorMixer {
       add(i);
     }
     return output.toString();
-  }
-}
-
-// ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
-
-class ReverseMixer extends ColorMixer {
-  const ReverseMixer({
-    super.curve = ColorCurves.medium,
-    super.baseColor,
-    super.previousMixer,
-    super.blender = const LerpBlender(),
-  });
-
-  @override
-  Color? getMix(int value) {
-    assert(value >= 0 && value <= 1000);
-    final reversedValue = 1000 - value;
-    return super.getMix(reversedValue);
-  }
-
-  @override
-  ReverseMixer withChild(ColorMixer mixer) {
-    return ReverseMixer(
-      curve: this.curve,
-      baseColor: this.baseColor,
-      previousMixer: mixer,
-      blender: this.blender,
-    );
-  }
-}
-
-// ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
-
-final class ColorCurves {
-  static const Curve linear = Curves.linear;
-  static const Curve medium = Cubic(0.25, 0.75, 0.75, 0.25);
-  static const Curve slow = Cubic(0.3125, 0.9375, 0.9375, 0.3125); // -25%
-  static const Curve fast = Cubic(0.1875, 0.5625, 0.5625, 0.1875); // +25%
-}
-
-// ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
-
-class BrightnessMixer extends ColorMixer {
-  //
-  //
-  //
-
-  const BrightnessMixer({
-    super.curve = ColorCurves.medium,
-    super.baseColor,
-    super.previousMixer,
-    super.blender = const LerpBlender(),
-  });
-
-  //
-  //
-  //
-
-  @override
-  Color? getMix(int value) {
-    assert(value >= 0 && value <= 1000);
-    final mixedColor =
-        this.blender.blend(baseColor, previousMixer?.getMix(value));
-    var t = value / 1000.0;
-    t = super.getFirstCurve()!.transform(t);
-    const white = Color(0xFFFFFFFF);
-    const black = Color(0xFF000000);
-    return t <= 0.5
-        ? Color.lerp(white, mixedColor, t * 2)!
-        : Color.lerp(mixedColor, black, (t - 0.5) * 2)!;
-  }
-
-  //
-  //
-  //
-
-  @override
-  BrightnessMixer withChild(ColorMixer mixer) {
-    return BrightnessMixer(
-      curve: this.curve,
-      baseColor: this.baseColor,
-      previousMixer: mixer,
-      blender: this.blender,
-    );
-  }
-}
-
-// ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
-
-class HueMixer extends ColorMixer {
-  //
-  //
-  //
-
-  const HueMixer({
-    super.curve = ColorCurves.medium,
-    super.baseColor,
-    super.previousMixer,
-    super.blender = const LerpBlender(),
-  });
-
-  //
-  //
-  //
-
-  @override
-  Color? getMix(int value) {
-    assert(value >= 0 && value <= 1000);
-    final mixedColor =
-        this.blender.blend(baseColor, previousMixer?.getMix(value));
-    final hslColor = HSLColor.fromColor(mixedColor);
-    final t = value / 1000;
-    final hue = hslColor.hue;
-    final adjustedHue = (hue + 360 * super.getFirstCurve()!.transform(t)) % 360;
-    return HSLColor.fromAHSL(
-      mixedColor.alpha.toDouble() / 255.0,
-      adjustedHue,
-      hslColor.saturation,
-      hslColor.lightness,
-    ).toColor();
-  }
-
-  //
-  //
-  //
-
-  @override
-  HueMixer withChild(ColorMixer mixer) {
-    return HueMixer(
-      curve: this.curve,
-      baseColor: this.baseColor,
-      previousMixer: mixer,
-      blender: this.blender,
-    );
-  }
-}
-
-// ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
-
-class SaturationMixer extends ColorMixer {
-  //
-  //
-  //
-
-  const SaturationMixer({
-    super.curve = ColorCurves.medium,
-    super.baseColor,
-    super.previousMixer,
-    super.blender = const LerpBlender(),
-  });
-
-  //
-  //
-  //
-
-  @override
-  Color? getMix(int value) {
-    assert(value >= 0 && value <= 1000);
-    final mixedColor =
-        this.blender.blend(baseColor, previousMixer?.getMix(value));
-    final hslColor = HSLColor.fromColor(mixedColor);
-    final t = value / 1000;
-    final saturation = hslColor.saturation;
-    var adjustedSaturation = saturation * super.getFirstCurve()!.transform(t);
-    adjustedSaturation = adjustedSaturation.clamp(0, 1).toDouble();
-    return HSLColor.fromAHSL(
-      mixedColor.alpha.toDouble() / 255.0,
-      hslColor.hue,
-      adjustedSaturation,
-      hslColor.lightness,
-    ).toColor();
-  }
-
-  //
-  //
-  //
-
-  @override
-  SaturationMixer withChild(ColorMixer mixer) {
-    return SaturationMixer(
-      curve: this.curve,
-      baseColor: this.baseColor,
-      previousMixer: mixer,
-      blender: this.blender,
-    );
-  }
-}
-
-// ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
-
-class LightnessMixer extends ColorMixer {
-  //
-  //
-  //
-
-  const LightnessMixer({
-    super.curve = ColorCurves.medium,
-    super.baseColor,
-    super.previousMixer,
-    super.blender = const LerpBlender(),
-  });
-
-  //
-  //
-  //
-
-  @override
-  Color? getMix(int value) {
-    assert(value >= 0 && value <= 1000);
-    final mixedColor =
-        this.blender.blend(baseColor, previousMixer?.getMix(value));
-    final hslColor = HSLColor.fromColor(mixedColor);
-    final t = value / 1000;
-    final lightness = hslColor.lightness;
-    var adjustedLightness = lightness * super.getFirstCurve()!.transform(t);
-    adjustedLightness = adjustedLightness.clamp(0, 1).toDouble();
-    return HSLColor.fromAHSL(
-      mixedColor.alpha.toDouble() / 255.0,
-      hslColor.hue,
-      hslColor.saturation,
-      adjustedLightness,
-    ).toColor();
-  }
-
-  //
-  //
-  //
-
-  @override
-  LightnessMixer withChild(ColorMixer mixer) {
-    return LightnessMixer(
-      curve: this.curve,
-      baseColor: this.baseColor,
-      previousMixer: mixer,
-      blender: this.blender,
-    );
   }
 }

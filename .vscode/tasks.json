@@ -1,0 +1,60 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "⚙️ Generate Directives",
+            "type": "shell",
+            "command": "cd ___generators/src; dart generate_directives.dart"
+        },
+        {
+            "label": "⚙️ Generate Exports",
+            "type": "shell",
+            "command": "cd ___generators/src; dart generate_exports.dart"
+        },
+        {
+            "label": "⚙️ Generate License Headers",
+            "type": "shell",
+            "command": "cd ___generators/src; dart generate_license_headers.dart"
+        },
+        {
+            "label": "⚙️ Generate Makeups",
+            "type": "shell",
+            "command": "cd ___generators/src; dart generate_makeups.dart"
+        },
+        {
+            "label": "⚙️ Generate Models",
+            "type": "shell",
+            "command": "cd ___generators/src; dart generate_models.dart"
+        },
+        {
+            "label": "⚙️ Generate Preps",
+            "type": "shell",
+            "command": "cd ___generators/src; dart generate_preps.dart"
+        },
+        {
+            "label": "⚙️ Generate Screen",
+            "type": "shell",
+            "command": "cd ___generators/src; dart generate_screen.dart"
+        },
+        {
+            "label": "⚙️ Generate Screen Access",
+            "type": "shell",
+            "command": "cd ___generators/src; dart generate_screen_access.dart"
+        },
+        {
+            "label": "⚙️ Generate Screen Bindings",
+            "type": "shell",
+            "command": "cd ___generators/src; dart generate_screen_bindings.dart"
+        },
+        {
+            "label": "⚙️ Generate Type Utils",
+            "type": "shell",
+            "command": "cd ___generators/src; dart generate_type_utils.dart"
+        },
+        {
+            "label": "⚙️ Generate TypeScript Models",
+            "type": "shell",
+            "command": "cd ___generators/src; dart generate_typescript_models.dart"
+        },
+    ]
+}

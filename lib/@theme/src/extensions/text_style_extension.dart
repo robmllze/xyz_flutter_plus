@@ -8,7 +8,10 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
-import '/@theme/_common.dart';
+import 'package:flutter/widgets.dart';
+
+import '/@color/src/_all_src.g.dart';
+import '/@theme/src/_all_src.g.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
@@ -30,28 +33,22 @@ extension TextStyleExtension on TextStyle {
   TextStyle get wMedium => this.copyWith(fontWeight: FONT_WEIGHT_MEDIUM);
   TextStyle get wRegular => this.copyWith(fontWeight: FONT_WEIGHT_REGULAR);
   TextStyle get wLight => this.copyWith(fontWeight: FONT_WEIGHT_LIGHT);
-  TextStyle get wExtraLight =>
-      this.copyWith(fontWeight: FONT_WEIGHT_EXTRA_LIGHT);
+  TextStyle get wExtraLight => this.copyWith(fontWeight: FONT_WEIGHT_EXTRA_LIGHT);
   TextStyle get wThin => this.copyWith(fontWeight: FONT_WEIGHT_THIN);
 
   //
   //
   //
 
-  TextStyle get wUnderlined =>
-      this.copyWith(decoration: TextDecoration.underline);
-  TextStyle get wOverlined =>
-      this.copyWith(decoration: TextDecoration.overline);
-  TextStyle get wLineThough =>
-      this.copyWith(decoration: TextDecoration.lineThrough);
+  TextStyle get wUnderlined => this.copyWith(decoration: TextDecoration.underline);
+  TextStyle get wOverlined => this.copyWith(decoration: TextDecoration.overline);
+  TextStyle get wLineThough => this.copyWith(decoration: TextDecoration.lineThrough);
   TextStyle get wItalic => this.copyWith(fontStyle: FontStyle.italic);
 
   //
   //
   //
 
-  TextStyle wWordSpacing(double wordSpacing) =>
-      this.copyWith(wordSpacing: wordSpacing);
-  TextStyle wLetterSpacing(double letterSpacing) =>
-      this.copyWith(letterSpacing: letterSpacing);
+  TextStyle wWordSpacing(double wordSpacing) => this.copyWith(wordSpacing: wordSpacing);
+  TextStyle wLetterSpacing(double letterSpacing) => this.copyWith(letterSpacing: letterSpacing);
 }

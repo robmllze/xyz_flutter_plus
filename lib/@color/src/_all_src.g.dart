@@ -7,13 +7,27 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
-export 'color_blenders.dart';
+export 'color_blender.dart';
+export 'color_blenders/alpha_color_blender.dart';
+export 'color_blenders/average_hsl_color_blender.dart';
+export 'color_blenders/average_rgb_color_blender.dart';
+export 'color_blenders/lerp_color_blender.dart';
+export 'color_blenders/lightness_color_blender.dart';
+export 'color_blenders/saturation_color_blender.dart';
+export 'color_curves.dart';
 export 'color_mixer.dart';
-export 'color_scheme_extension.dart';
-export 'color_utils.dart';
-export 'common_palette.dart';
-export 'dynamic_palette.dart';
-export 'example_flat_colors.dart';
+export 'color_mixers/brightness_color_mixer.dart';
+export 'color_mixers/hue_color_mixer.dart';
+export 'color_mixers/lightness_color_mixer.dart';
+export 'color_mixers/reverse_color_mixer.dart';
+export 'color_mixers/saturation_color_mixer.dart';
 export 'example_palettes/bronze_palette.dart';
 export 'example_palettes/medi_palette.dart';
+export 'extensions/brightness_extension.dart';
+export 'extensions/color_extension.dart';
+export 'extensions/color_scheme_extension.dart';
+export 'map_text_to_color.dart';
+export 'palettes/common_palette.dart';
+export 'palettes/dynamic_palette.dart';
+export 'palettes/example_flat_colors.dart';
 export 'single_palette.dart';
