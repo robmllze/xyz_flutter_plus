@@ -12,7 +12,8 @@ import '/@screen/_common.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-base class ScreenController<TModelScreenConfiguration extends ModelScreenConfiguration> {
+base class ScreenController<
+    TModelScreenConfiguration extends ModelScreenConfiguration> {
   //
   //
   //

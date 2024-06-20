@@ -15,9 +15,10 @@ import '/@screen/_common.dart';
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
 abstract base class ScreenView<
-    TScreen extends Screen,
-    TModelScreenConfiguration extends ModelScreenConfiguration,
-    TController extends ScreenController<TModelScreenConfiguration>> extends State<TScreen> {
+        TScreen extends Screen,
+        TModelScreenConfiguration extends ModelScreenConfiguration,
+        TController extends ScreenController<TModelScreenConfiguration>>
+    extends State<TScreen> {
   //
   //
   //
@@ -160,12 +161,14 @@ abstract base class ScreenView<
   //
   //
 
-  Widget mobileLayout(BuildContext context, Widget body) => this.narrowLayout(context, body);
+  Widget mobileLayout(BuildContext context, Widget body) =>
+      this.narrowLayout(context, body);
 
   Widget horizontalMobileLayout(BuildContext context, Widget body) =>
       this.wideLayout(context, body);
 
-  Widget narrowLayout(BuildContext context, Widget body) => this.layout(context, body);
+  Widget narrowLayout(BuildContext context, Widget body) =>
+      this.layout(context, body);
 
   Widget wideLayout(BuildContext context, Widget body) {
     return Container(
@@ -285,7 +288,8 @@ abstract base class ScreenView<
     if (key != null) {
       if (_controllerCache[key] == null) {
         _controllerCache[key] = _ControllerCache(
-          (this.widget.createController(this.widget, this)..initController()) as TController,
+          (this.widget.createController(this.widget, this)..initController())
+              as TController,
           controllerTimeout != null
               ? Debouncer(
                   delay: controllerTimeout,
@@ -300,7 +304,8 @@ abstract base class ScreenView<
       this.c = _controllerCache[key]?.controller as TController;
       _controllerCache[key]?.debouncer?.cancel();
     } else {
-      this.c = (this.widget.createController(this.widget, this)..initController()) as TController;
+      this.c = (this.widget.createController(this.widget, this)
+        ..initController()) as TController;
     }
   }
 

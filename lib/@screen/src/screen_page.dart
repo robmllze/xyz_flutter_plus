@@ -33,7 +33,9 @@ abstract base class ScreenPage extends StatefulWidget {
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-abstract base class ScreenPageView<T1 extends ScreenPage, T2 extends ModelScreenConfiguration,
+abstract base class ScreenPageView<
+    T1 extends ScreenPage,
+    T2 extends ModelScreenConfiguration,
     T3 extends ScreenController<T2>> extends State<T1> {
   //
   //

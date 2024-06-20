@@ -14,7 +14,8 @@ import '/@screen/_common.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-abstract base class Screen<TModelScreenConfiguration extends Model> extends StatefulWidget {
+abstract base class Screen<TModelScreenConfiguration extends Model>
+    extends StatefulWidget {
   //
   //
   //
