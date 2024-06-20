@@ -60,11 +60,15 @@ class InternetConnectionChecker {
     void Function()? onInternetConnectionRestored,
     void Function()? onInternetConnectionLost,
   }) {
-    this._stream = Connectivity().onConnectivityChanged.listen((_) => this._debouncer());
+    this._stream =
+        Connectivity().onConnectivityChanged.listen((_) => this._debouncer());
     () async {
       await this.hasInternet();
       this.pHasInternet.addListener(() async {
-        (this.pHasInternet.value ? onInternetConnectionRestored : onInternetConnectionLost)?.call();
+        (this.pHasInternet.value
+                ? onInternetConnectionRestored
+                : onInternetConnectionLost)
+            ?.call();
       });
     }();
   }

@@ -60,7 +60,8 @@ class _State extends State<WWidgetCalculator> {
     super.initState();
     // Wait for the layout to finish before measuring the size.
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      final renderBox = this._key.currentContext?.findRenderObject() as RenderBox?;
+      final renderBox =
+          this._key.currentContext?.findRenderObject() as RenderBox?;
       this.widget.pRenderBox?.set(renderBox);
       this.widget.onPostRender?.call(renderBox);
     });

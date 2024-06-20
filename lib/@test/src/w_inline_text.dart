@@ -52,7 +52,8 @@ class WInlineText extends StatelessWidget {
     const opening = '{{';
     const closing = '}}';
 
-    final segments = text.split(RegExp(r'(?<=' + closing + r')|(?=' + opening + r')'));
+    final segments =
+        text.split(RegExp(r'(?<=' + closing + r')|(?=' + opening + r')'));
     final spans = <InlineSpan>[];
 
     for (final segment in segments) {
@@ -62,7 +63,8 @@ class WInlineText extends StatelessWidget {
         final length = parts.length;
         final key = parts.firstOrNull;
         final widget = namedWidgets[key];
-        final style = namedStyles[key] ?? namedStyles.values.firstOrNull ?? this.style;
+        final style =
+            namedStyles[key] ?? namedStyles.values.firstOrNull ?? this.style;
         final callback = namedCallbacks[key];
         if (widget != null) {
           spans.add(
@@ -97,7 +99,9 @@ class WInlineText extends StatelessWidget {
           );
         }
       } else {
-        final data = segment.replaceAll('\\$opening', opening).replaceAll('\\$closing', opening);
+        final data = segment
+            .replaceAll('\\$opening', opening)
+            .replaceAll('\\$closing', opening);
         spans.add(
           TextSpan(
             text: data,

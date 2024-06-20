@@ -48,6 +48,8 @@ extension ColorExtension on Color {
   }
 
   Color contrast(Brightness brighness, double amount) {
-    return brighness == Brightness.light ? this.darken(amount) : this.lighten(amount);
+    return brighness == Brightness.light
+        ? this.darken(amount)
+        : this.lighten(amount);
   }
 }
