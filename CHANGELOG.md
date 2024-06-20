@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.51.0]
+
+- Released @ 2024-06-20 07:46:55.621193Z
+- Update easy_components module
+
 ## [0.50.0]
 
 - Released @ 2024-06-20 07:24:17.050511Z
