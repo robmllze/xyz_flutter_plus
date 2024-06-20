@@ -48,7 +48,8 @@ class WInkWell extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final $borderRadius = borderRadius ?? BorderRadius.circular(8.sc);
-    final $selectedBorder = customBorder ?? RoundedRectangleBorder(borderRadius: $borderRadius);
+    final $selectedBorder =
+        customBorder ?? RoundedRectangleBorder(borderRadius: $borderRadius);
     return Material(
       color: Colors.transparent,
       child: InkWell(
