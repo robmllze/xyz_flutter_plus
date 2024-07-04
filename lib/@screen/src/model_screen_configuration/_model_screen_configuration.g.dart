@@ -28,7 +28,8 @@ class ModelScreenConfiguration extends _ModelScreenConfiguration {
   static const K_IS_ACCESSIBLE_ONLY_IF_LOGGED_IN_AND_VERIFIED =
       'isAccessibleOnlyIfLoggedInAndVerified';
   static const K_IS_ACCESSIBLE_ONLY_IF_LOGGED_IN = 'isAccessibleOnlyIfLoggedIn';
-  static const K_IS_ACCESSIBLE_ONLY_IF_LOGGED_OUT = 'isAccessibleOnlyIfLoggedOut';
+  static const K_IS_ACCESSIBLE_ONLY_IF_LOGGED_OUT =
+      'isAccessibleOnlyIfLoggedOut';
   static const K_IS_REDIRECTABLE = 'isRedirectable';
   static const K_PATH = 'path';
   static const K_PREVIOUS_CONFIGURATION = 'previousConfiguration';
@@ -70,7 +71,8 @@ class ModelScreenConfiguration extends _ModelScreenConfiguration {
   }) {
     return ModelScreenConfiguration.b(
       args: args,
-      isAccessibleOnlyIfLoggedInAndVerified: isAccessibleOnlyIfLoggedInAndVerified,
+      isAccessibleOnlyIfLoggedInAndVerified:
+          isAccessibleOnlyIfLoggedInAndVerified,
       isAccessibleOnlyIfLoggedIn: isAccessibleOnlyIfLoggedIn,
       isAccessibleOnlyIfLoggedOut: isAccessibleOnlyIfLoggedOut,
       isRedirectable: isRedirectable,
@@ -190,8 +192,10 @@ class ModelScreenConfiguration extends _ModelScreenConfiguration {
         ..$args = otherData?[K_ARGS]
         ..$isAccessibleOnlyIfLoggedInAndVerified =
             otherData?[K_IS_ACCESSIBLE_ONLY_IF_LOGGED_IN_AND_VERIFIED]
-        ..$isAccessibleOnlyIfLoggedIn = otherData?[K_IS_ACCESSIBLE_ONLY_IF_LOGGED_IN]
-        ..$isAccessibleOnlyIfLoggedOut = otherData?[K_IS_ACCESSIBLE_ONLY_IF_LOGGED_OUT]
+        ..$isAccessibleOnlyIfLoggedIn =
+            otherData?[K_IS_ACCESSIBLE_ONLY_IF_LOGGED_IN]
+        ..$isAccessibleOnlyIfLoggedOut =
+            otherData?[K_IS_ACCESSIBLE_ONLY_IF_LOGGED_OUT]
         ..$isRedirectable = otherData?[K_IS_REDIRECTABLE]
         ..$path = otherData?[K_PATH]
         ..$previousConfiguration = otherData?[K_PREVIOUS_CONFIGURATION]
@@ -242,7 +246,8 @@ class ModelScreenConfiguration extends _ModelScreenConfiguration {
     try {
       final withNulls = <String, dynamic>{
         K_ARGS: this.$args,
-        K_IS_ACCESSIBLE_ONLY_IF_LOGGED_IN_AND_VERIFIED: this.$isAccessibleOnlyIfLoggedInAndVerified,
+        K_IS_ACCESSIBLE_ONLY_IF_LOGGED_IN_AND_VERIFIED:
+            this.$isAccessibleOnlyIfLoggedInAndVerified,
         K_IS_ACCESSIBLE_ONLY_IF_LOGGED_IN: this.$isAccessibleOnlyIfLoggedIn,
         K_IS_ACCESSIBLE_ONLY_IF_LOGGED_OUT: this.$isAccessibleOnlyIfLoggedOut,
         K_IS_REDIRECTABLE: this.$isRedirectable,
@@ -289,7 +294,8 @@ class ModelScreenConfiguration extends _ModelScreenConfiguration {
         this.args = other.args!;
       }
       if (other.isAccessibleOnlyIfLoggedInAndVerified != null) {
-        this.isAccessibleOnlyIfLoggedInAndVerified = other.isAccessibleOnlyIfLoggedInAndVerified!;
+        this.isAccessibleOnlyIfLoggedInAndVerified =
+            other.isAccessibleOnlyIfLoggedInAndVerified!;
       }
       if (other.isAccessibleOnlyIfLoggedIn != null) {
         this.isAccessibleOnlyIfLoggedIn = other.isAccessibleOnlyIfLoggedIn!;
@@ -348,26 +354,32 @@ class ModelScreenConfiguration extends _ModelScreenConfiguration {
   set isAccessibleOnlyIfLoggedInAndVerifiedField(bool? v) =>
       this.isAccessibleOnlyIfLoggedInAndVerified = v;
   @protected
-  dynamic get $isAccessibleOnlyIfLoggedInAndVerified => this.isAccessibleOnlyIfLoggedInAndVerified;
+  dynamic get $isAccessibleOnlyIfLoggedInAndVerified =>
+      this.isAccessibleOnlyIfLoggedInAndVerified;
   @protected
   set $isAccessibleOnlyIfLoggedInAndVerified(v) =>
       this.isAccessibleOnlyIfLoggedInAndVerified = letBool(v);
 
   // isAccessibleOnlyIfLoggedIn.
   bool? get isAccessibleOnlyIfLoggedInField => this.isAccessibleOnlyIfLoggedIn;
-  set isAccessibleOnlyIfLoggedInField(bool? v) => this.isAccessibleOnlyIfLoggedIn = v;
+  set isAccessibleOnlyIfLoggedInField(bool? v) =>
+      this.isAccessibleOnlyIfLoggedIn = v;
   @protected
   dynamic get $isAccessibleOnlyIfLoggedIn => this.isAccessibleOnlyIfLoggedIn;
   @protected
-  set $isAccessibleOnlyIfLoggedIn(v) => this.isAccessibleOnlyIfLoggedIn = letBool(v);
+  set $isAccessibleOnlyIfLoggedIn(v) =>
+      this.isAccessibleOnlyIfLoggedIn = letBool(v);
 
   // isAccessibleOnlyIfLoggedOut.
-  bool? get isAccessibleOnlyIfLoggedOutField => this.isAccessibleOnlyIfLoggedOut;
-  set isAccessibleOnlyIfLoggedOutField(bool? v) => this.isAccessibleOnlyIfLoggedOut = v;
+  bool? get isAccessibleOnlyIfLoggedOutField =>
+      this.isAccessibleOnlyIfLoggedOut;
+  set isAccessibleOnlyIfLoggedOutField(bool? v) =>
+      this.isAccessibleOnlyIfLoggedOut = v;
   @protected
   dynamic get $isAccessibleOnlyIfLoggedOut => this.isAccessibleOnlyIfLoggedOut;
   @protected
-  set $isAccessibleOnlyIfLoggedOut(v) => this.isAccessibleOnlyIfLoggedOut = letBool(v);
+  set $isAccessibleOnlyIfLoggedOut(v) =>
+      this.isAccessibleOnlyIfLoggedOut = letBool(v);
 
   // isRedirectable.
   bool? get isRedirectableField => this.isRedirectable;
@@ -386,8 +398,10 @@ class ModelScreenConfiguration extends _ModelScreenConfiguration {
   set $path(v) => this.path = v?.toString().trim().nullIfEmpty;
 
   // previousConfiguration.
-  ModelScreenConfiguration? get previousConfigurationField => this.previousConfiguration;
-  set previousConfigurationField(ModelScreenConfiguration? v) => this.previousConfiguration = v;
+  ModelScreenConfiguration? get previousConfigurationField =>
+      this.previousConfiguration;
+  set previousConfigurationField(ModelScreenConfiguration? v) =>
+      this.previousConfiguration = v;
   @protected
   dynamic get $previousConfiguration => this.previousConfiguration?.toJson();
   @protected
