@@ -33,6 +33,8 @@ class WOverlayPopup extends StatefulWidget {
 
   final Color? backgroundColor;
 
+  final void Function()? onTapDownBackground;
+
   //
   //
   //
@@ -42,6 +44,7 @@ class WOverlayPopup extends StatefulWidget {
     this.buttonBuilder,
     this.itemBuilder,
     this.backgroundColor,
+    this.onTapDownBackground,
   });
 
   //
@@ -89,6 +92,7 @@ class _State extends State<WOverlayPopup> {
               behavior: HitTestBehavior.translucent,
               onTapDown: (details) {
                 this.setState(() => this._open = false);
+                this.widget.onTapDownBackground?.call();
               },
               child: WAnimatedFade(
                 layer2: Container(
