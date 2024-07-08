@@ -139,10 +139,9 @@ class _State extends State<WToast> {
                         style: m?.descriptionTextStyle,
                       ),
                     ],
-                    if (this.widget.action != null &&
-                        this.widget.onTapAction != null) ...[
+                    if (this.widget.action != null && this.widget.onTapAction != null) ...[
                       wHeight8(),
-                      GestureDetector(
+                      WInkWell(
                         onTap: this.widget.onTapAction,
                         child: Text(
                           this.widget.action!,
@@ -156,7 +155,7 @@ class _State extends State<WToast> {
             ),
             if (this.widget.onTapClose != null) ...[
               wWidth8(),
-              GestureDetector(
+              WInkWell(
                 onTap: this.widget.onTapClose,
                 child: ConstrainedBox(
                   constraints: BoxConstraints(
