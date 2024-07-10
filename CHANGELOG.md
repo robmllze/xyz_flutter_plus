@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.54.0]
+
+- Released @ 2024-07-10 11:31:59.758221Z
+- inprove screen_view.dart
+
 ## [0.53.4]
 
 - Released @ 2024-07-08 03:36:54.629077Z

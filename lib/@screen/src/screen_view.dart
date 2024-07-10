@@ -24,8 +24,8 @@ import '/@screen/src/_all_src.g.dart';
 abstract base class ScreenView<
         TScreen extends Screen,
         TModelScreenConfiguration extends ModelScreenConfiguration,
-        TController extends ScreenController<TModelScreenConfiguration>> extends State<TScreen>
-    with AfterFirstLayoutMixin {
+        TController extends ScreenController<TModelScreenConfiguration>>
+    extends State<TScreen> with AfterFirstLayoutMixin {
   //
   //
   //
@@ -81,7 +81,8 @@ abstract base class ScreenView<
 
   /// Creates a new instance of [TController] from the current widget.
   TController _createController() {
-    return (this.widget.createController(this.widget, this)..initController()) as TController;
+    return (this.widget.createController(this.widget, this)..initController())
+        as TController;
   }
 
   /// Stores all active controllers.
@@ -111,10 +112,14 @@ abstract base class ScreenView<
   final _rightSideKey = GlobalKey();
   @override
   void afterFirstLayout(BuildContext context) {
-    final topSideBox = this._topSideKey.currentContext?.findRenderObject() as RenderBox;
-    final bottomSideBox = this._bottomSideKey.currentContext?.findRenderObject() as RenderBox;
-    final leftSideBox = this._leftSideKey.currentContext?.findRenderObject() as RenderBox;
-    final rightSideBox = this._rightSideKey.currentContext?.findRenderObject() as RenderBox;
+    final topSideBox =
+        this._topSideKey.currentContext?.findRenderObject() as RenderBox;
+    final bottomSideBox =
+        this._bottomSideKey.currentContext?.findRenderObject() as RenderBox;
+    final leftSideBox =
+        this._leftSideKey.currentContext?.findRenderObject() as RenderBox;
+    final rightSideBox =
+        this._rightSideKey.currentContext?.findRenderObject() as RenderBox;
     this._sideInsets = EdgeInsets.only(
       top: topSideBox.size.height,
       bottom: bottomSideBox.size.height,
