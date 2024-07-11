@@ -23,7 +23,8 @@ import '/@painters/src/image_painter.dart';
 Future<CustomPaint> captureWidget(GlobalKey captureKey) async {
   final imageCompleter = Completer<ui.Image>();
   WidgetsBinding.instance.addPostFrameCallback((_) async {
-    final boundary = captureKey.currentContext!.findRenderObject() as RenderRepaintBoundary;
+    final boundary =
+        captureKey.currentContext!.findRenderObject() as RenderRepaintBoundary;
     final image = await boundary.toImage(pixelRatio: 1.0);
     imageCompleter.complete(image);
   });
