@@ -30,6 +30,7 @@ dependencies:
   xyz_pod: ">=0.36.0 <1.0.0"
   xyz_utils: ">=0.60.0 <1.0.0"
   async: ^2.11.0
+  after_layout: ^1.2.0
   connectivity_plus: ^6.0.1
   crypto: ^3.0.3
   device_info_plus: ^10.1.0
