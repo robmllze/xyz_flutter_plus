@@ -11,15 +11,14 @@
 // ignore_for_file: invalid_use_of_visible_for_overriding_member
 
 import 'dart:async';
-import 'dart:ui' as ui;
 
 import 'package:after_layout/after_layout.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart' show RenderRepaintBoundary;
 import 'package:meta/meta.dart';
 import 'package:xyz_utils/xyz_utils.dart';
 
-import '../../@app_properties/src/app_scale.dart';
+import '/@utils/src/capture_widget.dart';
+import '/@app_properties/src/app_scale.dart';
 import '/@easy_components/src/w_surface.dart';
 import '/@screen/src/_all_src.g.dart';
 
@@ -34,8 +33,6 @@ abstract base class ScreenView<
   //
   //
 
-  // ---------------------------------------------------------------------------
-  // Manage the lifecycle of the screen controller and view.
   // ---------------------------------------------------------------------------
 
   /// The current ontroller associated with this screen.
@@ -106,7 +103,7 @@ abstract base class ScreenView<
   }
 
   // ---------------------------------------------------------------------------
-  // Integrate screen capturing functionality.
+  // Provide screen capturing functionality.
   // ---------------------------------------------------------------------------
 
   final _buildCaptureKey = GlobalKey();
@@ -121,8 +118,8 @@ abstract base class ScreenView<
   static Future<({Widget buildCapture, Widget body3Captrue})?>
       captureScreen() async {
     try {
-      buildCapture = await _captureCurrentScreen(_staticBuildCaptureKey!);
-      bodyCapture = await _captureCurrentScreen(_staticBody3CaptureKey!);
+      buildCapture = await captureWidget(_staticBuildCaptureKey!);
+      bodyCapture = await captureWidget(_staticBody3CaptureKey!);
       return (
         buildCapture: buildCapture!,
         body3Captrue: bodyCapture!,
@@ -143,11 +140,14 @@ abstract base class ScreenView<
   // ---------------------------------------------------------------------------
 
   bool _didCalculateSideInsets = false;
+
   EdgeInsets _sideInsets = EdgeInsets.zero;
+
   final _topSideKey = GlobalKey();
   final _bottomSideKey = GlobalKey();
   final _leftSideKey = GlobalKey();
   final _rightSideKey = GlobalKey();
+
   @override
   FutureOr<void> afterFirstLayout(BuildContext context) {
     final topSideBox =
@@ -367,23 +367,26 @@ abstract base class ScreenView<
 
   /// Override to specify the padding for the body.
   EdgeInsets padding() {
-    return EdgeInsets.all(40.sc);
+    return EdgeInsets.only(
+      left: 40.sc,
+      right: 40.sc,
+      top: 60.sc,
+      bottom: 80.sc,
+    );
   }
 
   //
   //
   //
 
-  /// Override this method to specify the background. This is rendered behind
-  /// the body.
+  /// Override to specify the background. This is rendered behind the body.
   Widget background(BuildContext context) {
     return Container(
       color: Theme.of(context).colorScheme.surface,
     );
   }
 
-  /// Override this method to specify the foregound. This is rendered over
-  /// the body.
+  /// Override to specify the foregound. This is rendered over the body.
   ///
   /// Tip: Use an [IgnorePointer] when creating non-interactive overlays.
   Widget foreground(BuildContext context) {
@@ -588,65 +591,4 @@ class _ControllerCache {
     required this.controller,
     required this.debouncer,
   });
-}
-
-// ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
-
-Future<Widget> _captureCurrentScreen(GlobalKey captureKey) async {
-  final imageCompleter = Completer<ui.Image>();
-  WidgetsBinding.instance.addPostFrameCallback((_) async {
-    final boundary =
-        captureKey.currentContext!.findRenderObject() as RenderRepaintBoundary;
-    final image = await boundary.toImage(pixelRatio: 1.0);
-    imageCompleter.complete(image);
-  });
-
-  final image = await imageCompleter.future;
-  final result = CustomPaint(
-    painter: _ImagePainter(image),
-    size: Size(
-      image.width.toDouble(),
-      image.height.toDouble(),
-    ),
-  );
-  return result;
-}
-
-// ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
-
-class _ImagePainter extends CustomPainter {
-  //
-  //
-  //
-
-  final ui.Image image;
-
-  //
-  //
-  //
-
-  _ImagePainter(this.image);
-
-  //
-  //
-  //
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    paintImage(
-      canvas: canvas,
-      rect: Offset.zero & size,
-      image: image,
-      fit: BoxFit.cover,
-    );
-  }
-
-  //
-  //
-  //
-
-  @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) {
-    return false;
-  }
 }

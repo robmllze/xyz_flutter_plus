@@ -9,3 +9,4 @@
 
 export 'circle_painter.dart';
 export 'diagonal_stripes_painter.dart';
+export 'image_painter.dart';

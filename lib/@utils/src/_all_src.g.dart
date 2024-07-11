@@ -11,3 +11,4 @@ export 'current_platform.dart';
 export 'internet_connection_checker.dart';
 export 'keyboard_observer.dart';
 export 'widget_visibility_manager.dart';
+export 'capture_widget.dart';
