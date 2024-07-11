@@ -27,8 +27,8 @@ import '/@screen/src/_all_src.g.dart';
 abstract base class ScreenView<
         TScreen extends Screen,
         TModelScreenConfiguration extends ModelScreenConfiguration,
-        TController extends ScreenController<TModelScreenConfiguration>>
-    extends State<TScreen> with AfterLayoutMixin {
+        TController extends ScreenController<TModelScreenConfiguration>> extends State<TScreen>
+    with AfterLayoutMixin {
   //
   //
   //
@@ -83,8 +83,7 @@ abstract base class ScreenView<
 
   /// Creates a new instance of [TController] from the current widget.
   TController _createController() {
-    return (this.widget.createController(this.widget, this)..initController())
-        as TController;
+    return (this.widget.createController(this.widget, this)..initController()) as TController;
   }
 
   /// Stores all active controllers.
@@ -115,18 +114,19 @@ abstract base class ScreenView<
   static Widget? buildCapture;
   static Widget? bodyCapture;
 
-  static Future<({Widget buildCapture, Widget body3Captrue})?>
-      captureScreen() async {
-    try {
-      buildCapture = await captureWidget(_staticBuildCaptureKey!);
-      bodyCapture = await captureWidget(_staticBody3CaptureKey!);
-      return (
-        buildCapture: buildCapture!,
-        body3Captrue: bodyCapture!,
-      );
-    } catch (_) {
-      return null;
-    }
+  static Future<({Widget buildCapture, Widget body3Captrue})?> captureScreen() async {
+    // try {
+    //   buildCapture = await captureWidget(_staticBuildCaptureKey!);
+    //   bodyCapture = await captureWidget(_staticBody3CaptureKey!);
+    //   return (
+    //     buildCapture: buildCapture!,
+    //     body3Captrue: bodyCapture!,
+    //   );
+    // } catch (_) {
+    //   buildCapture = null;
+    //   bodyCapture = null;
+    //   return null;
+    // }
   }
 
   void _initScreenCapture() {
@@ -150,14 +150,10 @@ abstract base class ScreenView<
 
   @override
   FutureOr<void> afterFirstLayout(BuildContext context) {
-    final topSideBox =
-        this._topSideKey.currentContext?.findRenderObject() as RenderBox;
-    final bottomSideBox =
-        this._bottomSideKey.currentContext?.findRenderObject() as RenderBox;
-    final leftSideBox =
-        this._leftSideKey.currentContext?.findRenderObject() as RenderBox;
-    final rightSideBox =
-        this._rightSideKey.currentContext?.findRenderObject() as RenderBox;
+    final topSideBox = this._topSideKey.currentContext?.findRenderObject() as RenderBox;
+    final bottomSideBox = this._bottomSideKey.currentContext?.findRenderObject() as RenderBox;
+    final leftSideBox = this._leftSideKey.currentContext?.findRenderObject() as RenderBox;
+    final rightSideBox = this._rightSideKey.currentContext?.findRenderObject() as RenderBox;
     this.setState(() {
       this._sideInsets = EdgeInsets.only(
         top: topSideBox.size.height,
@@ -190,8 +186,7 @@ abstract base class ScreenView<
               maintainBottomViewPadding: true,
               child: () {
                 final screenSize = MediaQuery.of(context).size;
-                final calculator =
-                    ScreenCalculator(screenSize.width, screenSize.height);
+                final calculator = ScreenCalculator(screenSize.width, screenSize.height);
                 final appLayout = AppLayout.fromScreenCalculator(calculator);
                 switch (appLayout) {
                   case AppLayout.MOBILE:
@@ -368,8 +363,8 @@ abstract base class ScreenView<
   /// Override to specify the padding for the body.
   EdgeInsets padding() {
     return EdgeInsets.only(
-      left: 40.sc,
-      right: 40.sc,
+      left: 20.sc,
+      right: 20.sc,
       top: 60.sc,
       bottom: 80.sc,
     );
@@ -495,7 +490,7 @@ abstract base class ScreenView<
   Widget transition(Widget? prevScreenBodyCapture, Widget currentScreenBody) {
     return Stack(
       children: [
-        if (prevScreenBodyCapture != null) prevScreenBodyCapture,
+        //if (prevScreenBodyCapture != null) prevScreenBodyCapture,
         currentScreenBody,
       ],
     );
