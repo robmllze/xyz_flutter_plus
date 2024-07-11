@@ -28,8 +28,8 @@ import '/@screen/src/_all_src.g.dart';
 abstract base class ScreenView<
         TScreen extends Screen,
         TModelScreenConfiguration extends ModelScreenConfiguration,
-        TController extends ScreenController<TModelScreenConfiguration>> extends State<TScreen>
-    with AfterLayoutMixin {
+        TController extends ScreenController<TModelScreenConfiguration>>
+    extends State<TScreen> with AfterLayoutMixin {
   //
   //
   //
@@ -86,7 +86,8 @@ abstract base class ScreenView<
 
   /// Creates a new instance of [TController] from the current widget.
   TController _createController() {
-    return (this.widget.createController(this.widget, this)..initController()) as TController;
+    return (this.widget.createController(this.widget, this)..initController())
+        as TController;
   }
 
   /// Stores all active controllers.
@@ -117,7 +118,8 @@ abstract base class ScreenView<
   static Widget? buildCapture;
   static Widget? bodyCapture;
 
-  static Future<({Widget buildCapture, Widget body3Captrue})?> captureScreen() async {
+  static Future<({Widget buildCapture, Widget body3Captrue})?>
+      captureScreen() async {
     try {
       buildCapture = await _captureCurrentScreen(_staticBuildCaptureKey!);
       bodyCapture = await _captureCurrentScreen(_staticBody3CaptureKey!);
@@ -148,10 +150,14 @@ abstract base class ScreenView<
   final _rightSideKey = GlobalKey();
   @override
   FutureOr<void> afterFirstLayout(BuildContext context) {
-    final topSideBox = this._topSideKey.currentContext?.findRenderObject() as RenderBox;
-    final bottomSideBox = this._bottomSideKey.currentContext?.findRenderObject() as RenderBox;
-    final leftSideBox = this._leftSideKey.currentContext?.findRenderObject() as RenderBox;
-    final rightSideBox = this._rightSideKey.currentContext?.findRenderObject() as RenderBox;
+    final topSideBox =
+        this._topSideKey.currentContext?.findRenderObject() as RenderBox;
+    final bottomSideBox =
+        this._bottomSideKey.currentContext?.findRenderObject() as RenderBox;
+    final leftSideBox =
+        this._leftSideKey.currentContext?.findRenderObject() as RenderBox;
+    final rightSideBox =
+        this._rightSideKey.currentContext?.findRenderObject() as RenderBox;
     this.setState(() {
       this._sideInsets = EdgeInsets.only(
         top: topSideBox.size.height,
@@ -184,7 +190,8 @@ abstract base class ScreenView<
               maintainBottomViewPadding: true,
               child: () {
                 final screenSize = MediaQuery.of(context).size;
-                final calculator = ScreenCalculator(screenSize.width, screenSize.height);
+                final calculator =
+                    ScreenCalculator(screenSize.width, screenSize.height);
                 final appLayout = AppLayout.fromScreenCalculator(calculator);
                 switch (appLayout) {
                   case AppLayout.MOBILE:
@@ -588,7 +595,8 @@ class _ControllerCache {
 Future<Widget> _captureCurrentScreen(GlobalKey captureKey) async {
   final imageCompleter = Completer<ui.Image>();
   WidgetsBinding.instance.addPostFrameCallback((_) async {
-    final boundary = captureKey.currentContext!.findRenderObject() as RenderRepaintBoundary;
+    final boundary =
+        captureKey.currentContext!.findRenderObject() as RenderRepaintBoundary;
     final image = await boundary.toImage(pixelRatio: 1.0);
     imageCompleter.complete(image);
   });
