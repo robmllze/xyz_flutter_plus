@@ -127,7 +127,8 @@ class _State extends State<WToast> {
                                   style: m?.dateTextStyle,
                                 ),
                               // Close Icon.
-                              if (m?.closeIcon != null && this.widget.onTapClose != null) ...[
+                              if (m?.closeIcon != null &&
+                                  this.widget.onTapClose != null) ...[
                                 wWidth8(),
                                 Align(
                                   alignment: Alignment.topRight,
@@ -156,7 +157,8 @@ class _State extends State<WToast> {
                             style: m?.descriptionTextStyle,
                           ),
                         ],
-                        if (this.widget.actionText != null && this.widget.onTapAction != null) ...[
+                        if (this.widget.actionText != null &&
+                            this.widget.onTapAction != null) ...[
                           wHeight8(),
                           WInkWell(
                             onTap: this.widget.onTapAction,
