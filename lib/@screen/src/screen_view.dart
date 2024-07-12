@@ -27,8 +27,8 @@ import '/@screen/src/_all_src.g.dart';
 abstract base class ScreenView<
         TScreen extends Screen,
         TModelScreenConfiguration extends ModelScreenConfiguration,
-        TController extends ScreenController<TModelScreenConfiguration>>
-    extends State<TScreen> with AfterLayoutMixin {
+        TController extends ScreenController<TModelScreenConfiguration>> extends State<TScreen>
+    with AfterLayoutMixin {
   //
   //
   //
@@ -83,8 +83,7 @@ abstract base class ScreenView<
 
   /// Creates a new instance of [TController] from the current widget.
   TController _createController() {
-    return (this.widget.createController(this.widget, this)..initController())
-        as TController;
+    return (this.widget.createController(this.widget, this)..initController()) as TController;
   }
 
   /// Stores all active controllers.
@@ -200,8 +199,7 @@ abstract base class ScreenView<
               maintainBottomViewPadding: true,
               child: () {
                 final screenSize = MediaQuery.of(context).size;
-                final calculator =
-                    ScreenCalculator(screenSize.width, screenSize.height);
+                final calculator = ScreenCalculator(screenSize.width, screenSize.height);
                 final appLayout = AppLayout.fromScreenCalculator(calculator);
                 switch (appLayout) {
                   case AppLayout.MOBILE:
@@ -378,8 +376,8 @@ abstract base class ScreenView<
   /// Override to specify the padding for the body.
   EdgeInsets padding() {
     return EdgeInsets.only(
-      left: 20.sc,
-      right: 20.sc,
+      left: 28.sc,
+      right: 28.sc,
       top: 60.sc,
       bottom: 80.sc,
     );
