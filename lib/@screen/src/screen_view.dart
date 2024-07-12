@@ -115,22 +115,19 @@ abstract base class ScreenView<
   static Widget? buildCapture;
   static Widget? bodyCapture;
 
-  static Future<({Widget buildCapture, Widget body3Captrue})?>
-      captureScreen() async {
-        return null;
-      
-    // try {
-    //   buildCapture = await captureWidget(_staticBuildCaptureKey!);
-    //   bodyCapture = await captureWidget(_staticBody3CaptureKey!);
-    //   return (
-    //     buildCapture: buildCapture!,
-    //     body3Captrue: bodyCapture!,
-    //   );
-    // } catch (_) {
-    //   buildCapture = null;
-    //   bodyCapture = null;
-    //   return null;
-    // }
+  static Future<({Widget buildCapture, Widget body3Captrue})?> captureScreen() async {
+    try {
+      buildCapture = await captureWidget(_staticBuildCaptureKey!);
+      bodyCapture = await captureWidget(_staticBody3CaptureKey!);
+      return (
+        buildCapture: buildCapture!,
+        body3Captrue: bodyCapture!,
+      );
+    } catch (_) {
+      buildCapture = null;
+      bodyCapture = null;
+      return null;
+    }
   }
 
   void _initScreenCapture() {
@@ -154,23 +151,27 @@ abstract base class ScreenView<
 
   @override
   FutureOr<void> afterFirstLayout(BuildContext context) {
-    final topSideBox =
-        this._topSideKey.currentContext?.findRenderObject() as RenderBox;
-    final bottomSideBox =
-        this._bottomSideKey.currentContext?.findRenderObject() as RenderBox;
-    final leftSideBox =
-        this._leftSideKey.currentContext?.findRenderObject() as RenderBox;
-    final rightSideBox =
-        this._rightSideKey.currentContext?.findRenderObject() as RenderBox;
     this.setState(() {
-      this._sideInsets = EdgeInsets.only(
-        top: topSideBox.size.height,
-        bottom: bottomSideBox.size.height,
-        left: leftSideBox.size.width,
-        right: rightSideBox.size.width,
-      );
+      this._assignSideInsets();
       this._didCalculateSideInsets = true;
     });
+  }
+
+  void _assignSideInsets() {
+    try {
+      final topSideBox = this._topSideKey.currentContext?.findRenderObject() as RenderBox?;
+      final bottomSideBox = this._bottomSideKey.currentContext?.findRenderObject() as RenderBox?;
+      final leftSideBox = this._leftSideKey.currentContext?.findRenderObject() as RenderBox?;
+      final rightSideBox = this._rightSideKey.currentContext?.findRenderObject() as RenderBox?;
+      this._sideInsets = EdgeInsets.only(
+        top: topSideBox?.size.height ?? 0.0,
+        bottom: bottomSideBox?.size.height ?? 0.0,
+        left: leftSideBox?.size.width ?? 0.0,
+        right: rightSideBox?.size.width ?? 0.0,
+      );
+    } catch (e) {
+      debugLogError('Failed to assign side insets');
+    }
   }
 
   // ---------------------------------------------------------------------------
@@ -499,7 +500,7 @@ abstract base class ScreenView<
   Widget transition(Widget? prevScreenBodyCapture, Widget currentScreenBody) {
     return Stack(
       children: [
-        //if (prevScreenBodyCapture != null) prevScreenBodyCapture,
+        if (prevScreenBodyCapture != null) prevScreenBodyCapture,
         currentScreenBody,
       ],
     );
@@ -522,9 +523,6 @@ abstract base class ScreenView<
     final body2 = Stack(
       alignment: Alignment.center,
       children: [
-        SizedBox.expand(
-          child: this.background(context),
-        ),
         this.align(
           context,
           body1,
@@ -564,16 +562,26 @@ abstract base class ScreenView<
         ),
       ],
     );
-    final body3 = this.presentation(context, body2);
-    final body4 = Offstage(
+
+    final body3 = Stack(
+      alignment: Alignment.center,
+      fit: StackFit.expand,
+      children: [
+        this.background(context),
+        body2,
+      ],
+    );
+
+    final body4 = this.presentation(context, body3);
+    final body5 = Offstage(
       offstage: !this._didCalculateSideInsets,
       child: RepaintBoundary(
         key: this._bodyCaptureKey,
-        child: body3,
+        child: body4,
       ),
     );
-    final body5 = this.transition(bodyCapture, body4);
-    return body5;
+    final body6 = this.transition(bodyCapture, body5);
+    return body6;
   }
 }
 

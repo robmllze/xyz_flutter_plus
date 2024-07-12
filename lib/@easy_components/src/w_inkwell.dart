@@ -25,6 +25,7 @@ class WInkWell extends StatelessWidget {
   final BorderRadius? borderRadius;
   final bool? selected;
   final Widget? child;
+  final Size? size;
 
   //
   //
@@ -38,18 +39,44 @@ class WInkWell extends StatelessWidget {
     this.borderRadius,
     this.selected,
     this.child,
+    this.size,
   });
 
   //
   //
+  //
 
+  factory WInkWell.iconButton({
+    Key? key,
+    ShapeBorder? customBorder,
+    void Function()? onTap,
+    void Function()? onTapDown,
+    bool? selected,
+    Widget? icon,
+    double? diameter,
+  }) {
+    final diameter1 = diameter ?? 48.sc;
+    final radius1 = 0.5 * diameter1;
+    return WInkWell(
+      key: key,
+      customBorder: customBorder,
+      onTap: onTap,
+      onTapDown: onTapDown,
+      borderRadius: BorderRadius.circular(radius1),
+      selected: selected,
+      size: Size.square(diameter1),
+      child: icon,
+    );
+  }
+
+  //
+  //
   //
 
   @override
   Widget build(BuildContext context) {
     final $borderRadius = borderRadius ?? BorderRadius.circular(8.sc);
-    final $selectedBorder =
-        customBorder ?? RoundedRectangleBorder(borderRadius: $borderRadius);
+    final $selectedBorder = customBorder ?? RoundedRectangleBorder(borderRadius: $borderRadius);
     return Material(
       color: Colors.transparent,
       child: InkWell(
@@ -64,7 +91,10 @@ class WInkWell extends StatelessWidget {
         child: this.child != null
             ? ClipRRect(
                 borderRadius: $borderRadius,
-                child: child,
+                child: SizedBox.fromSize(
+                  size: this.size,
+                  child: child,
+                ),
               )
             : null,
       ),

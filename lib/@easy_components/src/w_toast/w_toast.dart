@@ -40,8 +40,7 @@ class WToast extends StatefulWidget {
   final String? title;
   final String? description;
   final String? date;
-  final String? action;
-  final double? width, height;
+  final String? actionText;
   final Function()? onTap, onTapAction, onTapClose;
 
   //
@@ -53,10 +52,8 @@ class WToast extends StatefulWidget {
     this.title,
     this.description,
     this.date,
-    this.action,
+    this.actionText,
     this.makeup,
-    this.width,
-    this.height,
     this.onTap,
     this.onTapAction,
     this.onTapClose,
@@ -76,101 +73,109 @@ class _State extends State<WToast> {
   @override
   Widget build(BuildContext context) {
     final m = this.widget.makeup;
-    final radius = m?.radius ?? Radius.circular(4.sc);
-    return GestureDetector(
-      behavior: HitTestBehavior.translucent,
+    final $radius = m?.radius ?? Radius.circular(4.sc);
+    final $borderRadius = BorderRadius.all($radius);
+    return WInkWell(
       onTap: this.widget.onTap,
+      borderRadius: $borderRadius,
       child: Container(
         decoration: BoxDecoration(
           color: m?.backgroundColor,
-          borderRadius: BorderRadius.all(radius),
+          borderRadius: $borderRadius,
           boxShadow: m?.shadow,
         ),
-        child: WIntrinsicRow(
-          children: [
-            Container(
-              width: 4.sc,
-              decoration: BoxDecoration(
-                color: m?.barColor,
-                borderRadius: BorderRadius.only(
-                  topLeft: radius,
-                  bottomLeft: radius,
+        child: IntrinsicHeight(
+          child: WRow(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              // Bar.
+              Container(
+                width: 4.sc,
+                decoration: BoxDecoration(
+                  color: m?.barColor,
+                  borderRadius: BorderRadius.only(
+                    topLeft: $radius,
+                    bottomLeft: $radius,
+                  ),
                 ),
               ),
-            ),
-            if (m?.icon != null) ...[
-              wWidth8(),
-              m!.icon!,
-            ],
-            Expanded(
-              child: Padding(
-                padding: EdgeInsets.all(12.sc),
-                child: WColumn(
-                  children: [
-                    if (widget.title != null)
-                      Builder(
-                        builder: (_) {
-                          final title = Text(
-                            this.widget.title!,
-                            style: m?.titleTextStyle,
-                          );
-
-                          final date = this.widget.date;
-                          return date == null
-                              ? title
-                              : Row(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    Expanded(child: title),
-                                    wWidth8(),
-                                    Text(
-                                      date,
-                                      style: m?.dateTextStyle,
+              // Icon.
+              if (m?.icon != null) ...[
+                wWidth12(),
+                m!.icon!,
+              ],
+              // Body.
+              Expanded(
+                child: Padding(
+                  padding: EdgeInsets.all(12.sc),
+                  child: IntrinsicWidth(
+                    child: WColumn(
+                      children: [
+                        IntrinsicHeight(
+                          child: WRow(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              if (this.widget.title != null)
+                                Text(
+                                  this.widget.title!,
+                                  style: m?.titleTextStyle,
+                                ),
+                              const Spacer(),
+                              if (this.widget.date != null)
+                                Text(
+                                  this.widget.date!,
+                                  style: m?.dateTextStyle,
+                                ),
+                              // Close Icon.
+                              if (m?.closeIcon != null && this.widget.onTapClose != null) ...[
+                                wWidth8(),
+                                Align(
+                                  alignment: Alignment.topRight,
+                                  child: WInkWell(
+                                    onTap: this.widget.onTapClose,
+                                    child: ConstrainedBox(
+                                      constraints: BoxConstraints(
+                                        minHeight: 32.sc,
+                                        minWidth: 32.sc,
+                                      ),
+                                      child: Padding(
+                                        padding: EdgeInsets.all(4.sc),
+                                        child: m!.closeIcon!,
+                                      ),
                                     ),
-                                  ],
-                                );
-                        },
-                      ),
-                    if (this.widget.description != null) ...[
-                      if (this.widget.title != null) wHeight4(),
-                      Text(
-                        this.widget.description!,
-                        style: m?.descriptionTextStyle,
-                      ),
-                    ],
-                    if (this.widget.action != null &&
-                        this.widget.onTapAction != null) ...[
-                      wHeight8(),
-                      WInkWell(
-                        onTap: this.widget.onTapAction,
-                        child: Text(
-                          this.widget.action!,
-                          style: m?.actionTextStyle,
+                                  ),
+                                ),
+                              ],
+                            ],
+                          ),
                         ),
-                      ),
-                    ],
-                  ],
+                        if (this.widget.description != null) ...[
+                          if (this.widget.title != null) wHeight4(),
+                          Text(
+                            this.widget.description!,
+                            style: m?.descriptionTextStyle,
+                          ),
+                        ],
+                        if (this.widget.actionText != null && this.widget.onTapAction != null) ...[
+                          wHeight8(),
+                          WInkWell(
+                            onTap: this.widget.onTapAction,
+                            child: Padding(
+                              padding: EdgeInsets.all(4.sc),
+                              child: Text(
+                                this.widget.actionText!,
+                                style: m?.actionTextStyle,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ],
+                    ),
+                  ),
                 ),
               ),
-            ),
-            if (this.widget.onTapClose != null) ...[
-              wWidth8(),
-              WInkWell(
-                onTap: this.widget.onTapClose,
-                child: ConstrainedBox(
-                  constraints: BoxConstraints(
-                    minHeight: 32.sc,
-                    minWidth: 32.sc,
-                  ),
-                  child: Center(
-                    child: m?.closeIcon,
-                  ),
-                ),
-              ),
-              wWidth8(),
             ],
-          ],
+          ),
         ),
       ),
     );

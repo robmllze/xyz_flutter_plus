@@ -8,16 +8,14 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
-import 'package:xyz_gen_annotations/utils_src/generate_models/model.dart'
-    show Model;
+import 'package:xyz_gen_annotations/utils_src/generate_models/model.dart' show Model;
 import 'package:flutter/widgets.dart' show StatefulWidget;
 
 import '/@screen/src/_all_src.g.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-abstract base class Screen<TModelScreenConfiguration extends Model>
-    extends StatefulWidget {
+abstract base class Screen<TModelScreenConfiguration extends Model> extends StatefulWidget {
   //
   //
   //
