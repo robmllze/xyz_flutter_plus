@@ -115,8 +115,7 @@ abstract base class ScreenView<
   static Widget? buildCapture;
   static Widget? bodyCapture;
 
-  static Future<({Widget buildCapture, Widget body3Captrue})?>
-      captureScreen() async {
+  static Future<({Widget buildCapture, Widget body3Captrue})?> captureScreen() async {
     try {
       buildCapture = await captureWidget(_staticBuildCaptureKey!);
       bodyCapture = await captureWidget(_staticBody3CaptureKey!);
@@ -160,14 +159,10 @@ abstract base class ScreenView<
 
   void _assignSideInsets() {
     try {
-      final topSideBox =
-          this._topSideKey.currentContext?.findRenderObject() as RenderBox?;
-      final bottomSideBox =
-          this._bottomSideKey.currentContext?.findRenderObject() as RenderBox?;
-      final leftSideBox =
-          this._leftSideKey.currentContext?.findRenderObject() as RenderBox?;
-      final rightSideBox =
-          this._rightSideKey.currentContext?.findRenderObject() as RenderBox?;
+      final topSideBox = this._topSideKey.currentContext?.findRenderObject() as RenderBox?;
+      final bottomSideBox = this._bottomSideKey.currentContext?.findRenderObject() as RenderBox?;
+      final leftSideBox = this._leftSideKey.currentContext?.findRenderObject() as RenderBox?;
+      final rightSideBox = this._rightSideKey.currentContext?.findRenderObject() as RenderBox?;
       this._sideInsets = EdgeInsets.only(
         top: topSideBox?.size.height ?? 0.0,
         bottom: bottomSideBox?.size.height ?? 0.0,
@@ -377,12 +372,7 @@ abstract base class ScreenView<
 
   /// Override to specify the padding for the body.
   EdgeInsets padding() {
-    return EdgeInsets.only(
-      left: 28.sc,
-      right: 28.sc,
-      top: 60.sc,
-      bottom: 80.sc,
-    );
+    return EdgeInsets.all(28.sc).copyWith(bottom: 80.sc);
   }
 
   //
