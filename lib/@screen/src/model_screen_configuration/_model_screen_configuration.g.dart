@@ -24,42 +24,47 @@ class ModelScreenConfiguration extends _ModelScreenConfiguration {
   //
   //
 
-  static const K_ARGS = 'args';
-  static const K_IS_ACCESSIBLE_ONLY_IF_LOGGED_IN_AND_VERIFIED =
-      'isAccessibleOnlyIfLoggedInAndVerified';
-  static const K_IS_ACCESSIBLE_ONLY_IF_LOGGED_IN = 'isAccessibleOnlyIfLoggedIn';
-  static const K_IS_ACCESSIBLE_ONLY_IF_LOGGED_OUT =
-      'isAccessibleOnlyIfLoggedOut';
-  static const K_IS_REDIRECTABLE = 'isRedirectable';
-  static const K_PATH = 'path';
-  static const K_PREVIOUS_CONFIGURATION = 'previousConfiguration';
-  static const K_TITLE = 'title';
-
-  static const CLASS = 'ModelScreenConfiguration';
+  static const CLASS_NAME = 'ModelScreenConfiguration';
 
   @override
-  String get $class => CLASS;
+  String get $className => CLASS_NAME;
 
-  Map<dynamic, dynamic>? args;
-  bool? isAccessibleOnlyIfLoggedInAndVerified;
-  bool? isAccessibleOnlyIfLoggedIn;
-  bool? isAccessibleOnlyIfLoggedOut;
-  bool? isRedirectable;
-  String? path;
-  ModelScreenConfiguration? previousConfiguration;
-  String? title;
-
-  //
-  //
-  //
-
-  ModelScreenConfiguration.empty();
+  final Map<dynamic, dynamic>? args;
+  final bool? isAccessibleOnlyIfLoggedInAndVerified;
+  final bool? isAccessibleOnlyIfLoggedIn;
+  final bool? isAccessibleOnlyIfLoggedOut;
+  final bool? isRedirectable;
+  final String? path;
+  final ModelScreenConfiguration? previousConfiguration;
+  final String? title;
 
   //
   //
   //
 
-  factory ModelScreenConfiguration({
+  const ModelScreenConfiguration({
+    this.args,
+    this.isAccessibleOnlyIfLoggedInAndVerified,
+    this.isAccessibleOnlyIfLoggedIn,
+    this.isAccessibleOnlyIfLoggedOut,
+    this.isRedirectable,
+    this.path,
+    this.previousConfiguration,
+    this.title,
+  });
+
+  const ModelScreenConfiguration.c2({
+    this.args,
+    this.isAccessibleOnlyIfLoggedInAndVerified,
+    this.isAccessibleOnlyIfLoggedIn,
+    this.isAccessibleOnlyIfLoggedOut,
+    this.isRedirectable,
+    this.path,
+    this.previousConfiguration,
+    this.title,
+  });
+
+  factory ModelScreenConfiguration.c3({
     Map<dynamic, dynamic>? args,
     bool? isAccessibleOnlyIfLoggedInAndVerified,
     bool? isAccessibleOnlyIfLoggedIn,
@@ -69,7 +74,7 @@ class ModelScreenConfiguration extends _ModelScreenConfiguration {
     ModelScreenConfiguration? previousConfiguration,
     String? title,
   }) {
-    return ModelScreenConfiguration.b(
+    return ModelScreenConfiguration(
       args: args,
       isAccessibleOnlyIfLoggedInAndVerified:
           isAccessibleOnlyIfLoggedInAndVerified,
@@ -82,27 +87,8 @@ class ModelScreenConfiguration extends _ModelScreenConfiguration {
     );
   }
 
-  //
-  //
-  //
-
-  ModelScreenConfiguration.b({
-    this.args,
-    this.isAccessibleOnlyIfLoggedInAndVerified,
-    this.isAccessibleOnlyIfLoggedIn,
-    this.isAccessibleOnlyIfLoggedOut,
-    this.isRedirectable,
-    this.path,
-    this.previousConfiguration,
-    this.title,
-  }) {}
-
-  //
-  //
-  //
-
   factory ModelScreenConfiguration.from(
-    Model? other,
+    BaseModel? other,
   ) {
     try {
       return fromOrNull(other)!;
@@ -113,14 +99,10 @@ class ModelScreenConfiguration extends _ModelScreenConfiguration {
   }
 
   static ModelScreenConfiguration? fromOrNull(
-    Model? other,
+    BaseModel? other,
   ) {
     return fromJsonOrNull(other?.toJson())!;
   }
-
-  //
-  //
-  //
 
   factory ModelScreenConfiguration.of(
     ModelScreenConfiguration other,
@@ -138,10 +120,6 @@ class ModelScreenConfiguration extends _ModelScreenConfiguration {
   ) {
     return fromJsonOrNull(other?.toJson());
   }
-
-  //
-  //
-  //
 
   factory ModelScreenConfiguration.fromJsonString(
     String source,
@@ -162,16 +140,12 @@ class ModelScreenConfiguration extends _ModelScreenConfiguration {
         final decoded = jsonDecode(source);
         return ModelScreenConfiguration.fromJson(decoded);
       } else {
-        return ModelScreenConfiguration.empty();
+        return const ModelScreenConfiguration.c2();
       }
     } catch (_) {
       return null;
     }
   }
-
-  //
-  //
-  //
 
   factory ModelScreenConfiguration.fromJson(
     Map<String, dynamic>? otherData,
@@ -188,26 +162,55 @@ class ModelScreenConfiguration extends _ModelScreenConfiguration {
     Map<String, dynamic>? otherData,
   ) {
     try {
-      return ModelScreenConfiguration.empty()
-        ..$args = otherData?[K_ARGS]
-        ..$isAccessibleOnlyIfLoggedInAndVerified =
-            otherData?[K_IS_ACCESSIBLE_ONLY_IF_LOGGED_IN_AND_VERIFIED]
-        ..$isAccessibleOnlyIfLoggedIn =
-            otherData?[K_IS_ACCESSIBLE_ONLY_IF_LOGGED_IN]
-        ..$isAccessibleOnlyIfLoggedOut =
-            otherData?[K_IS_ACCESSIBLE_ONLY_IF_LOGGED_OUT]
-        ..$isRedirectable = otherData?[K_IS_REDIRECTABLE]
-        ..$path = otherData?[K_PATH]
-        ..$previousConfiguration = otherData?[K_PREVIOUS_CONFIGURATION]
-        ..$title = otherData?[K_TITLE];
+      final args0 = otherData?[ModelScreenConfigurationFieldNames.args];
+      final args = letMap(args0)
+          ?.map(
+            (p0, p1) => MapEntry(
+              p0,
+              p1,
+            ),
+          )
+          .nonNulls
+          .nullIfEmpty;
+      final isAccessibleOnlyIfLoggedInAndVerified0 = otherData?[
+          ModelScreenConfigurationFieldNames
+              .isAccessibleOnlyIfLoggedInAndVerified];
+      final isAccessibleOnlyIfLoggedInAndVerified =
+          letBool(isAccessibleOnlyIfLoggedInAndVerified0);
+      final isAccessibleOnlyIfLoggedIn0 = otherData?[
+          ModelScreenConfigurationFieldNames.isAccessibleOnlyIfLoggedIn];
+      final isAccessibleOnlyIfLoggedIn = letBool(isAccessibleOnlyIfLoggedIn0);
+      final isAccessibleOnlyIfLoggedOut0 = otherData?[
+          ModelScreenConfigurationFieldNames.isAccessibleOnlyIfLoggedOut];
+      final isAccessibleOnlyIfLoggedOut = letBool(isAccessibleOnlyIfLoggedOut0);
+      final isRedirectable0 =
+          otherData?[ModelScreenConfigurationFieldNames.isRedirectable];
+      final isRedirectable = letBool(isRedirectable0);
+      final path0 = otherData?[ModelScreenConfigurationFieldNames.path];
+      final path = path0?.toString().trim().nullIfEmpty;
+      final previousConfiguration0 =
+          otherData?[ModelScreenConfigurationFieldNames.previousConfiguration];
+      final previousConfiguration = () {
+        final a = letMap<String, dynamic>(previousConfiguration0);
+        return a != null ? ModelScreenConfiguration.fromJson(a) : null;
+      }();
+      final title0 = otherData?[ModelScreenConfigurationFieldNames.title];
+      final title = title0?.toString().trim().nullIfEmpty;
+      return ModelScreenConfiguration(
+        args: args,
+        isAccessibleOnlyIfLoggedInAndVerified:
+            isAccessibleOnlyIfLoggedInAndVerified,
+        isAccessibleOnlyIfLoggedIn: isAccessibleOnlyIfLoggedIn,
+        isAccessibleOnlyIfLoggedOut: isAccessibleOnlyIfLoggedOut,
+        isRedirectable: isRedirectable,
+        path: path,
+        previousConfiguration: previousConfiguration,
+        title: title,
+      );
     } catch (e) {
       return null;
     }
   }
-
-  //
-  //
-  //
 
   factory ModelScreenConfiguration.fromUri(
     Uri? uri,
@@ -224,10 +227,10 @@ class ModelScreenConfiguration extends _ModelScreenConfiguration {
     Uri? uri,
   ) {
     try {
-      if (uri != null && uri.path == CLASS) {
+      if (uri != null && uri.path == CLASS_NAME) {
         return ModelScreenConfiguration.fromJson(uri.queryParameters);
       } else {
-        return ModelScreenConfiguration.empty();
+        return const ModelScreenConfiguration.c2();
       }
     } catch (_) {
       return null;
@@ -244,16 +247,38 @@ class ModelScreenConfiguration extends _ModelScreenConfiguration {
     bool includeNulls = false,
   }) {
     try {
+      final args0 = this
+          .args
+          ?.map(
+            (p0, p1) => MapEntry(
+              p0,
+              p1,
+            ),
+          )
+          .nonNulls
+          .nullIfEmpty;
+      final isAccessibleOnlyIfLoggedInAndVerified0 =
+          this.isAccessibleOnlyIfLoggedInAndVerified;
+      final isAccessibleOnlyIfLoggedIn0 = this.isAccessibleOnlyIfLoggedIn;
+      final isAccessibleOnlyIfLoggedOut0 = this.isAccessibleOnlyIfLoggedOut;
+      final isRedirectable0 = this.isRedirectable;
+      final path0 = this.path?.trim().nullIfEmpty;
+      final previousConfiguration0 = this.previousConfiguration?.toJson();
+      final title0 = this.title?.trim().nullIfEmpty;
       final withNulls = <String, dynamic>{
-        K_ARGS: this.$args,
-        K_IS_ACCESSIBLE_ONLY_IF_LOGGED_IN_AND_VERIFIED:
-            this.$isAccessibleOnlyIfLoggedInAndVerified,
-        K_IS_ACCESSIBLE_ONLY_IF_LOGGED_IN: this.$isAccessibleOnlyIfLoggedIn,
-        K_IS_ACCESSIBLE_ONLY_IF_LOGGED_OUT: this.$isAccessibleOnlyIfLoggedOut,
-        K_IS_REDIRECTABLE: this.$isRedirectable,
-        K_PATH: this.$path,
-        K_PREVIOUS_CONFIGURATION: this.$previousConfiguration,
-        K_TITLE: this.$title,
+        ModelScreenConfigurationFieldNames.args: args0,
+        ModelScreenConfigurationFieldNames
+                .isAccessibleOnlyIfLoggedInAndVerified:
+            isAccessibleOnlyIfLoggedInAndVerified0,
+        ModelScreenConfigurationFieldNames.isAccessibleOnlyIfLoggedIn:
+            isAccessibleOnlyIfLoggedIn0,
+        ModelScreenConfigurationFieldNames.isAccessibleOnlyIfLoggedOut:
+            isAccessibleOnlyIfLoggedOut0,
+        ModelScreenConfigurationFieldNames.isRedirectable: isRedirectable0,
+        ModelScreenConfigurationFieldNames.path: path0,
+        ModelScreenConfigurationFieldNames.previousConfiguration:
+            previousConfiguration0,
+        ModelScreenConfigurationFieldNames.title: title0,
       }.mapWithDefault(defaultValue);
       return includeNulls ? withNulls : withNulls.nonNulls;
     } catch (e) {
@@ -267,55 +292,11 @@ class ModelScreenConfiguration extends _ModelScreenConfiguration {
   //
 
   @override
-  T empty<T extends Model>() {
-    return ModelScreenConfiguration.b() as T;
-  }
-
-  //
-  //
-  //
-
-  @override
-  T copy<T extends Model>() {
-    return (ModelScreenConfiguration.b()..updateWith(this)) as T;
-  }
-
-  //
-  //
-  //
-
-  @override
-  void updateWithJson(
-    Map<String, dynamic>? otherData,
-  ) {
-    if (otherData != null && otherData.isNotEmpty) {
-      final other = ModelScreenConfiguration.fromJson(otherData);
-      if (other.args != null) {
-        this.args = other.args!;
-      }
-      if (other.isAccessibleOnlyIfLoggedInAndVerified != null) {
-        this.isAccessibleOnlyIfLoggedInAndVerified =
-            other.isAccessibleOnlyIfLoggedInAndVerified!;
-      }
-      if (other.isAccessibleOnlyIfLoggedIn != null) {
-        this.isAccessibleOnlyIfLoggedIn = other.isAccessibleOnlyIfLoggedIn!;
-      }
-      if (other.isAccessibleOnlyIfLoggedOut != null) {
-        this.isAccessibleOnlyIfLoggedOut = other.isAccessibleOnlyIfLoggedOut!;
-      }
-      if (other.isRedirectable != null) {
-        this.isRedirectable = other.isRedirectable!;
-      }
-      if (other.path != null) {
-        this.path = other.path!;
-      }
-      if (other.previousConfiguration != null) {
-        this.previousConfiguration = other.previousConfiguration!;
-      }
-      if (other.title != null) {
-        this.title = other.title!;
-      }
-    }
+  ModelScreenConfiguration copyWith(BaseModel? other) {
+    final a = this.toJson();
+    final b = other?.toJson();
+    final c = {...a, ...?b};
+    return ModelScreenConfiguration.fromJson(c);
   }
 
   //
@@ -324,97 +305,52 @@ class ModelScreenConfiguration extends _ModelScreenConfiguration {
 
   // args.
   Map<dynamic, dynamic>? get argsField => this.args;
-  set argsField(Map<dynamic, dynamic>? v) => this.args = v;
-  @protected
-  dynamic get $args => this
-      .args
-      ?.map(
-        (p0, p1) => MapEntry(
-          p0,
-          p1,
-        ),
-      )
-      .nonNulls
-      .nullIfEmpty;
-  @protected
-  set $args(v) => this.args = letMap(v)
-      ?.map(
-        (p0, p1) => MapEntry(
-          p0,
-          p1,
-        ),
-      )
-      .nonNulls
-      .nullIfEmpty
-      ?.cast();
 
   // isAccessibleOnlyIfLoggedInAndVerified.
   bool? get isAccessibleOnlyIfLoggedInAndVerifiedField =>
       this.isAccessibleOnlyIfLoggedInAndVerified;
-  set isAccessibleOnlyIfLoggedInAndVerifiedField(bool? v) =>
-      this.isAccessibleOnlyIfLoggedInAndVerified = v;
-  @protected
-  dynamic get $isAccessibleOnlyIfLoggedInAndVerified =>
-      this.isAccessibleOnlyIfLoggedInAndVerified;
-  @protected
-  set $isAccessibleOnlyIfLoggedInAndVerified(v) =>
-      this.isAccessibleOnlyIfLoggedInAndVerified = letBool(v);
 
   // isAccessibleOnlyIfLoggedIn.
   bool? get isAccessibleOnlyIfLoggedInField => this.isAccessibleOnlyIfLoggedIn;
-  set isAccessibleOnlyIfLoggedInField(bool? v) =>
-      this.isAccessibleOnlyIfLoggedIn = v;
-  @protected
-  dynamic get $isAccessibleOnlyIfLoggedIn => this.isAccessibleOnlyIfLoggedIn;
-  @protected
-  set $isAccessibleOnlyIfLoggedIn(v) =>
-      this.isAccessibleOnlyIfLoggedIn = letBool(v);
 
   // isAccessibleOnlyIfLoggedOut.
   bool? get isAccessibleOnlyIfLoggedOutField =>
       this.isAccessibleOnlyIfLoggedOut;
-  set isAccessibleOnlyIfLoggedOutField(bool? v) =>
-      this.isAccessibleOnlyIfLoggedOut = v;
-  @protected
-  dynamic get $isAccessibleOnlyIfLoggedOut => this.isAccessibleOnlyIfLoggedOut;
-  @protected
-  set $isAccessibleOnlyIfLoggedOut(v) =>
-      this.isAccessibleOnlyIfLoggedOut = letBool(v);
 
   // isRedirectable.
   bool? get isRedirectableField => this.isRedirectable;
-  set isRedirectableField(bool? v) => this.isRedirectable = v;
-  @protected
-  dynamic get $isRedirectable => this.isRedirectable;
-  @protected
-  set $isRedirectable(v) => this.isRedirectable = letBool(v);
 
   // path.
   String? get pathField => this.path;
-  set pathField(String? v) => this.path = v;
-  @protected
-  dynamic get $path => this.path?.toString().trim().nullIfEmpty;
-  @protected
-  set $path(v) => this.path = v?.toString().trim().nullIfEmpty;
 
   // previousConfiguration.
   ModelScreenConfiguration? get previousConfigurationField =>
       this.previousConfiguration;
-  set previousConfigurationField(ModelScreenConfiguration? v) =>
-      this.previousConfiguration = v;
-  @protected
-  dynamic get $previousConfiguration => this.previousConfiguration?.toJson();
-  @protected
-  set $previousConfiguration(v) => this.previousConfiguration = () {
-        final a = letMap<String, dynamic>(v);
-        return a != null ? ModelScreenConfiguration.fromJson(a) : null;
-      }();
 
   // title.
   String? get titleField => this.title;
-  set titleField(String? v) => this.title = v;
-  @protected
-  dynamic get $title => this.title?.toString().trim().nullIfEmpty;
-  @protected
-  set $title(v) => this.title = v?.toString().trim().nullIfEmpty;
+}
+
+// ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+
+final class ModelScreenConfigurationFieldNames {
+  //
+  //
+  //
+
+  static const args = 'args';
+  static const isAccessibleOnlyIfLoggedInAndVerified =
+      'isAccessibleOnlyIfLoggedInAndVerified';
+  static const isAccessibleOnlyIfLoggedIn = 'isAccessibleOnlyIfLoggedIn';
+  static const isAccessibleOnlyIfLoggedOut = 'isAccessibleOnlyIfLoggedOut';
+  static const isRedirectable = 'isRedirectable';
+  static const path = 'path';
+  static const previousConfiguration = 'previousConfiguration';
+  static const title = 'title';
+
+  //
+  //
+  //
+
+  const ModelScreenConfigurationFieldNames._();
 }

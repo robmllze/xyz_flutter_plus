@@ -15,14 +15,14 @@ import '/@scrolling/src/_all_src.g.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-@GenerateMakeups(
-  properties: {
-    'insidePadding': 'EdgeInsets?',
-    'thumbVisibility': 'bool?',
-    'outsidePadding': 'EdgeInsets?',
-    'style': 'WScrollbarStyle?',
-  },
-)
+// @GenerateMakeups(
+//   properties: {
+//     'insidePadding': 'EdgeInsets?',
+//     'thumbVisibility': 'bool?',
+//     'outsidePadding': 'EdgeInsets?',
+//     'style': 'WScrollbarStyle?',
+//   },
+// )
 class WScrollable extends StatefulWidget {
   //
   //

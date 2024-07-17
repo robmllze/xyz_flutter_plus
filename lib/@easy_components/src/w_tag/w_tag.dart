@@ -17,15 +17,15 @@ import '/@theme/src/_all_src.g.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-@GenerateMakeups(
-  properties: {
-    'backgroundColor': 'Color?',
-    'textStyle': 'TextStyle?',
-    'padding': 'EdgeInsets?',
-    'margin': 'EdgeInsets?',
-    'borderRadius': 'BorderRadius?',
-  },
-)
+// @GenerateMakeups(
+//   properties: {
+//     'backgroundColor': 'Color?',
+//     'textStyle': 'TextStyle?',
+//     'padding': 'EdgeInsets?',
+//     'margin': 'EdgeInsets?',
+//     'borderRadius': 'BorderRadius?',
+//   },
+// )
 class WTag extends StatelessWidget {
   //
   //
@@ -59,16 +59,14 @@ class WTag extends StatelessWidget {
               decoration: BoxDecoration(
                 color: this.makeup?.backgroundColor ??
                     Theme.of(context).colorScheme.secondary.withOpacity(0.25),
-                borderRadius:
-                    makeup?.borderRadius ?? BorderRadius.circular(4.sc),
+                borderRadius: makeup?.borderRadius ?? BorderRadius.circular(4.sc),
               ),
               margin: this.makeup?.margin ?? EdgeInsets.zero,
-              padding: this.makeup?.padding ??
-                  EdgeInsets.symmetric(vertical: 4.sc, horizontal: 6.sc),
+              padding:
+                  this.makeup?.padding ?? EdgeInsets.symmetric(vertical: 4.sc, horizontal: 6.sc),
               child: Text(
                 this.text,
-                style: this.makeup?.textStyle ??
-                    Theme.of(context).textTheme.bodySmall?.wMedium,
+                style: this.makeup?.textStyle ?? Theme.of(context).textTheme.bodySmall?.wMedium,
               ),
             ),
           )

@@ -27,7 +27,9 @@ part '_model_screen_configuration.g.dart';
     ('title?', String),
   },
 )
-abstract class _ModelScreenConfiguration extends Model {}
+abstract class _ModelScreenConfiguration extends Model {
+  const _ModelScreenConfiguration();
+}
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
@@ -62,8 +64,7 @@ ModelScreenConfiguration urlToScreenConfiguration({
   return ModelScreenConfiguration(
     args: args,
     isAccessibleOnlyIfLoggedIn: isAccessibleOnlyIfLoggedIn,
-    isAccessibleOnlyIfLoggedInAndVerified:
-        isAccessibleOnlyIfLoggedInAndVerified,
+    isAccessibleOnlyIfLoggedInAndVerified: isAccessibleOnlyIfLoggedInAndVerified,
     isAccessibleOnlyIfLoggedOut: isAccessibleOnlyIfLoggedOut,
     isRedirectable: isRedirectable,
     path: path,
