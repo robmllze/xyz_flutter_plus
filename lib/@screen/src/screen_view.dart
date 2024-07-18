@@ -27,8 +27,8 @@ import '/@screen/src/_all_src.g.dart';
 abstract base class ScreenView<
         TScreen extends Screen,
         TModelScreenConfiguration extends ModelScreenConfiguration,
-        TController extends ScreenController<TModelScreenConfiguration>>
-    extends State<TScreen> with AfterLayoutMixin {
+        TController extends ScreenController<TModelScreenConfiguration>> extends State<TScreen>
+    with AfterLayoutMixin {
   //
   //
   //
@@ -83,8 +83,7 @@ abstract base class ScreenView<
 
   /// Creates a new instance of [TController] from the current widget.
   TController _createController() {
-    return (this.widget.createController(this.widget, this)..initController())
-        as TController;
+    return (this.widget.createController(this.widget, this)..initController()) as TController;
   }
 
   /// Stores all active controllers.
@@ -115,8 +114,7 @@ abstract base class ScreenView<
   static Widget? buildCapture;
   static Widget? bodyCapture;
 
-  static Future<({Widget buildCapture, Widget body3Captrue})?>
-      captureScreen() async {
+  static Future<({Widget buildCapture, Widget body3Captrue})?> captureScreen() async {
     try {
       buildCapture = await captureWidget(_staticBuildCaptureKey!);
       bodyCapture = await captureWidget(_staticBody3CaptureKey!);
@@ -159,24 +157,40 @@ abstract base class ScreenView<
   }
 
   void _assignSideInsets() {
+    var top = 0.0;
+    var bottom = 0.0;
+    var left = 0.0;
+    var right = 0.0;
     try {
-      final topSideBox =
-          this._topSideKey.currentContext?.findRenderObject() as RenderBox?;
-      final bottomSideBox =
-          this._bottomSideKey.currentContext?.findRenderObject() as RenderBox?;
-      final leftSideBox =
-          this._leftSideKey.currentContext?.findRenderObject() as RenderBox?;
-      final rightSideBox =
-          this._rightSideKey.currentContext?.findRenderObject() as RenderBox?;
-      this._sideInsets = EdgeInsets.only(
-        top: topSideBox?.size.height ?? 0.0,
-        bottom: bottomSideBox?.size.height ?? 0.0,
-        left: leftSideBox?.size.width ?? 0.0,
-        right: rightSideBox?.size.width ?? 0.0,
-      );
-    } catch (e) {
-      debugLogError('Failed to assign side insets');
+      final box = this._topSideKey.currentContext?.findRenderObject() as RenderBox?;
+      top = box?.size.height ?? 0.0;
+    } catch (_) {
+      printYellow('Failed to calculate top insets.');
     }
+    try {
+      final box = this._bottomSideKey.currentContext?.findRenderObject() as RenderBox?;
+      bottom = box?.size.height ?? 0.0;
+    } catch (_) {
+      printYellow('Failed to calculate bottom insets.');
+    }
+    try {
+      final box = this._leftSideKey.currentContext?.findRenderObject() as RenderBox?;
+      left = box?.size.width ?? 0.0;
+    } catch (_) {
+      printYellow('Failed to calculate left insets.');
+    }
+    try {
+      final box = this._rightSideKey.currentContext?.findRenderObject() as RenderBox?;
+      right = box?.size.width ?? 0.0;
+    } catch (_) {
+      printYellow('Failed to calculate right insets.');
+    }
+    this._sideInsets = EdgeInsets.only(
+      top: top,
+      bottom: bottom,
+      left: left,
+      right: right,
+    );
   }
 
   // ---------------------------------------------------------------------------
@@ -200,8 +214,7 @@ abstract base class ScreenView<
               maintainBottomViewPadding: true,
               child: () {
                 final screenSize = MediaQuery.of(context).size;
-                final calculator =
-                    ScreenCalculator(screenSize.width, screenSize.height);
+                final calculator = ScreenCalculator(screenSize.width, screenSize.height);
                 final appLayout = AppLayout.fromScreenCalculator(calculator);
                 switch (appLayout) {
                   case AppLayout.MOBILE:
