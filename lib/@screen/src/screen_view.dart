@@ -381,6 +381,8 @@ abstract base class ScreenView<
   /// Override to specify the background. This is rendered behind the body.
   Widget background(BuildContext context) {
     return Container(
+      width: double.infinity,
+      height: double.infinity,
       color: Theme.of(context).colorScheme.surface,
     );
   }
