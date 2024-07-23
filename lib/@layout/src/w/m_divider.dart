@@ -27,7 +27,7 @@ class MDivider extends StatelessWidget {
   final Axis? orientation;
   final bool? overflow;
   final double? childMainAxisPadding;
-  final WDividerAlignment? childAlignment;
+  final MDividerAlignment? childAlignment;
   final BoxDecoration? childDecoration;
   final Widget? child;
 
@@ -60,7 +60,7 @@ class MDivider extends StatelessWidget {
     bool? overflow,
     Widget? child,
     double? childMainAxisPadding,
-    WDividerAlignment? childAlignment,
+    MDividerAlignment? childAlignment,
     BoxDecoration? childDecoration,
   }) {
     return MDivider(
@@ -89,7 +89,7 @@ class MDivider extends StatelessWidget {
     bool? overflow,
     Widget? child,
     double? childMainAxisPadding,
-    WDividerAlignment? childAlignment,
+    MDividerAlignment? childAlignment,
     BoxDecoration? childDecoration,
   }) {
     return MDivider(
@@ -182,7 +182,7 @@ class MDivider extends StatelessWidget {
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-enum WDividerAlignment {
+enum MDividerAlignment {
   //
   //
   //
@@ -197,11 +197,11 @@ enum WDividerAlignment {
 
   Alignment toAlignment(Axis axis) {
     switch (this) {
-      case WDividerAlignment.START:
+      case MDividerAlignment.START:
         return axis == Axis.horizontal ? Alignment.centerLeft : Alignment.topCenter;
-      case WDividerAlignment.CENTER:
+      case MDividerAlignment.CENTER:
         return Alignment.center;
-      case WDividerAlignment.END:
+      case MDividerAlignment.END:
         return axis == Axis.horizontal ? Alignment.centerRight : Alignment.bottomCenter;
     }
   }
