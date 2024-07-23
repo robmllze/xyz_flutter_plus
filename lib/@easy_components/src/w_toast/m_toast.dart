@@ -36,7 +36,7 @@ class WToast extends StatefulWidget {
   //
   //
 
-  final WToastMakeup? makeup;
+  final MToastMakeup? makeup;
   final String? title;
   final String? description;
   final String? date;
@@ -75,7 +75,7 @@ class _State extends State<WToast> {
     final m = this.widget.makeup;
     final $radius = m?.radius ?? Radius.circular(4.sc);
     final $borderRadius = BorderRadius.all($radius);
-    return WInkWell(
+    return MInkWell(
       onTap: this.widget.onTap,
       borderRadius: $borderRadius,
       child: Container(
@@ -131,7 +131,7 @@ class _State extends State<WToast> {
                                 wWidth8(),
                                 Align(
                                   alignment: Alignment.topRight,
-                                  child: WInkWell(
+                                  child: MInkWell(
                                     onTap: this.widget.onTapClose,
                                     child: ConstrainedBox(
                                       constraints: BoxConstraints(
@@ -158,7 +158,7 @@ class _State extends State<WToast> {
                         ],
                         if (this.widget.actionText != null && this.widget.onTapAction != null) ...[
                           wHeight8(),
-                          WInkWell(
+                          MInkWell(
                             onTap: this.widget.onTapAction,
                             child: Padding(
                               padding: EdgeInsets.all(4.sc),

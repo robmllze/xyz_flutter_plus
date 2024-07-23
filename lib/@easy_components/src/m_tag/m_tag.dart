@@ -53,7 +53,7 @@ class MTag extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return text.isNotEmpty
-        ? WInkWell(
+        ? MInkWell(
             onTap: this.onTap,
             child: Container(
               decoration: BoxDecoration(

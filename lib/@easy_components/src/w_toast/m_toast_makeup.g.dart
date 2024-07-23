@@ -11,7 +11,7 @@ import 'package:flutter/widgets.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-class WToastMakeup {
+class MToastMakeup {
   //
   //
   //
@@ -31,7 +31,7 @@ class WToastMakeup {
   //
   //
 
-  WToastMakeup({
+  MToastMakeup({
     this.actionTextStyle,
     this.backgroundColor,
     this.barColor,
@@ -48,7 +48,7 @@ class WToastMakeup {
   //
   //
 
-  WToastMakeup copyWith({
+  MToastMakeup copyWith({
     TextStyle? actionTextStyle,
     Color? backgroundColor,
     Color? barColor,
@@ -60,7 +60,7 @@ class WToastMakeup {
     List<BoxShadow>? shadow,
     TextStyle? titleTextStyle,
   }) {
-    return WToastMakeup(
+    return MToastMakeup(
       actionTextStyle: actionTextStyle ?? this.actionTextStyle,
       backgroundColor: backgroundColor ?? this.backgroundColor,
       barColor: barColor ?? this.barColor,
@@ -77,7 +77,7 @@ class WToastMakeup {
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-typedef FWToastMakeup = WToastMakeup Function();
+typedef FWToastMakeup = MToastMakeup Function();
 
 const kWToastMakeupProperties = <String, String>{
   'actionTextStyle': 'TextStyle?',

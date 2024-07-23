@@ -14,7 +14,7 @@ import '/@app_properties/src/_all_src.g.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-class WInkWell extends StatelessWidget {
+class MInkWell extends StatelessWidget {
   //
   //
   //
@@ -31,7 +31,7 @@ class WInkWell extends StatelessWidget {
   //
   //
 
-  const WInkWell({
+  const MInkWell({
     super.key,
     this.customBorder,
     this.onTap,
@@ -46,7 +46,7 @@ class WInkWell extends StatelessWidget {
   //
   //
 
-  factory WInkWell.iconButton({
+  factory MInkWell.iconButton({
     Key? key,
     ShapeBorder? customBorder,
     void Function()? onTap,
@@ -57,7 +57,7 @@ class WInkWell extends StatelessWidget {
   }) {
     final diameter1 = diameter ?? 48.sc;
     final radius1 = 0.5 * diameter1;
-    return WInkWell(
+    return MInkWell(
       key: key,
       customBorder: customBorder,
       onTap: onTap,
