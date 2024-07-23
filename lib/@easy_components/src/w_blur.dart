@@ -8,8 +8,9 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
+import 'package:flutter/widgets.dart';
+
 import 'dart:ui' as ui;
-import 'package:flutter/material.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
@@ -67,7 +68,7 @@ class WBlur extends StatelessWidget {
               child!,
             if (disabled)
               Container(
-                color: Colors.transparent,
+                color: const Color(0x00000000),
               ),
           ],
         ),

@@ -12,4 +12,4 @@ export 'w/w_custom_scroll_bar.dart';
 export 'w/w_omni_scrollable.dart';
 export 'w/w_scrollable/w_scrollable.dart';
 export 'w/w_scrollable/w_scrollable_makeup.g.dart';
-export 'w/w_scrollbar.dart';
+export 'w/m_scrollbar.dart';

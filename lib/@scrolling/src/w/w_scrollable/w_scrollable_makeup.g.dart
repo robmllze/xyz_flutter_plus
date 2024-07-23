@@ -21,7 +21,7 @@ class WScrollableMakeup {
   EdgeInsets? insidePadding;
   bool? thumbVisibility;
   EdgeInsets? outsidePadding;
-  WScrollbarStyle? style;
+  MScrollbarStyle? style;
 
   //
   //
@@ -42,7 +42,7 @@ class WScrollableMakeup {
     EdgeInsets? insidePadding,
     bool? thumbVisibility,
     EdgeInsets? outsidePadding,
-    WScrollbarStyle? style,
+    MScrollbarStyle? style,
   }) {
     return WScrollableMakeup(
       insidePadding: insidePadding ?? this.insidePadding,

@@ -16,7 +16,7 @@ import '/@theme/src/_all_src.g.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-class WTitle extends StatelessWidget {
+class MTitle extends StatelessWidget {
   //
   //
   //
@@ -31,7 +31,7 @@ class WTitle extends StatelessWidget {
   //
   //
 
-  const WTitle({
+  const MTitle({
     super.key,
     this.titleText,
     this.title,

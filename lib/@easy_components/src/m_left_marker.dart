@@ -10,26 +10,28 @@
 
 import 'package:flutter/material.dart';
 
-import '/@app_properties/src/app_scale.dart';
+import '/@app_properties/src/_all_src.g.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-class WCountIndicator extends StatelessWidget {
+class MLeftMaker extends StatelessWidget {
   //
   //
   //
 
-  final int count;
-  final double? size;
+  final double? markerWidth;
+  final Color? markerColor;
+  final Widget? child;
 
   //
   //
   //
 
-  const WCountIndicator({
+  const MLeftMaker({
     super.key,
-    required this.count,
-    this.size,
+    this.markerWidth,
+    this.markerColor,
+    this.child,
   });
 
   //
@@ -38,31 +40,20 @@ class WCountIndicator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final dimension = this.size ?? 20.sc;
-    if (count > 0) {
-      return IgnorePointer(
-        child: Container(
-          height: dimension,
-          alignment: Alignment.center,
-          padding: EdgeInsets.symmetric(horizontal: 0.35 * dimension),
-          decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.primary.withOpacity(0.5),
-            borderRadius: BorderRadius.circular(0.5 * dimension),
+    return IntrinsicHeight(
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Container(
+            width: this.markerWidth ?? 4.sc,
+            color: this.markerColor ?? Theme.of(context).colorScheme.primary,
           ),
-          child: Text(
-            count.toString(),
-            style: TextStyle(
-              color: Theme.of(context).scaffoldBackgroundColor,
-              fontSize: 0.5 * dimension,
-              fontWeight: FontWeight.bold,
+          if (this.child != null)
+            Expanded(
+              child: this.child!,
             ),
-          ),
-        ),
-      );
-    } else {
-      return SizedBox.square(
-        dimension: dimension,
-      );
-    }
+        ],
+      ),
+    );
   }
 }

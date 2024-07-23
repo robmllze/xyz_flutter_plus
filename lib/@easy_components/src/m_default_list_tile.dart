@@ -18,7 +18,7 @@ import '/@theme/src/_all_src.g.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-class WDefaultListTile extends StatelessWidget {
+class MDefaultListTile extends StatelessWidget {
   //
   //
   //
@@ -27,7 +27,7 @@ class WDefaultListTile extends StatelessWidget {
   final String subtitle;
   final String description;
   final Iterable<String> tags;
-  final Iterable<WTagMakeup> tagMakeups;
+  final Iterable<MTagMakeup> tagMakeups;
   final void Function()? onTap;
   final List<Widget> leading;
   final Widget? leadingIcon;
@@ -40,7 +40,7 @@ class WDefaultListTile extends StatelessWidget {
   //
   //
 
-  const WDefaultListTile({
+  const MDefaultListTile({
     super.key,
     this.title = '',
     this.subtitle = '',
@@ -101,7 +101,7 @@ class WDefaultListTile extends StatelessWidget {
                                 while (makeup == null || n > 0) {
                                   makeup = this.tagMakeups.elementAtOrNull(n--);
                                 }
-                                return WTag(text: text, makeup: makeup);
+                                return MTag(text: text, makeup: makeup);
                               },
                             ),
                           ],

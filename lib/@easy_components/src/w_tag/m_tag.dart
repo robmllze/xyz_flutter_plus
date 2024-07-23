@@ -26,20 +26,20 @@ import '/@theme/src/_all_src.g.dart';
 //     'borderRadius': 'BorderRadius?',
 //   },
 // )
-class WTag extends StatelessWidget {
+class MTag extends StatelessWidget {
   //
   //
   //
 
   final String text;
   final void Function()? onTap;
-  final WTagMakeup? makeup;
+  final MTagMakeup? makeup;
 
   //
   //
   //
 
-  const WTag({
+  const MTag({
     super.key,
     required this.text,
     this.onTap,

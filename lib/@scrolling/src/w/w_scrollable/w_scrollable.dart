@@ -116,10 +116,10 @@ class _State extends State<WScrollable> {
   Widget build(BuildContext context) {
     return Padding(
       padding: this.widget.makeup?.outsidePadding ?? EdgeInsets.zero,
-      child: WScrollbar(
+      child: MScrollbar(
         controller: this.widget.controller,
         thumbVisibility: this.widget.makeup?.thumbVisibility,
-        style: this.widget.makeup?.style ?? const WScrollbarStyle(),
+        style: this.widget.makeup?.style ?? const MScrollbarStyle(),
         child: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
           scrollDirection: this.widget.axis,

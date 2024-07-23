@@ -12,7 +12,7 @@ import 'package:flutter/material.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-class WSurface extends StatelessWidget {
+class MSurface extends StatelessWidget {
   //
   //
   //
@@ -30,7 +30,7 @@ class WSurface extends StatelessWidget {
   //
   //
 
-  const WSurface({
+  const MSurface({
     super.key,
     this.child,
     this.borderRadius = BorderRadius.zero,
@@ -48,9 +48,8 @@ class WSurface extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final $color = this.decoration?.color ??
-        this.color ??
-        Theme.of(context).colorScheme.surfaceContainer;
+    final $color =
+        this.decoration?.color ?? this.color ?? Theme.of(context).colorScheme.surfaceContainer;
     final $borderRadius = this.decoration?.borderRadius ?? borderRadius;
     final $decoration = this.decoration?.copyWith(
               color: $color,

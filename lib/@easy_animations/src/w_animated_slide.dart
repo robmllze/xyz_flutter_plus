@@ -8,7 +8,7 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
-import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
@@ -32,7 +32,7 @@ class WAnimatedSlide extends StatefulWidget {
   const WAnimatedSlide({
     super.key,
     this.child,
-    this.color = Colors.transparent,
+    this.color = const Color(0x00000000),
     this.delay = const Duration(milliseconds: 0),
     this.direction = WAnimatedSlideDirection.BOTTOM_TO_TOP,
     this.curve = Curves.easeInOutCirc,

@@ -20,12 +20,12 @@ const _kScrollbarMinLength = 48.0;
 const _kScrollbarRadius = Radius.circular(8.0);
 const _kScrollbarFadeDuration = Duration(milliseconds: 300);
 const _kScrollbarTimeToFade = Duration(milliseconds: 600);
-const _kScrollbarStyle = WScrollbarStyle();
+const _kScrollbarStyle = MScrollbarStyle();
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
 // TODO: Integrate this style with WScrolalbleMakeup
-class WScrollbarStyle {
+class MScrollbarStyle {
   //
   //
   //
@@ -39,7 +39,7 @@ class WScrollbarStyle {
   //
   //
 
-  const WScrollbarStyle({
+  const MScrollbarStyle({
     this.radius = _kScrollbarRadius,
     this.thickness = _kScrollbarThickness,
     this.hoverThickness = _kScrollbarThicknessWithTrack,
@@ -49,7 +49,7 @@ class WScrollbarStyle {
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-class WScrollbar extends StatefulWidget {
+class MScrollbar extends StatefulWidget {
   //
   //
   //
@@ -58,7 +58,7 @@ class WScrollbar extends StatefulWidget {
   final ScrollController? controller;
   final bool? thumbVisibility;
   final bool? showTrackOnHover;
-  final WScrollbarStyle style;
+  final MScrollbarStyle style;
   final ScrollNotificationPredicate? notificationPredicate;
   final Duration? scrollbarTimeToFade;
   final Duration? scrollbarFadeDuration;
@@ -67,7 +67,7 @@ class WScrollbar extends StatefulWidget {
   //
   //
 
-  const WScrollbar({
+  const MScrollbar({
     super.key,
     required this.child,
     this.controller,
@@ -84,12 +84,12 @@ class WScrollbar extends StatefulWidget {
   //
 
   @override
-  _WScrollbarState createState() => _WScrollbarState();
+  _MScrollbarState createState() => _MScrollbarState();
 }
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-class _WScrollbarState extends State<WScrollbar> {
+class _MScrollbarState extends State<MScrollbar> {
   @override
   Widget build(BuildContext context) {
     return _Scrollbar(
@@ -139,8 +139,7 @@ class _Scrollbar extends RawScrollbar {
           fadeDuration: scrollbarFadeDuration ?? _kScrollbarFadeDuration,
           timeToFade: scrollbarTimeToFade ?? _kScrollbarTimeToFade,
           pressDuration: Duration.zero,
-          notificationPredicate:
-              notificationPredicate ?? defaultScrollNotificationPredicate,
+          notificationPredicate: notificationPredicate ?? defaultScrollNotificationPredicate,
         );
 
   //
@@ -232,8 +231,7 @@ class _ScrollbarState extends RawScrollbarState<_Scrollbar> {
 
     return WidgetStateProperty.resolveWith((Set<WidgetState> states) {
       if (states.contains(WidgetState.hovered) && this._showTrackOnHover) {
-        return this._scrollbarTheme.trackColor?.resolve(states) ??
-            onSurface.withOpacity(0.05);
+        return this._scrollbarTheme.trackColor?.resolve(states) ?? onSurface.withOpacity(0.05);
       }
       return const Color(0x00000000);
     });
@@ -248,8 +246,7 @@ class _ScrollbarState extends RawScrollbarState<_Scrollbar> {
 
     return WidgetStateProperty.resolveWith((Set<WidgetState> states) {
       if (states.contains(WidgetState.hovered) && this._showTrackOnHover) {
-        return this._scrollbarTheme.trackBorderColor?.resolve(states) ??
-            onSurface.withOpacity(0.1);
+        return this._scrollbarTheme.trackBorderColor?.resolve(states) ?? onSurface.withOpacity(0.1);
       }
       return const Color(0x00000000);
     });

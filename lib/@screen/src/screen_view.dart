@@ -17,9 +17,12 @@ import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 import 'package:xyz_utils/xyz_utils.dart';
 
+import '/@easy_animations/src/w_animated_slide.dart';
+import '/@layout/src/w/w_stack.dart';
 import '/@utils/src/capture_widget.dart';
 import '/@app_properties/src/app_scale.dart';
 import '/@easy_components/src/w_surface.dart';
+
 import '/@screen/src/_all_src.g.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
@@ -105,32 +108,21 @@ abstract base class ScreenView<
   // Provide screen capturing functionality.
   // ---------------------------------------------------------------------------
 
-  final _buildCaptureKey = GlobalKey();
   final _bodyCaptureKey = GlobalKey();
 
-  static GlobalKey? _staticBuildCaptureKey;
   static GlobalKey? _staticBody3CaptureKey;
 
-  static Widget? buildCapture;
-  static Widget? bodyCapture;
+  static Widget? _bodyCapture;
 
-  static Future<({Widget buildCapture, Widget body3Captrue})?> captureScreen() async {
+  static Widget? get bodyCapture => _bodyCapture;
+
+  static Future<void> captureScreen() async {
     try {
-      buildCapture = await captureWidget(_staticBuildCaptureKey!);
-      bodyCapture = await captureWidget(_staticBody3CaptureKey!);
-      return (
-        buildCapture: buildCapture!,
-        body3Captrue: bodyCapture!,
-      );
-    } catch (_) {
-      buildCapture = null;
-      bodyCapture = null;
-      return null;
-    }
+      _bodyCapture = await captureWidget(_staticBody3CaptureKey!);
+    } catch (_) {}
   }
 
   void _initScreenCapture() {
-    _staticBuildCaptureKey = this._buildCaptureKey;
     _staticBody3CaptureKey = this._bodyCaptureKey;
   }
 
@@ -202,52 +194,41 @@ abstract base class ScreenView<
   @nonVirtual
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        if (buildCapture != null) buildCapture!,
-        Offstage(
-          offstage: !this._didCalculateSideInsets,
-          child: RepaintBoundary(
-            key: this._buildCaptureKey,
-            child: SafeArea(
-              top: false,
-              maintainBottomViewPadding: true,
-              child: () {
-                final screenSize = MediaQuery.of(context).size;
-                final calculator = ScreenCalculator(screenSize.width, screenSize.height);
-                final appLayout = AppLayout.fromScreenCalculator(calculator);
-                switch (appLayout) {
-                  case AppLayout.MOBILE:
-                    final body0 = this.mobileBody(context);
-                    final body5 = this._final(context, body0);
-                    final layout = this.mobileLayout(context, body5);
-                    return layout;
-                  case AppLayout.MOBILE_HORIZONTAL:
-                    final body0 = this.horizontalMobileBody(context);
-                    final body5 = this._final(context, body0);
-                    final layout = this.horizontalMobileLayout(context, body5);
-                    return layout;
-                  case AppLayout.NARROW:
-                    final body0 = this.narrowBody(context);
-                    final body5 = this._final(context, body0);
-                    final layout = this.narrowLayout(context, body5);
-                    return layout;
-                  case AppLayout.WIDE:
-                    final body0 = this.wideBody(context);
-                    final body5 = this._final(context, body0);
-                    final layout = this.wideLayout(context, body5);
-                    return layout;
-                  default:
-                    final body0 = this.body(context);
-                    final body5 = this._final(context, body0);
-                    final layout = this.layout(context, body5);
-                    return layout;
-                }
-              }(),
-            ),
-          ),
-        ),
-      ],
+    return SafeArea(
+      top: false,
+      maintainBottomViewPadding: true,
+      child: () {
+        final screenSize = MediaQuery.of(context).size;
+        final calculator = ScreenCalculator(screenSize.width, screenSize.height);
+        final appLayout = AppLayout.fromScreenCalculator(calculator);
+        switch (appLayout) {
+          case AppLayout.MOBILE:
+            final body0 = this.mobileBody(context);
+            final body5 = this._final(context, body0);
+            final layout = this.mobileLayout(context, body5);
+            return layout;
+          case AppLayout.MOBILE_HORIZONTAL:
+            final body0 = this.horizontalMobileBody(context);
+            final body5 = this._final(context, body0);
+            final layout = this.horizontalMobileLayout(context, body5);
+            return layout;
+          case AppLayout.NARROW:
+            final body0 = this.narrowBody(context);
+            final body5 = this._final(context, body0);
+            final layout = this.narrowLayout(context, body5);
+            return layout;
+          case AppLayout.WIDE:
+            final body0 = this.wideBody(context);
+            final body5 = this._final(context, body0);
+            final layout = this.wideLayout(context, body5);
+            return layout;
+          default:
+            final body0 = this.body(context);
+            final body5 = this._final(context, body0);
+            final layout = this.layout(context, body5);
+            return layout;
+        }
+      }(),
     );
   }
 
@@ -301,7 +282,7 @@ abstract base class ScreenView<
                     ),
                   ],
                 ),
-                child: WSurface(
+                child: MSurface(
                   borderRadius: BorderRadius.circular(14.0),
                   color: Colors.transparent,
                   child: this.layout(context, body),
@@ -449,7 +430,8 @@ abstract base class ScreenView<
   //
   //
 
-  /// Override to further define how the main [body] is presented.
+  /// Override to further define how the main [body], [background] and
+  /// [foreground] are presented
   ///
   /// Tip: This is useful for showing or hiding the body content from the
   /// user or displaying loading indicators while the body content is being
@@ -459,38 +441,68 @@ abstract base class ScreenView<
   ///
   /// ```dart
   /// @override
-  /// Widget bodyWrapper(BuildContext context, Widget body) {
+  /// Widget presentation(
+  ///   BuildContext context,
+  ///   Widget body,
+  ///   Widget background,
+  ///   Widget foreground,
+  /// ) {
   ///   return PodBuilder(
   ///     pod: this._pIsLoading,
-  ///     builder: (context, child, isLoading) {
+  ///     builder: (context, background, isLoading) {
   ///       if (isLoading) {
-  ///         return CircularProgressIndicator();
+  ///         return WStack(
+  ///           children: [
+  ///             background,
+  ///             const CircularProgressIndicator(),
+  ///           ],
+  ///         );
   ///       } else {
-  ///         return child;
+  ///         return WStack(
+  ///          children: [
+  ///             background,
+  ///             body,
+  ///             foreground,
+  ///          ],
+  ///         );
   ///       }
   ///     },
-  ///     child: body,
+  ///     child: background,
   ///   );
   /// }
   /// ```
-
-  Widget presentation(BuildContext context, Widget body) {
-    return body;
+  Widget presentation(
+    BuildContext context,
+    Widget body,
+    Widget background,
+    Widget foreground,
+  ) {
+    return WStack(
+      children: [
+        background,
+        body,
+        foreground,
+      ],
+    );
   }
 
   //
   //
   //
 
-  /// Override to define how to transition from [prevScreenBody] to
+  /// Override to define how to transition from [prevScreenBodyCapture] to
   /// [currentScreenBody].
   ///
   /// **Example 1:**
   /// ```dart
   /// // Render the previous screen capture underneath the current screen.
   /// @override
-  /// Widget bodyTransition(Widget? prevScreenBodyCapture, Widget currentScreenBody) {
-  ///  return Stack(
+  /// Widget transition(
+  ///   BuildContext context,
+  ///   Widget? prevScreenBodyCapture,
+  ///   Widget currentScreenBody,
+  /// ) {
+  ///  return WStack(
   ///    children: [
   ///      if (prevScreenBodyCapture != null) prevScreenBodyCapture,
   ///      currentScreenBody,
@@ -503,15 +515,27 @@ abstract base class ScreenView<
   /// ```dart
   /// // Fade from the previous screen capture into the current screen.
   /// @override
-  /// Widget bodyTransition(Widget? prevScreenBodyCapture, Widget currentScreenBody) {
-  ///   return WAnimatedFade(
-  ///     layer1: prevScreenBodyCapture,
-  ///     layer2: currentScreenBody,
-  ///   );
+  /// Widget transition(
+  ///   BuildContext context,
+  ///   Widget? prevScreenBodyCapture,
+  ///   Widget currentScreenBody,
+  /// ) {
+  ///   if (prevScreenBodyCapture != null) {
+  ///     return WAnimatedFade(
+  ///       layer1: prevScreenBodyCapture,
+  ///       layer2: currentScreenBody,
+  ///     );
+  ///   } else {
+  ///     return currentScreenBody;
+  ///   }
   /// }
   /// ```
-  Widget transition(Widget? prevScreenBodyCapture, Widget currentScreenBody) {
-    return Stack(
+  Widget transition(
+    BuildContext context,
+    Widget? prevScreenBodyCapture,
+    Widget currentScreenBody,
+  ) {
+    return WStack(
       children: [
         if (prevScreenBodyCapture != null) prevScreenBodyCapture,
         currentScreenBody,
@@ -533,68 +557,89 @@ abstract base class ScreenView<
       padding: this.padding(),
       child: body0,
     );
-    final body2 = Stack(
-      alignment: Alignment.center,
+    final body2 = this.align(
+      context,
+      body1,
+      this._sideInsets,
+    );
+    final body3 = WStack(
       children: [
-        this.align(
-          context,
-          body1,
-          this._sideInsets,
-        ),
-        Align(
-          alignment: Alignment.topCenter,
-          child: SizedBox(
-            key: this._topSideKey,
-            child: topSide,
-          ),
-        ),
-        Align(
-          alignment: Alignment.bottomCenter,
-          child: SizedBox(
-            key: this._bottomSideKey,
-            child: bottomSide,
-          ),
-        ),
-        Align(
-          alignment: Alignment.centerLeft,
-          child: SizedBox(
-            key: this._leftSideKey,
-            child: leftSide,
-          ),
-        ),
-        Align(
-          alignment: Alignment.centerRight,
-          child: SizedBox(
-            key: this._rightSideKey,
-            child: rightSide,
-          ),
-        ),
-        Align(
-          alignment: Alignment.center,
-          child: this.foreground(context),
+        if (this._didCalculateSideInsets) body2,
+        Column(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            SizedBox(
+              key: this._topSideKey,
+              child: topSide,
+            ),
+            Expanded(
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    key: this._leftSideKey,
+                    child: leftSide,
+                  ),
+                  Expanded(
+                    child: !this._didCalculateSideInsets ? body2 : const SizedBox(),
+                  ),
+                  SizedBox(
+                    key: this._rightSideKey,
+                    child: rightSide,
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(
+              key: this._bottomSideKey,
+              child: bottomSide,
+            ),
+          ],
         ),
       ],
     );
-
-    final body3 = Stack(
-      alignment: Alignment.center,
-      fit: StackFit.expand,
-      children: [
-        this.background(context),
-        body2,
-      ],
+    final body4 = this.presentation(
+      context,
+      body3,
+      this.background(context),
+      this.foreground(context),
     );
-
-    final body4 = this.presentation(context, body3);
-    final body5 = Offstage(
-      offstage: !this._didCalculateSideInsets,
-      child: RepaintBoundary(
-        key: this._bodyCaptureKey,
-        child: body4,
-      ),
+    final body5 = RepaintBoundary(
+      key: this._bodyCaptureKey,
+      child: body4,
     );
-    final body6 = this.transition(bodyCapture, body5);
+    final body6 = this.transition(context, _bodyCapture, body5);
     return body6;
+  }
+
+  //
+  //
+  //
+
+  static Widget transition1(
+    BuildContext context,
+    Widget? prevScreenBodyCapture,
+    Widget currentScreenBody,
+  ) {
+    if (prevScreenBodyCapture != null) {
+      return WStack(
+        children: [
+          prevScreenBodyCapture,
+          WAnimatedSlide(
+            direction: WAnimatedSlideDirection.RIGHT_TO_LEFT,
+            duration: Durations.short2,
+            extent: 0.5,
+            child: currentScreenBody,
+          ),
+        ],
+      );
+    } else {
+      return currentScreenBody;
+    }
   }
 }
 

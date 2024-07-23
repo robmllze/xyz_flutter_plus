@@ -8,7 +8,7 @@
 //.title~
 
 export 'image_builder.dart';
-export 'w_autocompleter_text_field.dart';
-export 'w_hover_scaler.dart';
+export 'm_autocompleter_text_field.dart';
+export 'm_hover_scaler.dart';
 export 'w_indented_json.dart';
 export 'w_inline_text.dart';

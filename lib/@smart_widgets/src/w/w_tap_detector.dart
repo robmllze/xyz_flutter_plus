@@ -9,7 +9,7 @@
 //.title~
 
 import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter/rendering.dart';
 
 import '/@smart_widgets/src/_all_src.g.dart';
@@ -119,8 +119,7 @@ class ExpandedHitTestArea extends SingleChildRenderObjectWidget {
   //
 
   @override
-  RenderObject createRenderObject(BuildContext context) =>
-      RenderExpandedHitTestArea(
+  RenderObject createRenderObject(BuildContext context) => RenderExpandedHitTestArea(
         onTap: onTap,
         detectionSize: detectionSize,
         detectionBorder: detectionBorder,
@@ -159,8 +158,7 @@ class TestGestureArenaMember extends GestureArenaMember {
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-class RenderExpandedHitTestArea extends RenderBox
-    with RenderObjectWithChildMixin<RenderBox> {
+class RenderExpandedHitTestArea extends RenderBox with RenderObjectWithChildMixin<RenderBox> {
   //
   //
   //

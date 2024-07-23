@@ -14,12 +14,12 @@ import '/@app_properties/src/_all_src.g.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-class WCircularProgressIndicator extends StatelessWidget {
+class MCircularProgressIndicator extends StatelessWidget {
   //
   //
   //
 
-  const WCircularProgressIndicator({super.key});
+  const MCircularProgressIndicator({super.key});
 
   //
   //

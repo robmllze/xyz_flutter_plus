@@ -11,7 +11,7 @@ import 'package:flutter/widgets.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-class WTagMakeup {
+class MTagMakeup {
   //
   //
   //
@@ -26,7 +26,7 @@ class WTagMakeup {
   //
   //
 
-  WTagMakeup({
+  MTagMakeup({
     this.backgroundColor,
     this.textStyle,
     this.padding,
@@ -38,14 +38,14 @@ class WTagMakeup {
   //
   //
 
-  WTagMakeup copyWith({
+  MTagMakeup copyWith({
     Color? backgroundColor,
     TextStyle? textStyle,
     EdgeInsets? padding,
     EdgeInsets? margin,
     BorderRadius? borderRadius,
   }) {
-    return WTagMakeup(
+    return MTagMakeup(
       backgroundColor: backgroundColor ?? this.backgroundColor,
       textStyle: textStyle ?? this.textStyle,
       padding: padding ?? this.padding,
@@ -57,7 +57,7 @@ class WTagMakeup {
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-typedef FWTagMakeup = WTagMakeup Function();
+typedef FWTagMakeup = MTagMakeup Function();
 
 const kWTagMakeupProperties = <String, String>{
   'backgroundColor': 'Color?',

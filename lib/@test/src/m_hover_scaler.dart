@@ -12,7 +12,7 @@ import 'package:flutter/material.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-class WHoverScaler extends StatefulWidget {
+class MHoverScaler extends StatefulWidget {
   //
   //
   //
@@ -25,7 +25,7 @@ class WHoverScaler extends StatefulWidget {
   //
   //
 
-  const WHoverScaler({
+  const MHoverScaler({
     super.key,
     this.hoverScale = 1.2,
     this.duration = const Duration(milliseconds: 200),
@@ -42,7 +42,7 @@ class WHoverScaler extends StatefulWidget {
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-class _State extends State<WHoverScaler> {
+class _State extends State<MHoverScaler> {
   //
   //
   //

@@ -8,13 +8,14 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
 
-import 'dart:ui' show ImageFilter;
 
 import 'package:flutter/material.dart';
 
+import 'dart:ui' show ImageFilter;
+
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-class WBlurryContainer extends StatelessWidget {
+class MBlurryContainer extends StatelessWidget {
   //
   //
   //
@@ -34,7 +35,7 @@ class WBlurryContainer extends StatelessWidget {
   //
   //
 
-  const WBlurryContainer({
+  const MBlurryContainer({
     super.key,
     this.child,
     this.sigma = 8.0,
