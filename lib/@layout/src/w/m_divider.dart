@@ -182,7 +182,7 @@ class MDivider extends StatelessWidget {
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-enum WDividerAlignment {
+enum MDividerAlignment {
   //
   //
   //
