@@ -116,9 +116,10 @@ abstract base class ScreenView<
 
   static Widget? get bodyCapture => _bodyCapture;
 
-  static Future<void> captureScreen() async {
+  /// Captures the current screen and stores it in [bodyCapture].
+  static Future<void> captureScreen(BuildContext context) async {
     try {
-      _bodyCapture = await captureWidget(_staticBody3CaptureKey!);
+      _bodyCapture = await captureWidget(_staticBody3CaptureKey!, context);
     } catch (_) {}
   }
 
@@ -613,7 +614,10 @@ abstract base class ScreenView<
       key: this._bodyCaptureKey,
       child: body4,
     );
-    final body6 = this.transition(context, _bodyCapture, body5);
+    final body6 = ColoredBox(
+      color: Theme.of(context).colorScheme.surface,
+      child: this.transition(context, _bodyCapture, body5),
+    );
     return body6;
   }
 
