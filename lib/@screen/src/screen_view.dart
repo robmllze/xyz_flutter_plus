@@ -17,7 +17,6 @@ import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 import 'package:xyz_utils/xyz_utils.dart';
 
-import '/@easy_animations/src/w_animated_slide.dart';
 import '/@layout/src/w/w_stack.dart';
 import '/@utils/src/capture_widget.dart';
 import '/@app_properties/src/app_scale.dart';
@@ -248,7 +247,7 @@ abstract base class ScreenView<
   /// Override to customize the layout for these sizes. The [body] includes the
   /// widget returned by [horizontalMobileBody].
   Widget horizontalMobileLayout(BuildContext context, Widget body) {
-    return this.wideLayout(context, body);
+    return this.horizontalMobileBody(context);
   }
 
   /// Activates for non-mobile narrow screen sizes, such as a narrow desktop
@@ -317,7 +316,13 @@ abstract base class ScreenView<
   /// Activates for mobile device screen sizes ith a horizontal orientation.
   /// Override to customize the  body for these sizes.
   Widget horizontalMobileBody(BuildContext context) {
-    return this.wideBody(context);
+    return Center(
+      child: Icon(
+        Icons.rotate_90_degrees_ccw,
+        size: 48.sc,
+        color: Theme.of(context).colorScheme.onSurface,
+      ),
+    );
   }
 
   /// Activates for non-mobile narrow screen sizes, such as a narrow desktop
@@ -604,6 +609,7 @@ abstract base class ScreenView<
         ),
       ],
     );
+
     final body4 = this.presentation(
       context,
       body3,
@@ -619,32 +625,6 @@ abstract base class ScreenView<
       child: this.transition(context, _bodyCapture, body5),
     );
     return body6;
-  }
-
-  //
-  //
-  //
-
-  static Widget transition1(
-    BuildContext context,
-    Widget? prevScreenBodyCapture,
-    Widget currentScreenBody,
-  ) {
-    if (prevScreenBodyCapture != null) {
-      return WStack(
-        children: [
-          prevScreenBodyCapture,
-          WAnimatedSlide(
-            direction: WAnimatedSlideDirection.RIGHT_TO_LEFT,
-            duration: Durations.short2,
-            extent: 0.5,
-            child: currentScreenBody,
-          ),
-        ],
-      );
-    } else {
-      return currentScreenBody;
-    }
   }
 }
 
