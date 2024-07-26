@@ -558,11 +558,11 @@ abstract base class ScreenView<
   /// Combines all the components into the final body.
   Widget _final(BuildContext context, Widget body0) {
     return ViewInsetsBuilder(
-      builder: (context, viewInsets) {
-        final topSide = this.topSide(context, viewInsets.top);
-        final bottomSide = this.bottomSide(context, viewInsets.bottom);
-        final leftSide = this.leftSide(context, viewInsets.left);
-        final rightSide = this.rightSide(context, viewInsets.right);
+      builder: (params) {
+        final topSide = this.topSide(context, params.viewInsets.top);
+        final bottomSide = this.bottomSide(context, params.viewInsets.bottom);
+        final leftSide = this.leftSide(context, params.viewInsets.left);
+        final rightSide = this.rightSide(context, params.viewInsets.right);
         final body1 = Padding(
           padding: this.padding(),
           child: body0,

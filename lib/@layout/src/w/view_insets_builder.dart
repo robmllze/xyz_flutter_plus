@@ -19,10 +19,13 @@ class ViewInsetsBuilder extends StatefulWidget {
   //
   //
 
-  final Widget Function(
-    BuildContext context,
-    ViewPadding viewInsets,
-  ) builder;
+  final Widget? child;
+
+  //
+  //
+  //
+
+  final Widget Function(ViewInsetsBuilderParams params) builder;
 
   //
   //
@@ -31,6 +34,7 @@ class ViewInsetsBuilder extends StatefulWidget {
   const ViewInsetsBuilder({
     super.key,
     required this.builder,
+    this.child,
   });
 
   //
@@ -49,6 +53,14 @@ class _State extends State<ViewInsetsBuilder> with WidgetsBindingObserver {
   //
 
   var _viewInsets = ViewPadding.zero;
+  late final Widget? _staticChild;
+
+  //
+  //
+  //
+
+  bool _hasReachedMax = false;
+  bool _hasReachedMin = false;
 
   //
   //
@@ -57,6 +69,7 @@ class _State extends State<ViewInsetsBuilder> with WidgetsBindingObserver {
   @override
   void initState() {
     super.initState();
+    this._staticChild = this.widget.child;
     WidgetsBinding.instance.addObserver(this);
   }
 
@@ -86,9 +99,19 @@ class _State extends State<ViewInsetsBuilder> with WidgetsBindingObserver {
 
   void _updateViewInsets() {
     final viewInsets = View.of(context).viewInsets;
-    if (this._viewInsets != viewInsets) {
+    final reachedMax = viewInsets.top > _viewInsets.top ||
+        viewInsets.bottom > _viewInsets.bottom ||
+        viewInsets.left > _viewInsets.left ||
+        viewInsets.right > _viewInsets.right;
+    final reachedMin = viewInsets.top == 0 &&
+        viewInsets.bottom == 0 &&
+        viewInsets.left == 0 &&
+        viewInsets.right == 0;
+    if ((reachedMax && !_hasReachedMax) || (reachedMin && !_hasReachedMin)) {
       this.setState(() {
         this._viewInsets = viewInsets;
+        this._hasReachedMax = reachedMax;
+        this._hasReachedMin = reachedMin;
       });
     }
   }
@@ -99,7 +122,12 @@ class _State extends State<ViewInsetsBuilder> with WidgetsBindingObserver {
 
   @override
   Widget build(BuildContext context) {
-    return widget.builder(context, this._viewInsets);
+    final params = ViewInsetsBuilderParams._(
+      context: context,
+      child: this._staticChild,
+      viewInsets: this._viewInsets,
+    );
+    return this.widget.builder(params);
   }
 
   //
@@ -111,4 +139,26 @@ class _State extends State<ViewInsetsBuilder> with WidgetsBindingObserver {
     WidgetsBinding.instance.removeObserver(this);
     super.dispose();
   }
+}
+
+// ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+
+class ViewInsetsBuilderParams {
+  //
+  //
+  //
+
+  final BuildContext context;
+  final Widget? child;
+  final ViewPadding viewInsets;
+
+  //
+  //
+  //
+
+  const ViewInsetsBuilderParams._({
+    required this.context,
+    required this.child,
+    required this.viewInsets,
+  });
 }
