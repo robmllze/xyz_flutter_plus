@@ -17,6 +17,7 @@ import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 import 'package:xyz_utils/xyz_utils.dart';
 
+import '../../@layout/src/w/view_insets_builder.dart';
 import '/@layout/src/w/w_stack.dart';
 import '/@utils/src/capture_widget.dart';
 import '/@app_properties/src/app_scale.dart';
@@ -408,28 +409,28 @@ abstract base class ScreenView<
   /// Override to customize the top area of your screen.
   ///
   /// Tip: Ideal for placing elements like headers.
-  Widget topSide(BuildContext context) {
+  Widget topSide(BuildContext context, double topInsets) {
     return const SizedBox.shrink();
   }
 
   /// Override to customize the bottom area of your screen.
   ///
   /// Tip: Ideal for placing elements like navigation controls.
-  Widget bottomSide(BuildContext context) {
+  Widget bottomSide(BuildContext context, double bottomInsets) {
     return const SizedBox.shrink();
   }
 
   //// Override to customize the left area of your screen.
   ///
   /// Tip: Ideal for placing elements like menus and side panels.
-  Widget leftSide(BuildContext context) {
+  Widget leftSide(BuildContext context, double leftInsets) {
     return const SizedBox.shrink();
   }
 
   //// Override to customize the right area of your screen.
   ///
   /// Tip: Ideal for placing elements like menus and side panels.
-  Widget rightSide(BuildContext context) {
+  Widget rightSide(BuildContext context, double rightInsets) {
     return const SizedBox.shrink();
   }
 
@@ -556,75 +557,79 @@ abstract base class ScreenView<
 
   /// Combines all the components into the final body.
   Widget _final(BuildContext context, Widget body0) {
-    final topSide = this.topSide(context);
-    final bottomSide = this.bottomSide(context);
-    final leftSide = this.leftSide(context);
-    final rightSide = this.rightSide(context);
-    final body1 = Padding(
-      padding: this.padding(),
-      child: body0,
-    );
-    final body2 = this.align(
-      context,
-      body1,
-      this._sideInsets,
-    );
-    final body3 = WStack(
-      children: [
-        if (this._didCalculateSideInsets) body2,
-        Column(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
+    return ViewInsetsBuilder(
+      builder: (context, viewInsets) {
+        final topSide = this.topSide(context, viewInsets.top);
+        final bottomSide = this.bottomSide(context, viewInsets.bottom);
+        final leftSide = this.leftSide(context, viewInsets.left);
+        final rightSide = this.rightSide(context, viewInsets.right);
+        final body1 = Padding(
+          padding: this.padding(),
+          child: body0,
+        );
+        final body2 = this.align(
+          context,
+          body1,
+          this._sideInsets,
+        );
+        final body3 = WStack(
           children: [
-            SizedBox(
-              key: this._topSideKey,
-              child: topSide,
-            ),
-            Expanded(
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  SizedBox(
-                    key: this._leftSideKey,
-                    child: leftSide,
+            if (this._didCalculateSideInsets) body2,
+            Column(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SizedBox(
+                  key: this._topSideKey,
+                  child: topSide,
+                ),
+                Expanded(
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      SizedBox(
+                        key: this._leftSideKey,
+                        child: leftSide,
+                      ),
+                      Expanded(
+                        child: !this._didCalculateSideInsets ? body2 : const SizedBox(),
+                      ),
+                      SizedBox(
+                        key: this._rightSideKey,
+                        child: rightSide,
+                      ),
+                    ],
                   ),
-                  Expanded(
-                    child: !this._didCalculateSideInsets ? body2 : const SizedBox(),
-                  ),
-                  SizedBox(
-                    key: this._rightSideKey,
-                    child: rightSide,
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(
-              key: this._bottomSideKey,
-              child: bottomSide,
+                ),
+                SizedBox(
+                  key: this._bottomSideKey,
+                  child: bottomSide,
+                ),
+              ],
             ),
           ],
-        ),
-      ],
-    );
+        );
 
-    final body4 = this.presentation(
-      context,
-      body3,
-      this.background(context),
-      this.foreground(context),
+        final body4 = this.presentation(
+          context,
+          body3,
+          this.background(context),
+          this.foreground(context),
+        );
+        final body5 = RepaintBoundary(
+          key: this._bodyCaptureKey,
+          child: body4,
+        );
+        final body6 = ColoredBox(
+          color: Theme.of(context).colorScheme.surface,
+          child: this.transition(context, _bodyCapture, body5),
+        );
+        return body6;
+      },
     );
-    final body5 = RepaintBoundary(
-      key: this._bodyCaptureKey,
-      child: body4,
-    );
-    final body6 = ColoredBox(
-      color: Theme.of(context).colorScheme.surface,
-      child: this.transition(context, _bodyCapture, body5),
-    );
-    return body6;
   }
 }
 
