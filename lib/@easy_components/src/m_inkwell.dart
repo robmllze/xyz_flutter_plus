@@ -23,9 +23,9 @@ class MInkWell extends StatelessWidget {
   final void Function()? onTap;
   final void Function()? onTapDown;
   final BorderRadius? borderRadius;
-  final bool? selected;
   final Widget? child;
   final Size? size;
+  final Color? color;
 
   //
   //
@@ -37,9 +37,9 @@ class MInkWell extends StatelessWidget {
     this.onTap,
     this.onTapDown,
     this.borderRadius,
-    this.selected,
     this.child,
     this.size,
+    this.color,
   });
 
   //
@@ -51,9 +51,9 @@ class MInkWell extends StatelessWidget {
     ShapeBorder? customBorder,
     void Function()? onTap,
     void Function()? onTapDown,
-    bool? selected,
     Widget? icon,
     double? diameter,
+    Color? color,
   }) {
     final diameter1 = diameter ?? 48.sc;
     final radius1 = 0.5 * diameter1;
@@ -63,9 +63,9 @@ class MInkWell extends StatelessWidget {
       onTap: onTap,
       onTapDown: onTapDown,
       borderRadius: BorderRadius.circular(radius1),
-      selected: selected,
       size: Size.square(diameter1),
       child: icon,
+      color: color,
     );
   }
 
@@ -76,15 +76,11 @@ class MInkWell extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final $borderRadius = borderRadius ?? BorderRadius.circular(8.sc);
-    final $selectedBorder = customBorder ?? RoundedRectangleBorder(borderRadius: $borderRadius);
+    final $customBorder = customBorder ?? RoundedRectangleBorder(borderRadius: $borderRadius);
     return Material(
-      color: Colors.transparent,
+      color: this.color ?? Colors.transparent,
       child: InkWell(
-        customBorder: selected == null
-            ? customBorder
-            : selected!
-                ? $selectedBorder
-                : customBorder,
+        customBorder: $customBorder,
         borderRadius: $borderRadius,
         onTap: this.onTap,
         onTapDown: this.onTapDown != null ? (_) => onTapDown!() : null,

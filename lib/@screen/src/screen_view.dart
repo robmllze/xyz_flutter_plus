@@ -15,6 +15,7 @@ import 'dart:async';
 import 'package:after_layout/after_layout.dart';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
+import 'package:xyz_pod/xyz_pod.dart';
 import 'package:xyz_utils/xyz_utils.dart';
 
 import '../../@layout/src/w/view_insets_builder.dart';
@@ -30,11 +31,17 @@ import '/@screen/src/_all_src.g.dart';
 abstract base class ScreenView<
         TScreen extends Screen,
         TModelScreenConfiguration extends ModelScreenConfiguration,
-        TController extends ScreenController<TModelScreenConfiguration>> extends State<TScreen>
-    with AfterLayoutMixin {
+        TController extends ScreenController<TModelScreenConfiguration>>
+    extends BindWithMixinState<TScreen> with AfterLayoutMixin {
   //
   //
   //
+
+  // ---------------------------------------------------------------------------
+
+  /// Creates a new Pod binded to the state of this screen.
+  /// @nonVirtual
+  Pod<T> newPod<T>(T value) => Pod.bind(value, this);
 
   // ---------------------------------------------------------------------------
 
