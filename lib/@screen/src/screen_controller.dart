@@ -9,7 +9,6 @@
 //.title~
 
 import 'package:flutter/foundation.dart';
-import 'package:meta/meta.dart' show mustCallSuper, visibleForOverriding;
 import 'package:xyz_pod/xyz_pod.dart';
 
 import '/@screen/src/_all_src.g.dart';
@@ -35,14 +34,6 @@ base class ScreenController<TModelScreenConfiguration extends ModelScreenConfigu
     this.superState, [
     this.internalConfiguration,
   ]);
-
-  //
-  //
-  //
-
-  /// Creates a new Pod binded to the state of this controller.
-  @nonVirtual
-  Pod<T> newPod<T>(T value) => Pod.bind(value, this);
 
   //
   //
