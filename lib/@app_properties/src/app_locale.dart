@@ -11,7 +11,7 @@
 import 'package:flutter/services.dart';
 import 'package:df_config/df_config.dart';
 
-import '/@app_properties/src/_all_src.g.dart';
+import 'app_property_pod.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 

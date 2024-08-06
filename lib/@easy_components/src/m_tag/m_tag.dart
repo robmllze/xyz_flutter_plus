@@ -10,7 +10,7 @@
 
 import 'package:flutter/material.dart';
 
-import '/@app_properties/src/_all_src.g.dart';
+import 'package:df_scalable/df_scalable.dart';
 import '/@easy_components/src/_all_src.g.dart';
 import '/@theme/src/_all_src.g.dart';
 

@@ -11,7 +11,7 @@
 name: xyz_flutter_plus
 description: This package provides a set of utilities that are commonly used in Flutter apps.
 repository: https://github.com/robmllze/xyz_flutter_plus
-version: 0.56.0
+version: 0.57.0
 
 ## -----------------------------------------------------------------------------
 
@@ -30,6 +30,7 @@ dependencies:
   df_collection: ">=0.1.2 <1.0.0"
   df_type: ">=0.1.1 <1.0.0"
   df_debouncer: ">=0.1.0 <1.0.0"
+  df_scalable: ^0.1.2
 
   async: ^2.11.0
   after_layout: ^1.2.0

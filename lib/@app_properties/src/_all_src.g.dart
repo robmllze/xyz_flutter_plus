@@ -9,5 +9,4 @@
 
 export 'app_locale.dart';
 export 'app_property_pod.dart';
-export 'app_scale.dart';
 export 'app_theme.dart';

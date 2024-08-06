@@ -12,7 +12,7 @@ import 'package:async/async.dart';
 import 'package:flutter/material.dart';
 export 'package:async/async.dart';
 
-import '/@app_properties/src/_all_src.g.dart';
+import 'package:df_scalable/df_scalable.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 

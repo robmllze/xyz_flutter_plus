@@ -12,7 +12,7 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 
-import '/@app_properties/src/_all_src.g.dart';
+import 'package:df_scalable/df_scalable.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 

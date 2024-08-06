@@ -10,7 +10,7 @@
 
 import 'package:flutter/widgets.dart';
 
-import '/@app_properties/src/_all_src.g.dart';
+import 'package:df_scalable/df_scalable.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 

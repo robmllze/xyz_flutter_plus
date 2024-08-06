@@ -12,7 +12,7 @@ import 'dart:async';
 
 import 'package:flutter/widgets.dart';
 
-import '/@app_properties/src/_all_src.g.dart';
+import 'package:df_scalable/df_scalable.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
@@ -123,9 +123,7 @@ class _State extends State<WCustomScrollBar> {
                   if (this.widget.scrollController != null) {
                     this.widget.scrollController?.jumpTo(
                           this.widget.scrollController!.offset +
-                              offset *
-                                  widget.scrollController!.position
-                                      .maxScrollExtent,
+                              offset * widget.scrollController!.position.maxScrollExtent,
                         );
                   }
                   this._resetTimer();
