@@ -17,7 +17,6 @@ export '/@easy_components/src/_all_src.g.dart';
 export '/@easy_dialogs/src/_all_src.g.dart';
 export '/@layout/src/_all_src.g.dart';
 export '/@painters/src/_all_src.g.dart';
-export '/@screen/src/_all_src.g.dart';
 export '/@scrolling/src/_all_src.g.dart';
 export '/@smart_widgets/src/_all_src.g.dart';
 export '/@test/src/_all_src.g.dart';

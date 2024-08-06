@@ -9,7 +9,6 @@
 //.title~
 
 import 'package:flutter/material.dart';
-import 'package:xyz_gen_annotations/xyz_gen_annotations.dart';
 
 import '/@app_properties/src/_all_src.g.dart';
 import '/@easy_components/src/_all_src.g.dart';

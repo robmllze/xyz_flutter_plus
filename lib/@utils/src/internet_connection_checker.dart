@@ -12,8 +12,8 @@ import 'dart:async';
 
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:http/http.dart' as http;
-import 'package:xyz_pod/xyz_pod.dart';
-import 'package:xyz_utils/xyz_utils.dart';
+import 'package:df_pod/df_pod.dart';
+import 'package:df_debouncer/df_debouncer.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
@@ -60,15 +60,11 @@ class InternetConnectionChecker {
     void Function()? onInternetConnectionRestored,
     void Function()? onInternetConnectionLost,
   }) {
-    this._stream =
-        Connectivity().onConnectivityChanged.listen((_) => this._debouncer());
+    this._stream = Connectivity().onConnectivityChanged.listen((_) => this._debouncer());
     () async {
       await this.hasInternet();
       this.pHasInternet.addListener(() async {
-        (this.pHasInternet.value
-                ? onInternetConnectionRestored
-                : onInternetConnectionLost)
-            ?.call();
+        (this.pHasInternet.value ? onInternetConnectionRestored : onInternetConnectionLost)?.call();
       });
     }();
   }

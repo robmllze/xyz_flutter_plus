@@ -10,8 +10,8 @@
 
 import 'package:meta/meta.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:xyz_pod/xyz_pod.dart';
-import 'package:xyz_utils/xyz_utils.dart';
+import 'package:df_pod/df_pod.dart';
+import 'package:df_type/df_type.dart';
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 

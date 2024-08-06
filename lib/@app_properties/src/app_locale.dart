@@ -9,7 +9,7 @@
 //.title~
 
 import 'package:flutter/services.dart';
-import 'package:xyz_config/xyz_config.dart';
+import 'package:df_config/df_config.dart';
 
 import '/@app_properties/src/_all_src.g.dart';
 

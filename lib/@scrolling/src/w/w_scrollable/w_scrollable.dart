@@ -9,7 +9,6 @@
 //.title~
 
 import 'package:flutter/widgets.dart';
-import 'package:xyz_gen_annotations/xyz_gen_annotations.dart';
 
 import '/@scrolling/src/_all_src.g.dart';
 
